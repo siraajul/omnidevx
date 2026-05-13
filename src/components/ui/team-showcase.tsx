@@ -115,7 +115,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
 ];
 
 interface TeamShowcaseProps {
-  members?: TeamMember[];
+  readonly members?: TeamMember[];
 }
 
 export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcaseProps) {
@@ -200,7 +200,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
    Portfolio Modal Popup
 ───────────────────────────────────────── */
 
-function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () => void }) {
+function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onClose: () => void }>) {
   const getSocialIcon = (network: string) => {
     switch(network) {
       case 'twitter': return <TwitterIcon size={16} />;
@@ -213,36 +213,41 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
 
   return (
     <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/80 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-zinc-900/40 backdrop-blur-md overflow-y-auto"
       onClick={onClose}
+      role="presentation"
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClose(); }}
     >
       <div 
-        className="relative w-full max-w-5xl rounded-[32px] border border-zinc-800 bg-zinc-950/90 p-8 md:p-12 shadow-2xl m-auto"
+        className="relative w-full max-w-5xl rounded-[32px] border border-zinc-200 bg-white/95 p-8 md:p-12 shadow-2xl m-auto"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        onKeyDown={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button 
           onClick={onClose} 
-          className="absolute top-6 right-6 text-zinc-400 hover:text-white bg-zinc-900 rounded-full p-2 transition-colors z-20"
+          className="absolute top-6 right-6 text-zinc-600 hover:text-zinc-900 bg-zinc-100 rounded-full p-2 transition-colors z-20"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
 
         {/* Glass gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-transparent pointer-events-none rounded-[32px]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-transparent pointer-events-none rounded-[32px]" />
 
         <div className="relative grid gap-12 lg:grid-cols-2">
           {/* Left column - Main content */}
           <div className="space-y-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-zinc-400 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-zinc-600 backdrop-blur">
               Portfolio Insight
             </span>
 
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">
                 {member.name}, {member.role}
               </h2>
-              <p className="max-w-xl text-lg leading-relaxed text-zinc-400">
+              <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
                 {member.bio}
               </p>
             </div>
@@ -252,14 +257,14 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
               {member.highlights?.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative overflow-hidden rounded-2xl border border-zinc-800/50 bg-zinc-900/40 p-6 backdrop-blur transition-all hover:border-zinc-700 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all hover:border-zinc-300 hover:shadow-lg"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/[0.02] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10" />
                   <div className="relative space-y-2">
                     <p className="text-xs font-bold uppercase tracking-[0.25em] text-zinc-500">
                       {item.title}
                     </p>
-                    <p className="text-sm leading-relaxed text-zinc-300">
+                    <p className="text-sm leading-relaxed text-zinc-700">
                       {item.description}
                     </p>
                   </div>
@@ -270,7 +275,7 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
             {/* CTA Buttons */}
             <div className="pt-4">
               <button
-                className="h-12 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-8 text-sm font-bold uppercase tracking-[0.25em] transition-all hover:bg-zinc-200"
+                className="h-12 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-zinc-900 text-white px-8 text-sm font-bold uppercase tracking-[0.25em] transition-all hover:bg-black shadow-lg shadow-zinc-200"
               >
                 View case studies
                 <ArrowUpRight size={16} />
@@ -280,21 +285,21 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
 
           {/* Right column - Profile card */}
           <div className="relative">
-            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-indigo-500/10 via-transparent to-transparent blur-3xl" />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-zinc-800 bg-zinc-900/60 p-8 backdrop-blur-xl">
+            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-blue-500/10 via-transparent to-transparent blur-3xl" />
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-zinc-200 bg-white/80 p-8 backdrop-blur-xl">
               <div className="flex flex-col items-center text-center">
                 {/* Avatar with glow */}
                 <div className="relative mb-6">
-                  <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/20 blur-2xl" />
+                  <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-2xl" />
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="relative h-32 w-32 rounded-full border border-zinc-700 object-cover shadow-2xl"
+                    className="relative h-32 w-32 rounded-full border border-zinc-200 object-cover shadow-xl"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold tracking-tight text-white">
+                  <h3 className="text-2xl font-bold tracking-tight text-zinc-900">
                     {member.name}
                   </h3>
                   <p className="text-xs font-bold uppercase tracking-[0.35em] text-zinc-500">
@@ -308,17 +313,17 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
                 {Object.entries(member.social || {}).map(([network, url]) => (
                   <a
                     key={network}
-                    href={url as string}
+                    href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between rounded-2xl border border-zinc-800 bg-zinc-900/80 px-4 py-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-800"
+                    className="group flex items-center justify-between rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-300 transition-all group-hover:text-white">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 text-zinc-600 transition-all group-hover:text-zinc-900 group-hover:border-zinc-300">
                         {getSocialIcon(network)}
                       </span>
                       <div>
-                        <p className="text-sm font-bold text-white capitalize">
+                        <p className="text-sm font-bold text-zinc-900 capitalize">
                           {network}
                         </p>
                         <p className="text-xs text-zinc-500">
@@ -326,7 +331,7 @@ function PortfolioModal({ member, onClose }: { member: TeamMember, onClose: () =
                         </p>
                       </div>
                     </div>
-                    <span className="text-zinc-600 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-zinc-300">
+                    <span className="text-zinc-400 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-zinc-900">
                       <ArrowUpRight size={18} />
                     </span>
                   </a>
@@ -350,13 +355,13 @@ function PhotoCard({
   hoveredId,
   onHover,
   onClick,
-}: {
+}: Readonly<{
   member: TeamMember;
   className: string;
   hoveredId: string | null;
   onHover: (id: string | null) => void;
   onClick: () => void;
-}) {
+}>) {
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
 
@@ -370,6 +375,9 @@ function PhotoCard({
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
       <img
         src={member.image}
@@ -393,16 +401,14 @@ function MemberRow({
   hoveredId,
   onHover,
   onClick,
-}: {
+}: Readonly<{
   member: TeamMember;
   hoveredId: string | null;
   onHover: (id: string | null) => void;
   onClick: () => void;
-}) {
+}>) {
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
-  const hasSocial = member.social?.twitter ?? member.social?.linkedin ?? member.social?.instagram ?? member.social?.behance;
-
   return (
     <div
       className={cn(
@@ -412,19 +418,22 @@ function MemberRow({
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
       {/* Name + social*/}
       <div className="flex items-center gap-3">
         <span
           className={cn(
             'h-3 rounded-[5px] flex-shrink-0 transition-all duration-300',
-            isActive ? 'bg-indigo-400 w-8' : 'bg-zinc-700 w-4',
+            isActive ? 'bg-blue-600 w-8' : 'bg-zinc-300 w-4',
           )}
         />
         <span
           className={cn(
             'text-lg md:text-2xl font-bold leading-none tracking-tight transition-colors duration-300',
-            isActive ? 'text-white' : 'text-zinc-400',
+            isActive ? 'text-zinc-900' : 'text-zinc-500',
           )}
         >
           {member.name}
@@ -432,7 +441,7 @@ function MemberRow({
       </div>
 
       {/* Role */}
-      <p className="mt-2 pl-[44px] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-indigo-400/80">
+      <p className="mt-2 pl-[44px] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
         {member.role}
       </p>
     </div>
