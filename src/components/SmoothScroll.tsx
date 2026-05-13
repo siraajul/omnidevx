@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+if (globalThis.window !== undefined) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface SmoothScrollProps {
   children: React.ReactNode;

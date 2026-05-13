@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (globalThis.window !== undefined) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 function SpeedIndicator() {
   const [loading, setLoading] = useState(true);

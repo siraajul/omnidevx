@@ -2,9 +2,11 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+if (globalThis.window !== undefined) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 function cx(...parts: Array<string | undefined | false | null>): string {
   return parts.filter(Boolean).join(' ');
@@ -56,7 +58,7 @@ const FlowArt: React.FC<FlowArtProps> = ({
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mq = globalThis.window.matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReducedMotion(mq.matches);
     update();
     mq.addEventListener('change', update);
@@ -64,11 +66,12 @@ const FlowArt: React.FC<FlowArtProps> = ({
   }, []);
 
   useEffect(() => {
-    if (!containerRef.current || reducedMotion) return;
+    const container = containerRef.current;
+    if (!container || reducedMotion) return;
 
     let ctx = gsap.context(() => {
       const sections = Array.from(
-        containerRef.current!.querySelectorAll<HTMLElement>('[data-flow-section]'),
+        container.querySelectorAll<HTMLElement>('[data-flow-section]'),
       );
       if (sections.length === 0) return;
 
