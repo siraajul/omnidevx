@@ -1,24 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { ContainerScroll } from '../../components/ui/container-scroll-animation';
+import { AiMvpDashboard } from '../../components/ui/dashboards/AiMvpDashboard';
 ---
 
 <Layout>
 	<main class="relative w-full overflow-hidden bg-black">
 		
 		{/* HERO SECTION */}
-		<section class="min-h-[80vh] flex flex-col items-center justify-center px-8 relative pt-32 pb-16">
-			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
-
-			<div class="relative z-10 max-w-4xl mx-auto text-center gsap-reveal">
-				<span class="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-300 text-sm font-bold rounded-full mb-6">Flagship Service</span>
-				<h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
-					AI-Powered <span class="text-indigo-400">Fast MVP</span> Development
-				</h1>
-				<p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
-					Stop spending months building a v1. We leverage advanced Generative AI coding tools and pre-built infrastructure to launch your Minimum Viable Product in weeks.
-				</p>
-			</div>
-		</section>
+		<div class="flex flex-col overflow-hidden pt-20 pb-10 md:pt-32 md:pb-20">
+			<ContainerScroll client:load>
+				<div slot="titleComponent">
+					<h1 class="text-4xl md:text-5xl font-semibold text-white mb-8">
+						Accelerate to market with <br />
+						<span class="text-5xl md:text-[6rem] font-black mt-2 leading-none text-indigo-500">
+							AI MVP Engineering
+						</span>
+					</h1>
+				</div>
+				<AiMvpDashboard />
+			</ContainerScroll>
+		</div>
 
 		{/* HOW WE APPROACH IT */}
 		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">

@@ -60,7 +60,7 @@ export default function GlobeSection() {
         {/* Text Content */}
         <div className="flex-1 text-center lg:text-left gsap-reveal">
           <h2 className="text-4xl md:text-6xl font-black text-zinc-900 mb-6 tracking-tight">
-            Serve across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">globe.</span>
+            Serve across the <span className="text-blue-600">globe.</span>
           </h2>
           <p className="text-lg md:text-xl text-zinc-600 mb-8 max-w-2xl mx-auto lg:mx-0">
             Our infrastructure scales dynamically. We build highly available, geographically distributed systems that guarantee millisecond latency for your users, no matter where they are.
