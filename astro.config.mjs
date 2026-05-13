@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://omnidevx.com',
+  site: 'https://omnidevx-iota.vercel.app',
   integrations: [
     react(),
     partytown({
