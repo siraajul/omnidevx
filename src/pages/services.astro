@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="relative w-full min-h-screen bg-black pt-32 pb-16 px-8">
+		<div class="max-w-7xl mx-auto">
+			<h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-600 mb-6">
+				Our Services
+			</h1>
+			<p class="text-xl text-zinc-400 max-w-2xl mb-16">
+				End-to-end software engineering, from concept to highly scalable cloud deployments. We build platforms that perform.
+			</p>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{/* Service Cards Placeholder */}
+				<div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
+					<h3 class="text-2xl font-bold text-white mb-4">Web Applications</h3>
+					<p class="text-zinc-400">High-performance web apps built with modern stacks like React, Next.js, and Astro.</p>
+				</div>
+                <div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
+					<h3 class="text-2xl font-bold text-white mb-4">Mobile Development</h3>
+					<p class="text-zinc-400">Cross-platform native applications using React Native and Expo.</p>
+				</div>
+                <div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
+					<h3 class="text-2xl font-bold text-white mb-4">Cloud Infrastructure</h3>
+					<p class="text-zinc-400">Scalable backend architecture and DevOps utilizing AWS, Vercel, and Kubernetes.</p>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

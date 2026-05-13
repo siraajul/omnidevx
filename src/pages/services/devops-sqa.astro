@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="relative w-full overflow-hidden bg-black">
+		
+		{/* HERO SECTION */}
+		<section class="min-h-[80vh] flex flex-col items-center justify-center px-8 relative pt-32 pb-16">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+			<div class="relative z-10 max-w-4xl mx-auto text-center gsap-reveal">
+				<h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
+					<span class="text-orange-400">DevOps</span> & SQA
+				</h1>
+				<p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
+					Bulletproof your infrastructure. We implement rigorous automated testing, CI/CD pipelines, and scalable cloud architecture to ensure 99.99% uptime.
+				</p>
+			</div>
+		</section>
+
+		{/* HOW WE APPROACH IT */}
+		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-white mb-16 text-center gsap-reveal">Our Infrastructure Process</h2>
+				
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-orange-500/20 text-orange-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">1</div>
+						<h3 class="text-xl font-bold text-white mb-3">Infrastructure as Code</h3>
+						<p class="text-zinc-400 text-sm">We provision environments using Terraform and Docker, eliminating "it works on my machine" issues entirely.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-orange-500/20 text-orange-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">2</div>
+						<h3 class="text-xl font-bold text-white mb-3">Automated Testing (SQA)</h3>
+						<p class="text-zinc-400 text-sm">We write comprehensive unit, integration, and end-to-end testing suites using Playwright to catch regressions before they ship.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-orange-500/20 text-orange-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">3</div>
+						<h3 class="text-xl font-bold text-white mb-3">CI/CD Pipelines</h3>
+						<p class="text-zinc-400 text-sm">GitHub Actions automatically run tests, build the code, and deploy to staging environments with every pull request.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-orange-500/20 text-orange-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">4</div>
+						<h3 class="text-xl font-bold text-white mb-3">Monitoring & Alerting</h3>
+						<p class="text-zinc-400 text-sm">We install Datadog and Sentry to track performance bottlenecks and alert engineers the second an error occurs in production.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* TECH STACK */}
+		<section class="py-24 px-8 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<h2 class="text-3xl font-bold text-white mb-6">The DevOps Stack</h2>
+				<p class="text-zinc-400 mb-12">Enterprise-grade tools for monitoring, deployment, and testing.</p>
+				
+				<div class="flex flex-wrap justify-center gap-4">
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/docker/2496ED" class="w-5 h-5" alt="Docker" /> Docker / K8s
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/amazonwebservices/232F3E" class="w-5 h-5" alt="AWS" /> AWS / Vercel
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/githubactions/2088FF" class="w-5 h-5" alt="GitHub Actions" /> GitHub Actions
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/playwright/2EAD33" class="w-5 h-5" alt="Playwright" /> Playwright (E2E)
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/datadog/632CA6" class="w-5 h-5" alt="Datadog" /> Datadog
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/sentry/362D59" class="w-5 h-5" alt="Sentry" /> Sentry
+					</span>
+				</div>
+			</div>
+		</section>
+
+		{/* CASE STUDIES */}
+		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-white mb-12 gsap-reveal">Infrastructure Case Studies</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+						<div class="absolute bottom-0 left-0 p-8 z-20">
+							<h3 class="text-2xl font-bold text-white mb-2">Monolith to Microservices</h3>
+							<p class="text-zinc-300 text-sm mb-4">Reduced deployment times from 4 hours to 5 minutes using Kubernetes.</p>
+							<a href="#" class="text-orange-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
+						</div>
+					</div>
+					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+						<div class="absolute bottom-0 left-0 p-8 z-20">
+							<h3 class="text-2xl font-bold text-white mb-2">Automated QA Overhaul</h3>
+							<p class="text-zinc-300 text-sm mb-4">Implemented Playwright E2E tests, catching 99% of visual regressions pre-launch.</p>
+							<a href="#" class="text-orange-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* TESTIMONIALS */}
+		<section class="py-24 px-8 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<svg class="w-12 h-12 text-orange-500 mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+				<p class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+					"Since omnidevx took over our DevOps and established our testing pipelines, we haven't had a single critical outage. We ship code on Fridays with zero stress."
+				</p>
+				<div>
+					<p class="font-bold text-white">James Wilson</p>
+					<p class="text-zinc-500 text-sm">VP Engineering, Logistix</p>
+				</div>
+			</div>
+		</section>
+
+		{/* FINAL CTA */}
+		<section class="py-32 px-8 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<h2 class="text-5xl md:text-7xl font-black text-white mb-8">Ready to scale?</h2>
+				<p class="text-xl text-zinc-400 mb-12">Get an accurate cost estimate for overhauling your infrastructure and testing pipelines.</p>
+				<button class="px-10 py-5 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-full transition-colors text-xl shadow-[0_0_40px_-10px_rgba(234,88,12,0.5)]">
+					Launch AI Estimator &rarr;
+				</button>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: { trigger: el, start: 'top 85%' },
+			y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+		});
+	});
+</script>

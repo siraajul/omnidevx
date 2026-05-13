@@ -1,0 +1,120 @@
+---
+const faqs = [
+    {
+        question: "How much does a typical project cost?",
+        answer: "Every project is unique, but our MVP packages typically start at $25,000. Enterprise-scale AI integrations and full-stack platforms range from $50k to $150k+. We provide a highly detailed technical estimation before signing any contracts."
+    },
+    {
+        question: "How long does it take to build an MVP?",
+        answer: "Speed is our competitive advantage. We typically deliver a production-ready Minimum Viable Product in 4 to 8 weeks, depending on the complexity of the AI models and custom integrations required."
+    },
+    {
+        question: "Do you sign NDAs?",
+        answer: "Absolutely. We understand that intellectual property is your most valuable asset. We are happy to sign a Non-Disclosure Agreement before our very first discovery call."
+    },
+    {
+        question: "What tech stack do you specialize in?",
+        answer: "We primarily build with React/Next.js, Node.js, Python, and PostgreSQL, deployed on AWS or Vercel. For AI, we leverage OpenAI, Anthropic, LangChain, and Pinecone for vector search and RAG architecture."
+    },
+    {
+        question: "Do you provide post-launch support?",
+        answer: "Yes! We offer flexible retainer packages for ongoing maintenance, infrastructure scaling, and continuous feature development after your product goes live."
+    }
+];
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative z-10 w-full">
+    {/* Left Column: Contact Form */}
+    <div class="bg-zinc-900/40 border border-zinc-800/50 p-8 md:p-10 rounded-[32px] backdrop-blur-xl gsap-reveal">
+        <h3 class="text-2xl font-bold text-white mb-8">Send us a message</h3>
+        
+        <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Form submitted! (This is a frontend demo)');">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-2">
+                    <label for="firstName" class="text-sm font-semibold text-zinc-400 uppercase tracking-wider">First Name</label>
+                    <input type="text" id="firstName" required class="bg-black/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-zinc-600" placeholder="John" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="lastName" class="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Last Name</label>
+                    <input type="text" id="lastName" required class="bg-black/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-zinc-600" placeholder="Doe" />
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label for="email" class="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Work Email</label>
+                <input type="email" id="email" required class="bg-black/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-zinc-600" placeholder="john@company.com" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label for="budget" class="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Project Budget</label>
+                <select id="budget" class="bg-black/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all appearance-none cursor-pointer">
+                    <option value="" disabled selected class="text-zinc-600">Select a range...</option>
+                    <option value="10k-25k">$10k - $25k</option>
+                    <option value="25k-50k">$25k - $50k</option>
+                    <option value="50k-100k">$50k - $100k</option>
+                    <option value="100k+">$100k+</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label for="message" class="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Project Details</label>
+                <textarea id="message" required rows="4" class="bg-black/50 border border-zinc-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-zinc-600 resize-none" placeholder="Tell us about your timeline, technical requirements, and ultimate goals..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full mt-4 bg-white text-black font-bold uppercase tracking-[0.2em] text-sm py-4 rounded-xl hover:bg-zinc-200 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                Submit Inquiry
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </form>
+    </div>
+
+    {/* Right Column: FAQ */}
+    <div class="flex flex-col justify-start gsap-reveal">
+        <h3 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h3>
+        
+        <div class="space-y-4">
+            {faqs.map((faq) => (
+                <details class="group bg-zinc-900/30 border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-zinc-700">
+                    <summary class="p-6 font-semibold text-white cursor-pointer list-none flex justify-between items-center outline-none [&::-webkit-details-marker]:hidden">
+                        <span class="pr-8">{faq.question}</span>
+                        <span class="flex-shrink-0 text-indigo-400 transition-transform duration-300 group-open:rotate-180">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-zinc-400 leading-relaxed text-sm md:text-base border-t border-transparent group-open:border-zinc-800/50 mt-2">
+                        {faq.answer}
+                    </div>
+                </details>
+            ))}
+        </div>
+
+        <div class="mt-12 p-8 border border-zinc-800 bg-zinc-900/20 rounded-3xl">
+            <h4 class="text-white font-bold mb-2">Prefer email?</h4>
+            <p class="text-zinc-400 text-sm mb-4">You can reach our technical sales team directly.</p>
+            <a href="mailto:hello@omnidevx.com" class="text-indigo-400 font-medium hover:text-white transition-colors flex items-center gap-2">
+                hello@omnidevx.com
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Tailwind utilities usually hide the default details marker, but this is a fallback */
+    details > summary {
+        list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+    
+    /* Smooth height animation for native details/summary */
+    details[open] summary ~ * {
+        animation: slideDown 0.3s ease-in-out;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

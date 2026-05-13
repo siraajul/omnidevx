@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="relative w-full overflow-hidden bg-black">
+		
+		{/* HERO SECTION */}
+		<section class="min-h-[80vh] flex flex-col items-center justify-center px-8 relative pt-32 pb-16">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+			<div class="relative z-10 max-w-4xl mx-auto text-center gsap-reveal">
+				<h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
+					Enterprise <span class="text-blue-400">Web Applications</span>
+				</h1>
+				<p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
+					We engineer highly performant, accessible, and scalable web platforms capable of handling millions of users securely.
+				</p>
+			</div>
+		</section>
+
+		{/* HOW WE APPROACH IT */}
+		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-white mb-16 text-center gsap-reveal">Our Engineering Process</h2>
+				
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">1</div>
+						<h3 class="text-xl font-bold text-white mb-3">Systems Design</h3>
+						<p class="text-zinc-400 text-sm">We architect the database schemas, API contracts, and component libraries required for a scalable frontend and backend.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">2</div>
+						<h3 class="text-xl font-bold text-white mb-3">Frontend Execution</h3>
+						<p class="text-zinc-400 text-sm">Translating high-fidelity designs into pixel-perfect React code, emphasizing web core vitals and accessibility.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">3</div>
+						<h3 class="text-xl font-bold text-white mb-3">Backend Integration</h3>
+						<p class="text-zinc-400 text-sm">Connecting the interface to robust REST or GraphQL APIs, ensuring secure authentication and data fetching.</p>
+					</div>
+					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
+						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">4</div>
+						<h3 class="text-xl font-bold text-white mb-3">Performance Audit</h3>
+						<p class="text-zinc-400 text-sm">Before launch, we rigorously test load times, SEO metrics, and edge-caching strategies to guarantee sub-second rendering.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* TECH STACK */}
+		<section class="py-24 px-8 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<h2 class="text-3xl font-bold text-white mb-6">The Modern Web Stack</h2>
+				<p class="text-zinc-400 mb-12">We use the most reliable, modern frameworks to ensure your application stands the test of time.</p>
+				
+				<div class="flex flex-wrap justify-center gap-4">
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/react/61DAFB" class="w-5 h-5" alt="React" /> React 19
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/nextdotjs/white" class="w-5 h-5" alt="Next.js" /> Next.js App Router
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/typescript/3178C6" class="w-5 h-5" alt="TypeScript" /> TypeScript
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/tailwindcss/38B2AC" class="w-5 h-5" alt="Tailwind CSS" /> Tailwind CSS
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/prisma/white" class="w-5 h-5" alt="Prisma" /> Prisma ORM
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-5 h-5" alt="PostgreSQL" /> PostgreSQL
+					</span>
+				</div>
+			</div>
+		</section>
+
+		{/* CASE STUDIES */}
+		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-white mb-12 gsap-reveal">Web Case Studies</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+						<div class="absolute bottom-0 left-0 p-8 z-20">
+							<h3 class="text-2xl font-bold text-white mb-2">Global E-Commerce Rebuild</h3>
+							<p class="text-zinc-300 text-sm mb-4">Migrated a legacy monolith to a headless Next.js architecture, increasing conversion by 22%.</p>
+							<a href="#" class="text-blue-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
+						</div>
+					</div>
+					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+						<div class="absolute bottom-0 left-0 p-8 z-20">
+							<h3 class="text-2xl font-bold text-white mb-2">B2B SaaS Portal</h3>
+							<p class="text-zinc-300 text-sm mb-4">Engineered a complex data-visualization dashboard serving 10k+ enterprise users.</p>
+							<a href="#" class="text-blue-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* TESTIMONIALS */}
+		<section class="py-24 px-8 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<svg class="w-12 h-12 text-blue-500 mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+				<p class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+					"The attention to detail regarding frontend performance and accessibility was unmatched. Our web app now scores 100 on Lighthouse across the board."
+				</p>
+				<div>
+					<p class="font-bold text-white">Elena Rodriguez</p>
+					<p class="text-zinc-500 text-sm">VP of Engineering, TechCorp</p>
+				</div>
+			</div>
+		</section>
+
+		{/* FINAL CTA */}
+		<section class="py-32 px-8 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<h2 class="text-5xl md:text-7xl font-black text-white mb-8">Ready to build?</h2>
+				<p class="text-xl text-zinc-400 mb-12">Get an accurate cost and timeline estimate for your web application.</p>
+				<button class="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-colors text-xl shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)]">
+					Launch AI Estimator &rarr;
+				</button>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: { trigger: el, start: 'top 85%' },
+			y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+		});
+	});
+</script>
