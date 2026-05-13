@@ -1,0 +1,37 @@
+# Omnidevx
+
+> Elite software engineering agency specializing in AI-powered MVPs, web & mobile applications, and scalable cloud infrastructure.
+
+## About
+
+Omnidevx is a global engineering collective that builds production-grade software for startups and enterprises. We specialize in AI/ML integrations, full-stack web development, cross-platform mobile apps, and DevOps automation.
+
+## Services
+
+- **AI-Powered MVP**: Rapid prototyping and deployment of AI-first minimum viable products. From concept to production in weeks, not months.
+- **Generative AI Solutions**: Embedding generative AI natively into business workflows — RAG pipelines, fine-tuned LLMs, and intelligent automation.
+- **Web Engineering**: Scalable, performant web applications built with modern frameworks (React, Next.js, Astro) and cloud-native architecture.
+- **Mobile Development**: Cross-platform mobile apps (React Native, Flutter) with native performance and premium UX.
+- **DevOps & SQA**: CI/CD pipelines, infrastructure-as-code, automated testing, and 24/7 monitoring with Datadog and Sentry.
+
+## Process
+
+1. **Discovery & Strategy** — Deep-dive into business goals, audience, and technical constraints
+2. **Design & Architecture** — UX/UI design, database schemas, and API infrastructure planning
+3. **Agile Development** — Iterative sprints with CI/CD, transparent progress, and rapid feedback
+4. **Launch & Scale** — Deployment, performance monitoring, and ongoing support
+
+## Contact
+
+- Website: https://omnidevx.com
+- Email: hello@omnidevx.com
+- Location: San Francisco, CA
+
+## Links
+
+- [Services](https://omnidevx.com/#services)
+- [Our Process](https://omnidevx.com/#process)
+- [Team](https://omnidevx.com/team)
+- [Portfolio](https://omnidevx.com/portfolio)
+- [Careers](https://omnidevx.com/careers)
+- [Contact](https://omnidevx.com/contact)

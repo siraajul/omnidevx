@@ -6,9 +6,11 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import partytown from '@astrojs/partytown';
 import sentry from '@sentry/astro';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://omnidevx.com',
   integrations: [
     react(),
     partytown({
@@ -24,6 +26,7 @@ export default defineConfig({
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
+    sitemap(),
   ],
 
   vite: {

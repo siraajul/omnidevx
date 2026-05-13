@@ -4,18 +4,103 @@ import TrackingScripts from '../components/TrackingScripts.astro';
 import { SmoothScroll } from '../components/SmoothScroll';
 import Footer from '../components/Footer.astro';
 import GlobalTabbar from '../components/GlobalTabbar.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	canonicalUrl?: string;
+}
+
+const SITE_URL = 'https://omnidevx.com';
+const defaults = {
+	title: 'Omnidevx — Elite Software Engineering Agency',
+	description: 'We build AI-powered MVPs, web & mobile apps, and scalable cloud infrastructure for startups and enterprises. From discovery to deployment — elite engineering, no shortcuts.',
+	ogImage: `${SITE_URL}/og-image.png`,
+};
+
+const {
+	title = defaults.title,
+	description = defaults.description,
+	ogImage = defaults.ogImage,
+	canonicalUrl,
+} = Astro.props;
+
+const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="author" content="Omnidevx" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonical} />
+
+		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:site_name" content="Omnidevx" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter / X -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Search Engine Verification (add your codes) -->
+		<!-- <meta name="google-site-verification" content="YOUR_CODE" /> -->
+		<!-- <meta name="msvalidate.01" content="YOUR_CODE" /> -->
+
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "Omnidevx",
+			"url": SITE_URL,
+			"logo": `${SITE_URL}/favicon.svg`,
+			"description": defaults.description,
+			"email": "hello@omnidevx.com",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "100 Innovation Drive",
+				"addressLocality": "San Francisco",
+				"addressRegion": "CA",
+				"postalCode": "94111",
+				"addressCountry": "US"
+			},
+			"sameAs": [],
+			"serviceType": [
+				"AI/ML Development",
+				"Web Application Development",
+				"Mobile App Development",
+				"DevOps & SQA",
+				"Generative AI Solutions"
+			],
+			"areaServed": "Worldwide",
+			"priceRange": "$$$$"
+		})} />
+
 		<meta name="generator" content={Astro.generator} />
-		<title>Omnidevx — Elite Software Engineering Agency</title>
-		
+
 		{/* Inject Analytics/Tracking via Partytown */}
 		<TrackingScripts />
 	</head>
@@ -31,4 +116,3 @@ import GlobalTabbar from '../components/GlobalTabbar.astro';
 		<GlobalTabbar />
 	</body>
 </html>
-
