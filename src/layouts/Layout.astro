@@ -118,5 +118,61 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 
 		{/* GLOBAL NAVIGATION */}
 		<GlobalTabbar />
+
+		{/* GLOBAL EASTER EGGS */}
+		<script>
+			// 1. Dev Console Hack
+			const asciiArt = `
+   ____                  _     __          _  __
+  / __ \\____ ___  ____  (_)___/ /__ _   __| |/ /
+ / / / / __ '__ \\/ __ \\/ / __  / _ \\ | / /   / 
+/ /_/ / / / / / / / / / / /_/ /  __/ |/ /   |  
+\\____/_/ /_/ /_/_/ /_/_/\\__,_/\\___/|___/_/|_|  
+			`;
+			console.log(
+				"%c" + asciiArt,
+				"color: #2A6FDB; font-weight: bold; font-family: monospace;"
+			);
+			console.log(
+				"%cAh, looking under the hood? We like that. Mention the secret code 'CONSOLE_HACKER' when you contact us for priority onboarding.",
+				"color: #161616; font-size: 14px; padding: 10px; border-left: 4px solid #2A6FDB; background: #FDFCF7;"
+			);
+
+			// 2. MVP Rocket Launch Shortcut
+			let keystrokes = '';
+			const rocket = document.createElement('div');
+			rocket.innerHTML = '🚀';
+			rocket.style.cssText = `
+				position: fixed;
+				bottom: -100px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 80px;
+				z-index: 9999;
+				pointer-events: none;
+				transition: bottom 1.5s cubic-bezier(0.5, 0, 0.2, 1);
+				filter: drop-shadow(0 20px 10px rgba(0,0,0,0.3));
+			`;
+			document.body.appendChild(rocket);
+
+			window.addEventListener('keydown', (e) => {
+				// Only track alphabetical keys to avoid capturing huge strings
+				if (e.key.length === 1 && e.key.match(/[a-z]/i)) {
+					keystrokes += e.key.toLowerCase();
+					if (keystrokes.length > 3) keystrokes = keystrokes.slice(-3);
+					
+					if (keystrokes === 'mvp') {
+						rocket.style.bottom = '120vh'; // Shoot past top of screen
+						setTimeout(() => {
+							rocket.style.transition = 'none'; // Snap back
+							rocket.style.bottom = '-100px';
+							void rocket.offsetWidth; // Force reflow
+							rocket.style.transition = 'bottom 1.5s cubic-bezier(0.5, 0, 0.2, 1)';
+						}, 1600);
+						keystrokes = '';
+					}
+				}
+			});
+		</script>
 	</body>
 </html>

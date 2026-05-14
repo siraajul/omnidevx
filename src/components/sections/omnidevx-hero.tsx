@@ -1,103 +1,220 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
 /* ─── Phone Mockup (Right Column) ─── */
 function PhoneMockup() {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className="relative flex items-center justify-center">
-      {/* Phone Hardware Frame */}
+    <button 
+      type="button"
+      className="relative flex items-center justify-center cursor-pointer group bg-transparent border-none appearance-none p-0 m-0 text-left"
+      style={{ perspective: "1500px" }}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      {/* 3D Container */}
       <div
-        className="relative w-[280px] h-[580px] sm:w-[300px] sm:h-[620px] bg-white border-[12px] border-[#161616] rounded-[3rem] overflow-hidden flex flex-col"
-        style={{ boxShadow: 'rgba(17, 17, 17, 0.15) 15px 20px 0px -5px' }}
+        className="relative w-[280px] h-[580px] sm:w-[300px] sm:h-[620px] transition-transform duration-700 ease-out"
+        style={{ 
+          transformStyle: "preserve-3d",
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"
+        }}
       >
-        {/* Hardware details: Side buttons */}
-        <div className="absolute -left-[16px] top-[100px] w-[4px] h-8 bg-[#161616] rounded-l-md" />
-        <div className="absolute -left-[16px] top-[150px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
-        <div className="absolute -left-[16px] top-[210px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
-        <div className="absolute -right-[16px] top-[160px] w-[4px] h-16 bg-[#161616] rounded-r-md" />
+        {/* ======================= */}
+        {/* FACE 1: iPHONE (FRONT)  */}
+        {/* ======================= */}
+        <div 
+          className="absolute inset-0 bg-white border-[12px] border-[#161616] rounded-[3rem] overflow-hidden flex flex-col"
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden',
+            boxShadow: 'rgba(17, 17, 17, 0.15) 15px 20px 0px -5px' 
+          }}
+        >
+          {/* Hardware details: Side buttons */}
+          <div className="absolute -left-[16px] top-[100px] w-[4px] h-8 bg-[#161616] rounded-l-md" />
+          <div className="absolute -left-[16px] top-[150px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
+          <div className="absolute -left-[16px] top-[210px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
+          <div className="absolute -right-[16px] top-[160px] w-[4px] h-16 bg-[#161616] rounded-r-md" />
 
-        {/* Screen Background */}
-        <div className="absolute inset-0 bg-[#FDFCF7] z-0" />
+          {/* Screen Background */}
+          <div className="absolute inset-0 bg-[#FDFCF7] z-0" />
 
-        {/* Dynamic Island / Notch */}
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-7 bg-[#161616] rounded-full z-20 flex items-center justify-end px-2 shadow-sm">
-           {/* Camera lens reflection */}
-           <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]" />
+          {/* Dynamic Island / Notch */}
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-7 bg-[#161616] rounded-full z-20 flex items-center justify-end px-2 shadow-sm">
+             {/* Camera lens reflection */}
+             <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]" />
+          </div>
+
+          {/* Screen Content Wrapper */}
+          <div className="relative z-10 flex-1 flex flex-col pt-14 px-5 pb-6 overflow-hidden">
+            
+            {/* App Header */}
+            <div className="flex items-center justify-between" style={{ fontFamily: "'Kalam', cursive" }}>
+              <span className="text-sm text-[#161616] font-semibold tracking-wide">◀ omnidev<span className="text-[#2A6FDB]">X</span></span>
+              <span className="text-[#161616] font-bold text-xl leading-none -mt-2 tracking-widest">...</span>
+            </div>
+
+            {/* App Headline */}
+            <div className="mt-8">
+              <h3 className="text-[36px] font-bold text-[#161616] leading-[1.05]" style={{ fontFamily: "'Caveat', cursive" }}>
+                your MVP,<br/>live.
+              </h3>
+              <p className="text-sm text-[#444] mt-2 leading-relaxed">
+                from idea to production in just 14 days.
+              </p>
+            </div>
+
+            {/* Spacer to push content down */}
+            <div className="flex-1" />
+
+            {/* Placeholder UI Elements (Simulating a sleek app interface) */}
+            <div className="flex flex-col gap-3 w-full">
+              <div className="mockup-card w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02]">
+                 <div className="w-10 h-10 rounded-xl bg-[#2A6FDB]/10 flex items-center justify-center">
+                   <span className="text-[#2A6FDB] text-lg">⚡</span>
+                 </div>
+                 <div className="flex flex-col">
+                   <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">Live Dashboard</span>
+                   <span className="text-[10px] text-[#71717a]">Real-time analytics</span>
+                 </div>
+              </div>
+
+              <div className="mockup-card w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02]">
+                 <div className="w-10 h-10 rounded-xl bg-[#FF8C42]/10 flex items-center justify-center">
+                   <span className="text-[#FF8C42] text-lg">⚙️</span>
+                 </div>
+                 <div className="flex flex-col">
+                   <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">API Metrics</span>
+                   <span className="text-[10px] text-[#71717a]">0 ms latency • 100% uptime</span>
+                 </div>
+              </div>
+            </div>
+
+            {/* App CTA Button */}
+            <button
+              className="w-full mt-5 py-4 bg-[#161616] text-white text-[16px] rounded-2xl transition-transform active:scale-95 hover:bg-[#2A6FDB] shadow-md pointer-events-none"
+              style={{ fontFamily: "'Kalam', cursive" }}
+            >
+              open app →
+            </button>
+          </div>
         </div>
 
-        {/* Screen Content Wrapper */}
-        <div className="relative z-10 flex-1 flex flex-col pt-14 px-5 pb-6 overflow-hidden">
-          
-          {/* App Header */}
-          <div className="flex items-center justify-between" style={{ fontFamily: "'Kalam', cursive" }}>
-            <span className="text-sm text-[#161616] font-semibold tracking-wide">◀ omnidev<span className="text-[#2A6FDB]">X</span></span>
-            <span className="text-[#161616] font-bold text-xl leading-none -mt-2 tracking-widest">...</span>
+        {/* ========================= */}
+        {/* FACE 2: ANDROID (BACK)    */}
+        {/* ========================= */}
+        <div 
+          className="absolute inset-0 bg-white border-[10px] border-[#2A2A2A] rounded-[2.5rem] overflow-hidden flex flex-col"
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden', 
+            transform: 'rotateY(180deg)', 
+            boxShadow: 'rgba(17, 17, 17, 0.15) 15px 20px 0px -5px' 
+          }}
+        >
+          {/* Hardware details: Android Buttons (usually all on right side) */}
+          <div className="absolute -right-[14px] top-[120px] w-[4px] h-10 bg-[#2A2A2A] rounded-r-md" />
+          <div className="absolute -right-[14px] top-[180px] w-[4px] h-20 bg-[#2A2A2A] rounded-r-md" />
+
+          {/* Screen Background */}
+          <div className="absolute inset-0 bg-[#F5F5F5] z-0" />
+
+          {/* Hole-punch Camera */}
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#111] rounded-full z-20 flex items-center justify-center border-[2px] border-[#2A2A2A]">
+             <div className="w-1.5 h-1.5 rounded-full bg-[#111] shadow-[inset_0_0_1px_rgba(255,255,255,0.4)]" />
           </div>
 
-          {/* App Headline */}
-          <div className="mt-8">
-            <h3 className="text-[36px] font-bold text-[#161616] leading-[1.05]" style={{ fontFamily: "'Caveat', cursive" }}>
-              your MVP,<br/>live.
-            </h3>
-            <p className="text-sm text-[#444] mt-2 leading-relaxed">
-              from idea to production in just 14 days.
-            </p>
-          </div>
-
-          {/* Spacer to push content down */}
-          <div className="flex-1" />
-
-          {/* Placeholder UI Elements (Simulating a sleek app interface) */}
-          <div className="flex flex-col gap-3 w-full">
-            <div className="mockup-card opacity-0 w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02] cursor-pointer">
-               <div className="w-10 h-10 rounded-xl bg-[#2A6FDB]/10 flex items-center justify-center">
-                 <span className="text-[#2A6FDB] text-lg">⚡</span>
-               </div>
+          {/* Android UI Content */}
+          <div className="relative z-10 flex-1 flex flex-col pt-16 px-4 pb-6 overflow-hidden">
+             
+             {/* Material App Header */}
+             <div className="flex items-center gap-3">
+               <div className="w-8 h-8 rounded-full bg-[#34A853]/10 flex items-center justify-center text-[#34A853] font-bold text-sm">A</div>
                <div className="flex flex-col">
-                 <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">Live Dashboard</span>
-                 <span className="text-[10px] text-[#71717a]">Real-time analytics</span>
+                 <span className="text-sm font-bold text-[#161616] font-sans tracking-tight">omnidevX Android</span>
+                 <span className="text-[9px] text-[#444] uppercase tracking-widest font-medium">Material Interface</span>
                </div>
-            </div>
+             </div>
 
-            <div className="mockup-card opacity-0 w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02] cursor-pointer">
-               <div className="w-10 h-10 rounded-xl bg-[#FF8C42]/10 flex items-center justify-center">
-                 <span className="text-[#FF8C42] text-lg">⚙️</span>
+             <div className="mt-8">
+               <h3 className="text-[34px] font-black text-[#161616] tracking-tight font-sans leading-[1.1]">
+                 Material<br/>Design MVP.
+               </h3>
+               <p className="text-sm text-[#444] mt-2 leading-relaxed">
+                 Seamlessly deployed to the Play Store.
+               </p>
+             </div>
+
+             <div className="flex-1" />
+
+             {/* Android Material Cards */}
+             <div className="flex flex-col gap-3 w-full">
+               <div className="w-full bg-white rounded-xl p-4 shadow-sm flex flex-col gap-1 border-l-[4px] border-[#34A853]">
+                  <span className="text-[10px] font-bold text-[#34A853] uppercase tracking-wider">System Status</span>
+                  <span className="text-[13px] font-bold text-[#161616]">All services operational</span>
                </div>
-               <div className="flex flex-col">
-                 <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">API Metrics</span>
-                 <span className="text-[10px] text-[#71717a]">0 ms latency • 100% uptime</span>
+               <div className="w-full bg-white rounded-xl p-4 shadow-sm flex flex-col gap-1 border-l-[4px] border-[#EA4335]">
+                  <span className="text-[10px] font-bold text-[#EA4335] uppercase tracking-wider">Error Logs</span>
+                  <span className="text-[13px] font-bold text-[#161616]">0 errors found</span>
                </div>
-            </div>
+             </div>
+
+             {/* Android Bottom Navigation Bar */}
+             <div className="w-full h-14 bg-white rounded-full mt-6 shadow-md flex items-center justify-between px-8">
+                <div className="w-4 h-4 rounded-sm border-2 border-[#161616] opacity-30" />
+                <div className="w-5 h-5 rounded-full border-2 border-[#161616]" />
+                <div className="w-4 h-4 border-l-2 border-b-2 border-[#161616] rotate-45 opacity-30" />
+             </div>
           </div>
-
-          {/* App CTA Button */}
-          <button
-            className="w-full mt-5 py-4 bg-[#161616] text-white text-[16px] rounded-2xl transition-transform active:scale-95 hover:bg-[#2A6FDB] shadow-md"
-            style={{ fontFamily: "'Kalam', cursive" }}
-          >
-            open app →
-          </button>
         </div>
       </div>
 
       {/* Annotation below phone */}
       <span
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-[#2A6FDB] italic whitespace-nowrap"
+        className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-[#2A6FDB] italic whitespace-nowrap transition-all duration-300 group-hover:scale-110"
         style={{ fontFamily: "'Kalam', cursive" }}
       >
-        ← what we deliver →
+        {isFlipped ? "← android deployed →" : "← tap to flip →"}
       </span>
-    </div>
+    </button>
   );
 }
 
 /* ─── Orange Blob SVG Decoration ─── */
 function OrangeBlob() {
+  const [clicks, setClicks] = useState(0);
+  const innerRef = useRef<SVGGElement>(null);
+
+  const handleClick = () => {
+    if (clicks >= 10) return;
+    const newClicks = clicks + 1;
+    setClicks(newClicks);
+
+    if (newClicks >= 10) {
+      // Pop!
+      gsap.to(innerRef.current, {
+        scale: 1.8,
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+        transformOrigin: "center center"
+      });
+    } else {
+      // Squish
+      gsap.fromTo(innerRef.current, 
+        { scaleX: 1.25, scaleY: 0.75, transformOrigin: "center center" },
+        { scaleX: 1, scaleY: 1, duration: 1.2, ease: 'elastic.out(1, 0.3)' }
+      );
+    }
+  };
+
   return (
     <svg
-      className="absolute -right-20 -top-20 w-[400px] h-[400px] opacity-20 pointer-events-none select-none z-0 blob-animate"
+      onClick={handleClick}
+      className={`absolute -right-20 -top-20 w-[400px] h-[400px] opacity-20 pointer-events-auto cursor-pointer select-none z-0 ${clicks < 10 ? 'blob-animate' : ''}`}
       viewBox="0 0 400 400"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -113,16 +230,18 @@ function OrangeBlob() {
           100% { transform: rotate(360deg) scale(1); }
         }
       `}</style>
-      <path
-        d="M280 60c60 30 100 90 100 160s-50 130-120 150c-70 20-140-10-180-60S30 180 70 120C110 60 180 10 280 60z"
-        fill="#FF8C42"
-        opacity="0.6"
-      />
-      <path
-        d="M300 100c50 40 70 100 50 160s-80 100-150 100c-70 0-130-40-150-100S60 130 120 80c60-50 130-20 180 20z"
-        fill="#FFA654"
-        opacity="0.4"
-      />
+      <g ref={innerRef}>
+        <path
+          d="M280 60c60 30 100 90 100 160s-50 130-120 150c-70 20-140-10-180-60S30 180 70 120C110 60 180 10 280 60z"
+          fill="#FF8C42"
+          opacity="0.6"
+        />
+        <path
+          d="M300 100c50 40 70 100 50 160s-80 100-150 100c-70 0-130-40-150-100S60 130 120 80c60-50 130-20 180 20z"
+          fill="#FFA654"
+          opacity="0.4"
+        />
+      </g>
     </svg>
   );
 }

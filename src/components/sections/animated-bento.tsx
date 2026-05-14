@@ -90,18 +90,79 @@ function GenAIAnimation() {
   );
 }
 
-function WebAppsAnimation() {
-  const [step, setStep] = useState(0);
+function MatrixRain() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!|{}<>[]^~';
+    const fontSize = 10;
+    const columns = canvas.width / fontSize;
+    const drops: number[] = [];
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    };
+    const interval = setInterval(draw, 33);
+    return () => clearInterval(interval);
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full rounded-2xl bg-black z-50 pointer-events-none opacity-90" />;
+}
+
+function WebAppsAnimation() {
+  const [step, setStep] = useState(0);
+  const [isHacked, setIsHacked] = useState(false);
+
+  useEffect(() => {
+    if (isHacked) {
+      const timeout = setTimeout(() => setIsHacked(false), 5000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isHacked]);
+
+  useEffect(() => {
+    if (isHacked) return;
     const interval = setInterval(() => {
       setStep((prev) => (prev + 1) % 5);
     }, 800);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHacked]);
 
   return (
-    <div className="flex items-center justify-center h-full w-full p-4 group">
+    <button 
+      type="button"
+      className="flex items-center justify-center h-full w-full p-4 group cursor-pointer relative text-left bg-transparent border-none appearance-none p-0 m-0"
+      onDoubleClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsHacked(true);
+      }}
+      onClick={(e) => {
+        // Prevent link navigation if they click the graphic
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
+      {isHacked && <MatrixRain />}
       <div className="relative w-full max-w-[140px] h-[90px] bg-white border border-[#e8e5db] rounded-lg overflow-hidden shadow-sm group-hover:border-[#2A6FDB] group-hover:shadow-md transition-all duration-500 flex flex-col">
         {/* Browser Top Bar */}
         <div className="w-full h-3 bg-[#f5f3ea] flex items-center px-1.5 gap-1 border-b border-[#e8e5db]">
@@ -132,7 +193,7 @@ function WebAppsAnimation() {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -35,6 +35,17 @@ function polarToCartesian(centerX: number, centerY: number, radius: number, angl
 
 export default function IndustryRadar() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [pingActive, setPingActive] = useState(false);
+  const [ufoActive, setUfoActive] = useState(false);
+
+  const handleCenterClick = () => {
+    if (pingActive) return;
+    setPingActive(true);
+    setUfoActive(true);
+    
+    setTimeout(() => setPingActive(false), 2000);
+    setTimeout(() => setUfoActive(false), 4000);
+  };
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -207,8 +218,59 @@ export default function IndustryRadar() {
             );
           })}
 
-          {/* Gradient Definition */}
+          {/* EASTER EGG: Center interactive dot, UFO, and ping */}
+          {pingActive && (
+            <circle
+              cx={CENTER}
+              cy={CENTER}
+              r={10}
+              fill="none"
+              stroke="#06B6D4"
+              className="pointer-events-none"
+              style={{ animation: 'ping-once 1.5s ease-out forwards' }}
+            />
+          )}
+
+          {ufoActive && (
+            <text
+              x={-40}
+              y={CENTER + 80}
+              fontSize="36"
+              className="pointer-events-none drop-shadow-md"
+              style={{ animation: 'ufo-flight 3.5s linear forwards' }}
+            >
+              🛸
+            </text>
+          )}
+
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={12}
+            fill="#FFFFFF"
+            stroke="#2563EB"
+            strokeWidth="3"
+            className="cursor-pointer hover:fill-[#e8f0fd] transition-colors hover:scale-110 origin-center"
+            style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
+            onClick={handleCenterClick}
+          />
+
+          {/* Gradient Definition & Keyframes */}
           <defs>
+            <style>{`
+              @keyframes ping-once {
+                0% { r: 10; opacity: 1; stroke-width: 10; }
+                100% { r: ${RADIUS + 80}; opacity: 0; stroke-width: 1; }
+              }
+              @keyframes ufo-flight {
+                0% { transform: translate(0px, 0px) rotate(15deg); opacity: 0; }
+                10% { opacity: 1; }
+                30% { transform: translate(${SIZE * 0.4}px, -60px) rotate(-10deg); }
+                60% { transform: translate(${SIZE * 0.7}px, 40px) rotate(25deg); }
+                85% { opacity: 1; }
+                100% { transform: translate(${SIZE + 100}px, -20px) rotate(10deg); opacity: 0; }
+              }
+            `}</style>
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#2563EB" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.1" />
