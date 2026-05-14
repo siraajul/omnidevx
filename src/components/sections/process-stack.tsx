@@ -41,7 +41,7 @@ function ProcessCardContent({ step, i }: Readonly<{ step: Readonly<{ title: stri
   const cleanTitle = step.title.replace(/^\d+\.\s*/, '');
   
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] rounded-[2.5rem] bg-white border border-zinc-200 p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-all duration-500 group">
+    <div className="relative w-full h-[400px] md:h-[500px] rounded-[2.5rem] bg-white border border-[#e8e5db] p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-all duration-500 group">
       
       {/* Background Gradients using step.color */}
       <div 
@@ -54,23 +54,23 @@ function ProcessCardContent({ step, i }: Readonly<{ step: Readonly<{ title: stri
       />
       
       {/* Number Watermark */}
-      <div className="absolute -right-4 -bottom-10 text-[200px] md:text-[250px] font-black text-zinc-900/5 select-none pointer-events-none tracking-tighter">
+      <div className="absolute -right-4 -bottom-10 text-[200px] md:text-[250px] font-display text-[#161616]/5 select-none pointer-events-none tracking-tighter">
         0{i + 1}
       </div>
 
       <div className="relative z-10 max-w-4xl">
         {/* Step Badge */}
         <div 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-50 border border-zinc-200 shadow-sm mb-6 md:mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f5f3ea] border border-[#e8e5db] shadow-sm mb-6 md:mb-8"
         >
           <div className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: step.color }}></div>
-          <span className="text-sm font-bold tracking-widest text-zinc-600 uppercase">Phase 0{i + 1}</span>
+          <span className="text-sm font-bold tracking-widest text-[#2A2A2A] uppercase">Phase 0{i + 1}</span>
         </div>
 
-        <h3 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-4 md:mb-6">
+        <h3 className="text-3xl md:text-5xl font-display text-[#161616] mb-4 md:mb-6">
           {cleanTitle}
         </h3>
-        <p className="text-lg md:text-2xl leading-relaxed text-zinc-500">
+        <p className="text-lg md:text-2xl leading-relaxed text-[#444]">
           {step.description}
         </p>
       </div>

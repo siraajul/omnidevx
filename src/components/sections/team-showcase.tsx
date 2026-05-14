@@ -221,13 +221,13 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
       />
       <dialog 
         open
-        className="relative w-full max-w-5xl rounded-[32px] border border-zinc-200 bg-white/95 p-8 md:p-12 shadow-2xl m-auto z-10 block"
+        className="relative w-full max-w-5xl rounded-[32px] border border-[#e8e5db] bg-white/95 p-8 md:p-12 shadow-2xl m-auto z-10 block"
         aria-modal="true"
       >
         {/* Close Button */}
         <button 
           onClick={onClose} 
-          className="absolute top-6 right-6 text-zinc-600 hover:text-zinc-900 bg-zinc-100 rounded-full p-2 transition-colors z-20"
+          className="absolute top-6 right-6 text-[#2A2A2A] hover:text-[#161616] bg-[#f5f3ea] rounded-full p-2 transition-colors z-20"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
@@ -238,15 +238,15 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
         <div className="relative grid gap-12 lg:grid-cols-2">
           {/* Left column - Main content */}
           <div className="space-y-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-zinc-600 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#e8e5db] bg-[#f5f3ea] px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-[#2A2A2A] backdrop-blur">
               Portfolio Insight
             </span>
 
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-[#161616] md:text-4xl">
                 {member.name}, {member.role}
               </h2>
-              <p className="max-w-xl text-lg leading-relaxed text-zinc-600">
+              <p className="max-w-xl text-lg leading-relaxed text-[#2A2A2A]">
                 {member.bio}
               </p>
             </div>
@@ -256,11 +256,11 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
               {member.highlights?.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all hover:border-zinc-300 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-2xl border border-[#e8e5db] bg-[#f5f3ea] p-6 transition-all hover:border-zinc-300 hover:shadow-lg"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-black/[0.02] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10" />
                   <div className="relative space-y-2">
-                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-zinc-500">
+                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#444]">
                       {item.title}
                     </p>
                     <p className="text-sm leading-relaxed text-zinc-700">
@@ -285,23 +285,23 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
           {/* Right column - Profile card */}
           <div className="relative">
             <div className="absolute inset-0 rounded-[32px] bg-gradient-to-b from-blue-500/10 via-transparent to-transparent blur-3xl" />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-zinc-200 bg-white/80 p-8 backdrop-blur-xl">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-[#e8e5db] bg-white/80 p-8 backdrop-blur-xl">
               <div className="flex flex-col items-center text-center">
                 {/* Avatar with glow */}
                 <div className="relative mb-6">
-                  <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-2xl" />
+                  <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2A6FDB]/20 blur-2xl" />
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="relative h-32 w-32 rounded-full border border-zinc-200 object-cover shadow-xl"
+                    className="relative h-32 w-32 rounded-full border border-[#e8e5db] object-cover shadow-xl"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold tracking-tight text-zinc-900">
+                  <h3 className="text-2xl font-bold tracking-tight text-[#161616]">
                     {member.name}
                   </h3>
-                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-zinc-500">
+                  <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#444]">
                     {member.role}
                   </p>
                 </div>
@@ -315,22 +315,22 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50"
+                    className="group flex items-center justify-between rounded-2xl border border-[#e8e5db] bg-white px-4 py-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-[#f5f3ea]"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 text-zinc-600 transition-all group-hover:text-zinc-900 group-hover:border-zinc-300">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e8e5db] bg-[#f5f3ea] text-[#2A2A2A] transition-all group-hover:text-[#161616] group-hover:border-zinc-300">
                         {getSocialIcon(network)}
                       </span>
                       <div>
-                        <p className="text-sm font-bold text-zinc-900 capitalize">
+                        <p className="text-sm font-bold text-[#161616] capitalize">
                           {network}
                         </p>
-                        <p className="text-xs text-zinc-500">
+                        <p className="text-xs text-[#444]">
                           @{member.name.toLowerCase().replace(' ', '')}
                         </p>
                       </div>
                     </div>
-                    <span className="text-zinc-400 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-zinc-900">
+                    <span className="text-[#444] transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#161616]">
                       <ArrowUpRight size={18} />
                     </span>
                   </a>
@@ -338,6 +338,7 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
               </div>
             </div>
           </div>
+        </div>
       </dialog>
     </div>
   );
@@ -367,7 +368,7 @@ function PhotoCard({
     <button
       type="button"
       className={cn(
-        'overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 transition-opacity duration-500 block border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-blue-500',
+        'overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 transition-opacity duration-500 block border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-[#2A6FDB]',
         className,
         isDimmed ? 'opacity-40' : 'opacity-100',
       )}
@@ -411,7 +412,7 @@ function MemberRow({
     <button
       type="button"
       className={cn(
-        'cursor-pointer transition-opacity duration-300 block w-full border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-blue-500 rounded-lg',
+        'cursor-pointer transition-opacity duration-300 block w-full border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-[#2A6FDB] rounded-lg',
         isDimmed ? 'opacity-30' : 'opacity-100',
       )}
       onMouseEnter={() => onHover(member.id)}
@@ -425,13 +426,13 @@ function MemberRow({
         <span
           className={cn(
             'h-3 rounded-[5px] flex-shrink-0 transition-all duration-300',
-            isActive ? 'bg-blue-600 w-8' : 'bg-zinc-300 w-4',
+            isActive ? 'bg-[#111] w-8' : 'bg-zinc-300 w-4',
           )}
         />
         <span
           className={cn(
             'text-lg md:text-2xl font-bold leading-none tracking-tight transition-colors duration-300',
-            isActive ? 'text-zinc-900' : 'text-zinc-500',
+            isActive ? 'text-[#161616]' : 'text-[#444]',
           )}
         >
           {member.name}
@@ -439,7 +440,7 @@ function MemberRow({
       </div>
 
       {/* Role */}
-      <p className="mt-2 pl-[44px] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+      <p className="mt-2 pl-[44px] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[#2A6FDB]">
         {member.role}
       </p>
     </button>

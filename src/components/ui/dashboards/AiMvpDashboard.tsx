@@ -60,23 +60,23 @@ export const AiMvpDashboard = () => {
         </div>
         
         <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col relative shadow-inner">
-          <div className="text-zinc-500 text-xs font-mono mb-4 flex justify-between">
+          <div className="text-[#444] text-xs font-mono mb-4 flex justify-between">
             <span>TERMINAL</span>
             <span className="text-indigo-400">v2.4.1</span>
           </div>
           
           <div className="space-y-4 font-mono text-sm">
             {step >= 1 && (
-              <div className="text-zinc-300 animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div className="text-[#666] animate-in fade-in slide-in-from-bottom-2 duration-300">
                 <span className="text-green-400">user@omnidevx:~$</span> init mvp --template SaaS
               </div>
             )}
             {step >= 2 && (
-              <div className="text-zinc-500 animate-in fade-in duration-300">Initializing project structure...</div>
+              <div className="text-[#444] animate-in fade-in duration-300">Initializing project structure...</div>
             )}
             
             {step >= 3 && (
-              <div className="text-zinc-300">
+              <div className="text-[#666]">
                 <span className="text-green-400">user@omnidevx:~$</span> {typedCommand}
                 {step === 3 && <span className="inline-block w-2 h-4 bg-zinc-400 ml-1 animate-pulse"></span>}
               </div>
@@ -97,9 +97,9 @@ export const AiMvpDashboard = () => {
             )}
           </div>
           
-          <div className="absolute bottom-4 left-4 right-4 bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs text-zinc-400 flex items-center justify-between">
+          <div className="absolute bottom-4 left-4 right-4 bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-xs text-[#444] flex items-center justify-between">
             <span>Status: Running</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span> Active</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#e8f0fd]0 animate-pulse"></span> Active</span>
           </div>
         </div>
       </div>
@@ -114,27 +114,27 @@ export const AiMvpDashboard = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-1">
           {/* Column 1 */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-3">
-            <div className="text-xs font-bold text-zinc-500 tracking-wider">SCOPING</div>
+            <div className="text-xs font-bold text-[#444] tracking-wider">SCOPING</div>
             <div className="bg-zinc-800/50 rounded-lg p-3 text-sm border-l-2 border-green-500 shadow-sm">
               <div className="text-zinc-200 font-medium">Define Core Flow</div>
-              <div className="text-zinc-500 text-xs mt-1">100% Complete</div>
+              <div className="text-[#444] text-xs mt-1">100% Complete</div>
             </div>
             <div className="bg-zinc-800/50 rounded-lg p-3 text-sm border-l-2 border-green-500 shadow-sm">
               <div className="text-zinc-200 font-medium">Database Schema</div>
-              <div className="text-zinc-500 text-xs mt-1">100% Complete</div>
+              <div className="text-[#444] text-xs mt-1">100% Complete</div>
             </div>
           </div>
 
           {/* Column 2 */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-3">
-            <div className="text-xs font-bold text-zinc-500 tracking-wider">PROTOTYPING</div>
+            <div className="text-xs font-bold text-[#444] tracking-wider">PROTOTYPING</div>
             <div className="bg-zinc-800/50 rounded-lg p-3 text-sm border-l-2 border-green-500 shadow-sm">
               <div className="text-zinc-200 font-medium">Figma Wireframes</div>
-              <div className="text-zinc-500 text-xs mt-1">100% Complete</div>
+              <div className="text-[#444] text-xs mt-1">100% Complete</div>
             </div>
             <div className={`bg-zinc-800/50 rounded-lg p-3 text-sm transition-all duration-500 ${step >= 5 ? 'border-l-2 border-green-500 shadow-sm' : 'border border-zinc-700/50 border-dashed'}`}>
-              <div className={step >= 5 ? 'text-zinc-200 font-medium' : 'text-zinc-400 font-medium'}>AI UI Generation</div>
-              <div className={`text-xs mt-1 font-mono transition-colors duration-500 ${step >= 5 ? 'text-zinc-500' : 'text-indigo-400'}`}>
+              <div className={step >= 5 ? 'text-zinc-200 font-medium' : 'text-[#444] font-medium'}>AI UI Generation</div>
+              <div className={`text-xs mt-1 font-mono transition-colors duration-500 ${step >= 5 ? 'text-[#444]' : 'text-indigo-400'}`}>
                 {step >= 5 ? '100% Complete' : 'In Progress...'}
               </div>
             </div>
@@ -142,21 +142,21 @@ export const AiMvpDashboard = () => {
 
           {/* Column 3 */}
           <div className={`bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-3 transition-opacity duration-1000 ${step >= 6 ? 'opacity-100' : 'opacity-50'}`}>
-            <div className="text-xs font-bold text-zinc-500 tracking-wider">ENGINEERING</div>
-            <div className={`bg-zinc-800/50 rounded-lg p-3 text-sm transition-all duration-500 ${step >= 6 ? 'border-l-2 border-indigo-500 shadow-sm bg-indigo-500/10' : 'border border-zinc-700/50 border-dashed'}`}>
+            <div className="text-xs font-bold text-[#444] tracking-wider">ENGINEERING</div>
+            <div className={`bg-zinc-800/50 rounded-lg p-3 text-sm transition-all duration-500 ${step >= 6 ? 'border-l-2 border-indigo-500 shadow-sm bg-[#e8f0fd]0/10' : 'border border-zinc-700/50 border-dashed'}`}>
               <div className="text-zinc-200 font-medium">API Integration</div>
               {step >= 6 && <div className="text-indigo-400 text-xs mt-1 font-mono animate-pulse">In Progress...</div>}
             </div>
             <div className="bg-zinc-800/50 border border-zinc-700/50 rounded-lg p-3 text-sm border-dashed">
-              <div className="text-zinc-400 font-medium">Auth Setup</div>
+              <div className="text-[#444] font-medium">Auth Setup</div>
             </div>
           </div>
 
           {/* Column 4 */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4 flex flex-col gap-3 opacity-50">
-            <div className="text-xs font-bold text-zinc-500 tracking-wider">LAUNCH</div>
+            <div className="text-xs font-bold text-[#444] tracking-wider">LAUNCH</div>
             <div className="bg-zinc-800/50 border border-zinc-700/50 rounded-lg p-3 text-sm border-dashed">
-              <div className="text-zinc-400 font-medium">Vercel Deploy</div>
+              <div className="text-[#444] font-medium">Vercel Deploy</div>
             </div>
           </div>
         </div>

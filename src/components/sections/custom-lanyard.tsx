@@ -41,7 +41,7 @@ export default function CustomLanyard() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full h-[600px] overflow-hidden bg-[#F9F9F7] rounded-3xl border border-zinc-200 flex items-center justify-center cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[600px] overflow-hidden bg-[#FDFCF7] rounded-3xl border border-[#e8e5db] flex items-center justify-center cursor-grab active:cursor-grabbing"
     >
       {/* Background Grid Pattern (Optional Aesthetic) */}
       <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #000 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
@@ -79,23 +79,20 @@ export default function CustomLanyard() {
         </div>
 
         {/* The Badge Card */}
-        <div className="w-64 bg-white/90 backdrop-blur-md border border-zinc-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col items-center pt-8 pb-6 px-6 relative z-10 transition-shadow group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]">
+        <div className="w-64 bg-white/90 backdrop-blur-md border border-[#e8e5db] rounded-2xl shadow-2xl overflow-hidden flex flex-col items-center pt-8 pb-6 px-6 relative z-10 transition-shadow group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]">
           {/* Card Top Hole Punch */}
-          <div className="absolute top-3 w-12 h-3 rounded-full bg-[#F9F9F7] shadow-inner border border-zinc-200"></div>
+          <div className="absolute top-3 w-12 h-3 rounded-full bg-[#FDFCF7] shadow-inner border border-[#e8e5db]"></div>
 
           {/* Company Branding */}
           <div className="w-full flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                <Building className="w-3 h-3 text-white" />
-              </div>
-              <span className="font-bold text-zinc-900 tracking-tight">OMNIDEVX</span>
-            </div>
-            <span className="text-[10px] font-bold text-zinc-400 tracking-widest uppercase">Staff</span>
+            <span className="font-display text-2xl text-[#161616] leading-none pb-1">
+              omnidev<span className="text-[#2A6FDB]">X</span>
+            </span>
+            <span className="text-[10px] font-bold text-[#444] tracking-widest uppercase">Staff</span>
           </div>
 
           {/* Employee Photo */}
-          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-zinc-100 shadow-md mb-4 relative bg-zinc-100">
+          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#e8e5db] shadow-md mb-4 relative bg-[#f5f3ea]">
             <img 
               src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=200&q=80" 
               alt="Employee Avatar" 
@@ -105,15 +102,15 @@ export default function CustomLanyard() {
           </div>
 
           {/* Employee Details */}
-          <div className="text-center w-full border-b border-zinc-100 pb-4 mb-4">
-            <h2 className="text-2xl font-black text-zinc-900 tracking-tight">Alex Carter</h2>
-            <p className="text-blue-600 font-medium text-sm mt-1">Lead Architect</p>
+          <div className="text-center w-full border-b border-[#e8e5db] pb-4 mb-4">
+            <h2 className="text-2xl font-display text-[#161616] tracking-tight">Alex Carter</h2>
+            <p className="text-[#2A6FDB] font-medium text-sm mt-1">Lead Architect</p>
           </div>
 
           {/* Bottom Barcode / ID */}
           <div className="w-full flex flex-col items-center">
-            <QrCode className="w-12 h-12 text-zinc-800 opacity-80" strokeWidth={1.5} />
-            <p className="text-[10px] text-zinc-400 font-mono mt-2 tracking-widest">ID: 8492-OMNI-DX</p>
+            <QrCode className="w-12 h-12 text-[#161616] opacity-80" strokeWidth={1.5} />
+            <p className="text-[10px] text-[#444] font-mono mt-2 tracking-widest">ID: 8492-OMNI-DX</p>
           </div>
         </div>
       </motion.div>

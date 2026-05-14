@@ -48,16 +48,16 @@ export const MobileDevDashboard = () => {
     <div className="h-full w-full bg-[#E5E7EB] dark:bg-zinc-950 p-4 md:p-8 flex items-center justify-center gap-8 font-sans overflow-hidden">
       
       {/* Mobile Frame 1: List View */}
-      <div className="w-64 h-[28rem] md:h-[32rem] bg-white dark:bg-zinc-900 rounded-[2.5rem] shadow-2xl border-[8px] border-zinc-200 dark:border-zinc-800 relative overflow-hidden flex flex-col transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+      <div className="w-64 h-[28rem] md:h-[32rem] bg-white dark:bg-zinc-900 rounded-[2.5rem] shadow-2xl border-[8px] border-[#e8e5db] dark:border-zinc-800 relative overflow-hidden flex flex-col transform -rotate-2 hover:rotate-0 transition-transform duration-500">
         {/* Top Notch/Dynamic Island */}
         <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
           <div className="w-24 h-5 bg-zinc-200 dark:bg-zinc-800 rounded-b-xl"></div>
         </div>
         
         {/* App Header */}
-        <div className="pt-10 px-6 pb-4 border-b border-zinc-100 dark:border-zinc-800">
-          <div className="text-xl font-bold text-zinc-800 dark:text-white">Activity</div>
-          <div className="text-xs text-zinc-400">Today, Oct 24</div>
+        <div className="pt-10 px-6 pb-4 border-b border-[#e8e5db] dark:border-zinc-800">
+          <div className="text-xl font-bold text-[#161616] dark:text-white">Activity</div>
+          <div className="text-xs text-[#444]">Today, Oct 24</div>
         </div>
         
         {/* App Content */}
@@ -65,7 +65,7 @@ export const MobileDevDashboard = () => {
           {transactions.map((tx, index) => (
             <div 
               key={tx.id} 
-              className={`flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl transition-all duration-500 ease-out absolute w-[calc(100%-2rem)]`}
+              className={`flex items-center gap-3 p-3 bg-[#f5f3ea] dark:bg-zinc-800/50 rounded-xl transition-all duration-500 ease-out absolute w-[calc(100%-2rem)]`}
               style={{
                 transform: `translateY(${index * (60 + 12)}px)`, // 60px height + 12px gap
                 opacity: index === 4 ? 0.3 : 1
@@ -73,16 +73,16 @@ export const MobileDevDashboard = () => {
             >
               <div className={`w-10 h-10 rounded-full flex-shrink-0 bg-gradient-to-tr ${tx.positive ? 'from-green-400 to-emerald-600' : 'from-zinc-400 to-zinc-600'}`}></div>
               <div className="flex-1 overflow-hidden">
-                <div className="text-sm font-medium text-zinc-800 dark:text-white truncate">{tx.positive ? 'Payment Received' : 'Payment Sent'}</div>
-                <div className="text-[10px] text-zinc-400 truncate">{tx.positive ? 'From' : 'To'} {tx.name}</div>
+                <div className="text-sm font-medium text-[#161616] dark:text-white truncate">{tx.positive ? 'Payment Received' : 'Payment Sent'}</div>
+                <div className="text-[10px] text-[#444] truncate">{tx.positive ? 'From' : 'To'} {tx.name}</div>
               </div>
-              <div className={`text-sm font-bold ${tx.positive ? 'text-green-500' : 'text-zinc-500'}`}>{tx.amount}</div>
+              <div className={`text-sm font-bold ${tx.positive ? 'text-green-500' : 'text-[#444]'}`}>{tx.amount}</div>
             </div>
           ))}
         </div>
         
         {/* Bottom Tab Bar */}
-        <div className="h-16 border-t border-zinc-100 dark:border-zinc-800 flex justify-around items-center px-4">
+        <div className="h-16 border-t border-[#e8e5db] dark:border-zinc-800 flex justify-around items-center px-4">
           <div className="w-6 h-6 rounded bg-zinc-800 dark:bg-white"></div>
           <div className="w-6 h-6 rounded bg-zinc-200 dark:bg-zinc-700"></div>
           <div className="w-6 h-6 rounded bg-zinc-200 dark:bg-zinc-700"></div>
@@ -108,7 +108,7 @@ export const MobileDevDashboard = () => {
         {/* App Content */}
         <div className="flex-1 p-4 flex flex-col gap-4">
           {/* Hero Card */}
-          <div className="bg-blue-600 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/20">
+          <div className="bg-[#111] rounded-2xl p-4 text-white shadow-lg shadow-[#2A6FDB]/20">
             <div className="text-xs text-blue-200 mb-1">Total Balance</div>
             <div className="text-3xl font-black mb-4">$12,450.00</div>
             <div className="flex gap-2">
@@ -119,15 +119,15 @@ export const MobileDevDashboard = () => {
           
           {/* Mini Chart */}
           <div className="bg-zinc-800 rounded-2xl p-4 flex-1 flex flex-col justify-between">
-            <div className="text-xs font-medium text-zinc-400">Weekly Trend</div>
+            <div className="text-xs font-medium text-[#444]">Weekly Trend</div>
             <div className="flex items-end justify-between h-20 gap-1 mt-2">
-              <div className="w-full bg-blue-500/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[0]}%` }}></div>
-              <div className="w-full bg-blue-500 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[1]}%` }}></div>
-              <div className="w-full bg-blue-500/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[2]}%` }}></div>
-              <div className="w-full bg-blue-500 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[3]}%` }}></div>
-              <div className="w-full bg-blue-500/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[4]}%` }}></div>
-              <div className="w-full bg-blue-500 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[5]}%` }}></div>
-              <div className="w-full bg-blue-400 rounded-t-sm shadow-[0_0_10px_#60a5fa] transition-all duration-500 ease-out" style={{ height: `${chartHeights[6]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB]/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[0]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB] rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[1]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB]/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[2]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB] rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[3]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB]/50 rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[4]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB] rounded-t-sm transition-all duration-500 ease-out" style={{ height: `${chartHeights[5]}%` }}></div>
+              <div className="w-full bg-[#2A6FDB] rounded-t-sm shadow-[0_0_10px_#60a5fa] transition-all duration-500 ease-out" style={{ height: `${chartHeights[6]}%` }}></div>
             </div>
           </div>
         </div>

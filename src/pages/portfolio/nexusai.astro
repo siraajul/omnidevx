@@ -34,55 +34,55 @@ import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
 	</div>
 
 	<section>
-		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+		<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4 tracking-tight">
 			The <span class="text-purple-600">Problem</span>
 		</h2>
-		<p class="text-zinc-500 text-lg leading-relaxed">
+		<p class="text-[#444] text-lg leading-relaxed">
 			A Fortune 500 insurance company had over <strong class="text-zinc-700">12 million policy documents</strong> spread across legacy systems, SharePoint, and email archives. Claims adjusters spent an average of 45 minutes per query manually searching for relevant precedents. Traditional keyword search returned thousands of irrelevant results, and existing AI tools hallucinated policy details — a compliance disaster waiting to happen.
 		</p>
 	</section>
 
 	<section>
-		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+		<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4 tracking-tight">
 			Our <span class="text-purple-600">Approach</span>
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+			<div class="p-6 rounded-2xl border border-[#e8e5db] bg-white">
 				<div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center mb-4">
 					<span class="text-purple-600 font-black text-sm">01</span>
 				</div>
-				<h3 class="font-bold text-zinc-900 mb-2">Data Audit</h3>
-				<p class="text-sm text-zinc-500">Catalogued all document types, formats, and access patterns. Built custom parsers for 14 different legacy formats.</p>
+				<h3 class="font-bold text-[#161616] mb-2">Data Audit</h3>
+				<p class="text-sm text-[#444]">Catalogued all document types, formats, and access patterns. Built custom parsers for 14 different legacy formats.</p>
 			</div>
-			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+			<div class="p-6 rounded-2xl border border-[#e8e5db] bg-white">
 				<div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center mb-4">
 					<span class="text-purple-600 font-black text-sm">02</span>
 				</div>
-				<h3 class="font-bold text-zinc-900 mb-2">RAG Pipeline Design</h3>
-				<p class="text-sm text-zinc-500">Semantic chunking, hybrid search (vector + BM25), and a citation engine that traces every answer back to source documents.</p>
+				<h3 class="font-bold text-[#161616] mb-2">RAG Pipeline Design</h3>
+				<p class="text-sm text-[#444]">Semantic chunking, hybrid search (vector + BM25), and a citation engine that traces every answer back to source documents.</p>
 			</div>
-			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+			<div class="p-6 rounded-2xl border border-[#e8e5db] bg-white">
 				<div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center mb-4">
 					<span class="text-purple-600 font-black text-sm">03</span>
 				</div>
-				<h3 class="font-bold text-zinc-900 mb-2">Guardrail Testing</h3>
-				<p class="text-sm text-zinc-500">500+ adversarial test cases to ensure zero hallucination on policy-critical queries before production rollout.</p>
+				<h3 class="font-bold text-[#161616] mb-2">Guardrail Testing</h3>
+				<p class="text-sm text-[#444]">500+ adversarial test cases to ensure zero hallucination on policy-critical queries before production rollout.</p>
 			</div>
 		</div>
 	</section>
 
 	<section>
-		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+		<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4 tracking-tight">
 			The <span class="text-purple-600">Solution</span>
 		</h2>
-		<p class="text-zinc-500 text-lg leading-relaxed mb-8">
+		<p class="text-[#444] text-lg leading-relaxed mb-8">
 			NexusAI is a conversational search platform that lets claims adjusters ask natural-language questions and receive precise, cited answers in under 3 seconds. Every response includes clickable source citations, confidence scores, and related document recommendations. The system supports on-premise deployment for full data sovereignty.
 		</p>
-		<div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
-			<span class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 block">Tech Stack</span>
+		<div class="rounded-2xl border border-[#e8e5db] bg-[#f5f3ea] p-6">
+			<span class="text-xs font-bold text-[#444] uppercase tracking-widest mb-4 block">Tech Stack</span>
 			<div class="flex flex-wrap gap-2">
 				{["Python", "LangChain", "Pinecone", "OpenAI GPT-4", "Next.js", "FastAPI", "Docker", "Azure"].map(tag => (
-					<span class="px-3 py-1.5 bg-white border border-zinc-200 text-zinc-600 text-xs font-semibold rounded-full">{tag}</span>
+					<span class="px-3 py-1.5 bg-white border border-[#e8e5db] text-[#2A2A2A] text-xs font-semibold rounded-full">{tag}</span>
 				))}
 			</div>
 		</div>
@@ -91,19 +91,19 @@ import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
 	<div slot="impact" class="grid grid-cols-2 md:grid-cols-4 gap-6">
 		<div class="text-center">
 			<div class="text-4xl md:text-5xl font-black text-purple-400 mb-2">95%</div>
-			<div class="text-zinc-400 text-sm font-medium">Accuracy rate</div>
+			<div class="text-[#444] text-sm font-medium">Accuracy rate</div>
 		</div>
 		<div class="text-center">
 			<div class="text-4xl md:text-5xl font-black text-purple-400 mb-2">10x</div>
-			<div class="text-zinc-400 text-sm font-medium">Faster search</div>
+			<div class="text-[#444] text-sm font-medium">Faster search</div>
 		</div>
 		<div class="text-center">
 			<div class="text-4xl md:text-5xl font-black text-purple-400 mb-2">12M</div>
-			<div class="text-zinc-400 text-sm font-medium">Documents indexed</div>
+			<div class="text-[#444] text-sm font-medium">Documents indexed</div>
 		</div>
 		<div class="text-center">
 			<div class="text-4xl md:text-5xl font-black text-purple-400 mb-2">&lt;3s</div>
-			<div class="text-zinc-400 text-sm font-medium">Response time</div>
+			<div class="text-[#444] text-sm font-medium">Response time</div>
 		</div>
 	</div>
 </CaseStudyLayout>

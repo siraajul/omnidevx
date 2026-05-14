@@ -64,8 +64,8 @@ export default function CulturePhotoGallery() {
     <div className="w-full flex justify-center py-16 mb-8 overflow-hidden">
       <div className="w-full max-w-5xl px-4 md:px-8">
         <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-zinc-900 mb-4">Life at Omnidevx</h2>
-            <p className="text-zinc-600 max-w-2xl mx-auto">A glimpse into our workspaces, our processes, and the moments that define our culture.</p>
+            <h2 className="text-3xl font-bold text-[#161616] mb-4">Life at Omnidevx</h2>
+            <p className="text-[#2A2A2A] max-w-2xl mx-auto">A glimpse into our workspaces, our processes, and the moments that define our culture.</p>
         </div>
         <CardStack
           items={galleryItems}

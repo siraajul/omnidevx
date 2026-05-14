@@ -99,7 +99,7 @@ export default function IndustryRadar() {
       <div className="relative w-full max-w-[700px] aspect-square flex items-center justify-center">
         
         {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#2A6FDB]/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
 
         <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-full h-full overflow-visible font-sans">
           

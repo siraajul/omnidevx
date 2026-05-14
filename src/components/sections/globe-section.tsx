@@ -52,28 +52,28 @@ const arcs = [
 
 export default function GlobeSection() {
   return (
-    <section className="py-32 px-8 bg-white border-t border-zinc-200 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-100 rounded-full blur-[150px] opacity-50 pointer-events-none"></div>
+    <section className="py-32 px-8 bg-white border-t border-[#e8e5db] relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#e8f0fd] rounded-full blur-[150px] opacity-50 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         
         {/* Text Content */}
         <div className="flex-1 text-center lg:text-left gsap-reveal">
-          <h2 className="text-4xl md:text-6xl font-black text-zinc-900 mb-6 tracking-tight">
-            Serve across the <span className="text-blue-600">globe.</span>
+          <h2 className="text-4xl md:text-6xl font-display text-[#161616] mb-6">
+            Serve across the <span className="scribble-underline text-[#2A6FDB]">globe.</span>
           </h2>
-          <p className="text-lg md:text-xl text-zinc-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-lg md:text-xl text-[#2A2A2A] mb-8 max-w-2xl mx-auto lg:mx-0">
             Our infrastructure scales dynamically. We build highly available, geographically distributed systems that guarantee millisecond latency for your users, no matter where they are.
           </p>
           
           <div className="grid grid-cols-2 gap-8 text-left max-w-md mx-auto lg:mx-0">
             <div>
-              <h4 className="text-3xl font-black text-blue-600 mb-1">99.99%</h4>
-              <p className="text-sm font-semibold text-zinc-500 uppercase tracking-widest">Uptime SLA</p>
+              <h4 className="text-4xl font-display text-[#2A6FDB] mb-1">99.99%</h4>
+              <p className="text-lg font-hand text-[#2A2A2A]">Uptime SLA</p>
             </div>
             <div>
-              <h4 className="text-3xl font-black text-cyan-600 mb-1">&lt;50ms</h4>
-              <p className="text-sm font-semibold text-zinc-500 uppercase tracking-widest">Global Latency</p>
+              <h4 className="text-4xl font-display text-[#2A6FDB] mb-1">&lt;50ms</h4>
+              <p className="text-lg font-hand text-[#2A2A2A]">Global Latency</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function GlobeSection() {
         {/* Globe Container */}
         <div className="flex-1 w-full max-w-lg aspect-square relative gsap-reveal">
           {/* Decorative rings */}
-          <div className="absolute inset-0 rounded-full border border-zinc-200/50 scale-[1.1]"></div>
+          <div className="absolute inset-0 rounded-full border border-[#e8e5db]/50 scale-[1.1]"></div>
           <div className="absolute inset-0 rounded-full border border-blue-100 scale-[1.25]"></div>
           
           <Globe

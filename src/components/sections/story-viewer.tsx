@@ -135,7 +135,7 @@ function StoryThumbnail({
         </svg>
 
         <div className="absolute inset-[5px] rounded-full bg-white p-[2px]">
-          <div className="w-full h-full rounded-full overflow-hidden bg-zinc-100">
+          <div className="w-full h-full rounded-full overflow-hidden bg-[#f5f3ea]">
             {lastStory.type === "video" ? (
               <video
                 src={lastStory.src}
@@ -156,7 +156,7 @@ function StoryThumbnail({
         </div>
       </div>
 
-      <span className="text-sm font-semibold text-zinc-800 truncate max-w-[80px]">
+      <span className="text-sm font-semibold text-[#161616] truncate max-w-[80px]">
         {username}
       </span>
     </button>

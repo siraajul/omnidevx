@@ -28,10 +28,10 @@ const PROCESS_DATA = {
   },
   web: {
     colorHex: "#2563eb", // blue-600
-    colorClass: "text-blue-600",
-    borderClass: "group-hover:border-blue-500",
-    bgHoverClass: "bg-blue-500/10",
-    labelClass: "text-blue-600",
+    colorClass: "text-[#2A6FDB]",
+    borderClass: "group-hover:border-[#2A6FDB]",
+    bgHoverClass: "bg-[#2A6FDB]/10",
+    labelClass: "text-[#2A6FDB]",
     steps: [
       { id: 1, title: "Systems Design", description: "We architect the database schemas, API contracts, and component libraries required for a scalable frontend and backend.", icon: LayoutTemplate },
       { id: 2, title: "Frontend Execution", description: "Translating high-fidelity designs into pixel-perfect React code, emphasizing web core vitals and accessibility.", icon: Code },
@@ -53,10 +53,10 @@ const PROCESS_DATA = {
   },
   ai: {
     colorHex: "#4f46e5", // indigo-600
-    colorClass: "text-indigo-600",
+    colorClass: "text-[#2A6FDB]",
     borderClass: "group-hover:border-indigo-500",
-    bgHoverClass: "bg-indigo-500/10",
-    labelClass: "text-indigo-600",
+    bgHoverClass: "bg-[#e8f0fd]0/10",
+    labelClass: "text-[#2A6FDB]",
     steps: [
       { id: 1, title: "Discovery & Scoping", description: "We identify the core problem your MVP solves and map out the absolute minimum features required to validate it.", icon: Lightbulb },
       { id: 2, title: "Rapid Development", description: "We utilize modern stacks (Next.js, Supabase) and AI generation to build the core product 3x faster than traditional agencies.", icon: Code },
@@ -151,7 +151,7 @@ export function AnimatedProcessFlow({ type = "devops" }: { type?: ServiceType })
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`relative w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-zinc-200 rounded-2xl flex items-center justify-center shadow-sm mb-4 md:mb-6 z-10 ${data.borderClass} group-hover:shadow-md transition-all duration-300`}
+                className={`relative w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-[#e8e5db] rounded-2xl flex items-center justify-center shadow-sm mb-4 md:mb-6 z-10 ${data.borderClass} group-hover:shadow-md transition-all duration-300`}
               >
                 <div className={`absolute inset-0 ${data.bgHoverClass} rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-300`} />
                 <Icon className={`w-5 h-5 md:w-6 md:h-6 ${data.colorClass} relative z-10`} />
@@ -166,8 +166,8 @@ export function AnimatedProcessFlow({ type = "devops" }: { type?: ServiceType })
                 className="pt-2 md:pt-0"
               >
                 <div className={`text-xs md:text-sm font-bold ${data.labelClass} mb-1 md:mb-2 uppercase tracking-wider`}>Step 0{step.id}</div>
-                <h3 className="text-sm md:text-xl font-bold text-zinc-900 mb-2 md:mb-3">{step.title}</h3>
-                <p className="hidden md:block text-zinc-500 text-sm leading-relaxed">{step.description}</p>
+                <h3 className="text-sm md:text-xl font-bold text-[#161616] mb-2 md:mb-3">{step.title}</h3>
+                <p className="hidden md:block text-[#444] text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             </div>
           );

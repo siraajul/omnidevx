@@ -85,11 +85,11 @@ const MagnifiedBento = ({
 
   return (
     <div className={cn("flex items-center justify-center p-4 sm:p-6 w-full not-prose", className)}>
-      <div className="group relative w-full mx-auto overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-1.5 sm:p-2 shadow-2xl transition-all duration-500 hover:-translate-y-1">
+      <div className="group relative w-full mx-auto overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-[#e8e5db] dark:border-zinc-800 bg-white dark:bg-zinc-950 p-1.5 sm:p-2 shadow-2xl transition-all duration-500 hover:-translate-y-1">
         <div
           ref={containerRef}
           className={cn(
-            "relative w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem] bg-zinc-50 dark:bg-zinc-900",
+            "relative w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem] bg-[#f5f3ea] dark:bg-zinc-900",
             DEFAULT_CONFIG.containerHeight
           )}
         >
@@ -120,7 +120,7 @@ const MagnifiedBento = ({
                     .map((item) => (
                     <div
                       key={`${item.id}-copy-${item.copyIndex}`}
-                      className="flex gap-2 bg-white/50 dark:bg-black/50 backdrop-blur-sm whitespace-nowrap w-fit text-zinc-500 p-2 px-3 items-center border border-zinc-200/50 dark:border-zinc-800/50 rounded-full text-xs"
+                      className="flex gap-2 bg-white/50 dark:bg-black/50 backdrop-blur-sm whitespace-nowrap w-fit text-[#444] p-2 px-3 items-center border border-[#e8e5db]/50 dark:border-zinc-800/50 rounded-full text-xs"
                     >
                       <HugeiconsIcon icon={item.icon} size={14} />
                       <span>{item.label}</span>
@@ -158,7 +158,7 @@ const MagnifiedBento = ({
                     .map((item) => (
                     <div
                       key={`${item.id}-reveal-${item.copyIndex}`}
-                      className="flex gap-2 bg-white dark:bg-black whitespace-nowrap w-fit text-zinc-900 dark:text-white p-2 px-3 items-center border border-indigo-500/20 shadow-sm rounded-full text-xs scale-125 ml-6"
+                      className="flex gap-2 bg-white dark:bg-black whitespace-nowrap w-fit text-[#161616] dark:text-white p-2 px-3 items-center border border-indigo-500/20 shadow-sm rounded-full text-xs scale-125 ml-6"
                     >
                       <HugeiconsIcon
                         icon={item.icon}
@@ -194,10 +194,10 @@ const MagnifiedBento = ({
         </div>
 
         <div className="p-4 sm:p-6 px-4 pb-6 sm:pb-8">
-          <h3 className="text-xl font-medium tracking-tight text-zinc-900 dark:text-white">
+          <h3 className="text-xl font-medium tracking-tight text-[#161616] dark:text-white">
             {title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="mt-2 text-sm leading-relaxed text-[#444] dark:text-[#444]">
             {description}
           </p>
         </div>

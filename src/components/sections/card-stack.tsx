@@ -361,7 +361,7 @@ export function CardStack<T extends CardStackItem>({
               href={activeItem.href}
               target="_blank"
               rel="noreferrer"
-              className="text-zinc-500 hover:text-zinc-900 transition"
+              className="text-[#444] hover:text-[#161616] transition"
               aria-label="Open link"
             >
               <SquareArrowOutUpRight className="h-4 w-4" />
@@ -387,7 +387,7 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
             loading="eager"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-zinc-100 text-sm text-zinc-500">
+          <div className="flex h-full w-full items-center justify-center bg-[#f5f3ea] text-sm text-[#444]">
             No image
           </div>
         )}
@@ -402,7 +402,7 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
           {item.title}
         </div>
         {item.description ? (
-          <div className="line-clamp-2 text-sm text-zinc-300">
+          <div className="line-clamp-2 text-sm text-[#666]">
             {item.description}
           </div>
         ) : null}

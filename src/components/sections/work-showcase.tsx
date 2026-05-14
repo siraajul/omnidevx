@@ -7,7 +7,7 @@ const PROJECTS = [
     category: "FinTech",
     tagline: "Modernizing Contractor Financial Tools",
     description: "A comprehensive FinTech-as-a-Service platform enabling contractors to manage invoicing, payments, and client financing from one unified dashboard.",
-    gradient: "from-blue-600 to-indigo-700",
+    gradient: "from-[#2A6FDB] to-indigo-700",
     stats: [
       { value: "3x", label: "Faster invoicing" },
       { value: "40%", label: "Cost reduction" },
@@ -49,10 +49,10 @@ export function WorkShowcase() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 tracking-tight">
-            Our <span className="text-blue-600">Work</span>
+          <h2 className="text-4xl md:text-5xl font-display text-[#161616] mb-6">
+            Our <span className="scribble-underline text-[#2A6FDB]">Work</span>
           </h2>
-          <p className="text-xl text-zinc-500 max-w-2xl mx-auto">
+          <p className="text-xl text-[#2A2A2A] max-w-2xl mx-auto">
             Turning ambitious ideas into production-grade software.
           </p>
         </div>
@@ -63,10 +63,10 @@ export function WorkShowcase() {
             <button
               key={p.name}
               onClick={() => setActive(i)}
-              className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full text-base transition-all duration-300 font-hand ${
                 active === i
-                  ? "bg-zinc-900 text-white shadow-lg"
-                  : "bg-zinc-100 text-zinc-500 hover:bg-zinc-200 hover:text-zinc-700"
+                  ? "bg-[#111] text-white shadow-lg"
+                  : "bg-white border border-[#e8e5db] text-[#444] hover:border-[#2A6FDB] hover:text-[#2A6FDB]"
               }`}
             >
               {p.name}
@@ -108,7 +108,7 @@ export function WorkShowcase() {
                 <span className="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-full backdrop-blur-sm mb-3 inline-block tracking-wider uppercase">
                   {project.category}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                <h3 className="text-2xl md:text-3xl font-display text-white mb-2">
                   {project.tagline}
                 </h3>
                 <p className="text-white/70 text-sm max-w-lg">
@@ -134,27 +134,27 @@ export function WorkShowcase() {
             {project.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex-1 rounded-3xl bg-zinc-900 p-8 flex flex-col justify-center shadow-xl"
+                className="flex-1 rounded-3xl bg-white border border-[#e8e5db] p-8 flex flex-col justify-center shadow-lg transition-colors hover:border-[#2A6FDB]"
               >
-                <span className="text-5xl md:text-6xl font-black text-blue-400 mb-2">
+                <span className="text-5xl md:text-6xl text-[#2A6FDB] mb-2 font-display">
                   {stat.value}
                 </span>
-                <span className="text-zinc-400 text-lg font-medium">
+                <span className="text-[#2A2A2A] text-lg font-hand">
                   {stat.label}
                 </span>
               </div>
             ))}
 
             {/* Tech tags */}
-            <div className="rounded-3xl border border-zinc-200 bg-white p-6">
-              <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3 block">
+            <div className="rounded-3xl border border-[#e8e5db] bg-[#f5f3ea] p-6 shadow-sm">
+              <span className="text-xs font-bold text-[#444] uppercase tracking-widest mb-3 block">
                 Tech Stack
               </span>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 bg-zinc-100 text-zinc-600 text-xs font-semibold rounded-full"
+                    className="px-3 py-1.5 bg-white border border-[#e8e5db] text-[#2A2A2A] text-sm rounded-full font-hand"
                   >
                     {tag}
                   </span>
@@ -168,9 +168,9 @@ export function WorkShowcase() {
         <div className="text-center mt-12">
           <a
             href="/portfolio"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white font-bold rounded-full hover:bg-zinc-800 transition-colors text-sm tracking-wide"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#111] text-white font-hand rounded-full hover:bg-[#2A6FDB] transition-colors text-sm"
           >
-            View All Projects
+            view all projects
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />

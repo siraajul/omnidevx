@@ -169,7 +169,7 @@ export default function FAQWithSpiral() {
   return (
     <section
       id="faq"
-      className="relative w-full overflow-hidden text-zinc-900 border-t border-zinc-200"
+      className="relative w-full overflow-hidden text-[#161616] border-t border-[#e8e5db]"
       style={{ backgroundColor: cfg.background }}
     >
       {/* Background Spiral */}
@@ -183,12 +183,12 @@ export default function FAQWithSpiral() {
       {/* Layout */}
       <div className="relative mx-auto max-w-5xl px-6 py-32 z-10">
         {/* Header */}
-        <header className="mb-16 flex flex-col md:flex-row items-start md:items-end justify-between border-b border-zinc-200 pb-8 gap-6">
+        <header className="mb-16 flex flex-col md:flex-row items-start md:items-end justify-between border-b border-[#e8e5db] pb-8 gap-6">
           <div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-zinc-900">
+            <h2 className="text-4xl md:text-6xl font-display text-[#161616]">
               Frequently Asked
             </h2>
-            <p className="mt-4 text-lg text-zinc-500">
+            <p className="mt-4 text-lg text-[#444]">
               Everything you need to know about partnering with Omnidevx.
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function FAQWithSpiral() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search questions…"
-              className="h-12 w-full md:w-64 rounded-xl border border-zinc-200 bg-white/80 backdrop-blur px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 shadow-sm text-zinc-900"
+              className="h-12 w-full md:w-64 rounded-xl border border-[#e8e5db] bg-white/80 backdrop-blur px-4 text-sm outline-none transition focus:border-[#2A6FDB] focus:ring-2 focus:ring-blue-100 shadow-sm text-[#161616]"
             />
           </div>
         </header>
@@ -210,7 +210,7 @@ export default function FAQWithSpiral() {
             ))}
           </div>
           {filtered.length === 0 && (
-            <p className="text-zinc-500 text-center py-12">No questions found matching "{query}"</p>
+            <p className="text-[#444] text-center py-12">No questions found matching "{query}"</p>
           )}
         </div>
       </div>
@@ -221,17 +221,17 @@ export default function FAQWithSpiral() {
 function FAQItem({ q, a, index }: { readonly q: string; readonly a: string; readonly index: number }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur-sm p-6 transition-all duration-300 hover:border-blue-300 hover:shadow-md">
+    <div className="group relative overflow-hidden rounded-2xl border border-[#e8e5db] bg-white/70 backdrop-blur-sm p-6 transition-all duration-300 hover:border-[#2A6FDB] hover:shadow-md">
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between text-left"
         aria-expanded={open}
       >
         <div className="flex items-baseline gap-4 pr-4">
-          <span className="text-sm font-bold text-blue-500/50">{String(index).padStart(2, "0")}</span>
-          <h3 className="text-lg md:text-xl font-bold leading-tight text-zinc-900">{q}</h3>
+          <span className="text-sm font-bold text-[#2A6FDB]/50">{String(index).padStart(2, "0")}</span>
+          <h3 className="text-lg md:text-xl font-bold leading-tight text-[#161616]">{q}</h3>
         </div>
-        <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 shrink-0 ${open ? 'bg-zinc-900 border-zinc-900 text-white rotate-180' : 'bg-white border-zinc-200 text-zinc-400 group-hover:border-blue-500 group-hover:text-blue-600'}`}>
+        <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 shrink-0 ${open ? 'bg-zinc-900 border-zinc-900 text-white rotate-180' : 'bg-white border-[#e8e5db] text-[#444] group-hover:border-[#2A6FDB] group-hover:text-[#2A6FDB]'}`}>
            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={open ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}></path></svg>
         </div>
       </button>
@@ -239,7 +239,7 @@ function FAQItem({ q, a, index }: { readonly q: string; readonly a: string; read
         className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(.4,0,.2,1)] ${open ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
       >
         <div className="min-h-0 overflow-hidden">
-          <p className="text-base text-zinc-600 leading-relaxed pr-12">{a}</p>
+          <p className="text-base text-[#2A2A2A] leading-relaxed pr-12">{a}</p>
         </div>
       </div>
     </div>

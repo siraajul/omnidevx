@@ -4,171 +4,151 @@ import FlowArt, { FlowSection } from './sections/story-scroll';
 export default function AgencyStory() {
   return (
     <FlowArt aria-label="Omnidevx Story">
-      <FlowSection aria-label="Who we are" style={{ backgroundColor: '#0891B2', color: '#fff' }}>
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">01 — Who we are</p>
-        <hr className="my-[1.5vw] border-none border-t border-white/40 opacity-100" />
+      <FlowSection aria-label="Who we are" style={{ backgroundColor: '#FDFCF7', color: '#161616' }}>
+        <p className="text-xl font-hand text-[#2A6FDB]">01 — who we are</p>
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
-          <h1
-            className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.9] uppercase tracking-tight"
-          >
-            Build
+          <h1 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
+            build
             <br />
-            Without
+            without
             <br />
-            Limits
+            <span className="scribble-underline text-[#2A6FDB]">limits</span>
           </h1>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-white/40 opacity-100" />
-        <p className="mt-auto max-w-[60ch] text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="mt-auto max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           We believe every founder deserves a technical partner that puts innovation first. No boilerplate, no shortcuts — just elite engineering and the people who make it.
         </p>
       </FlowSection>
 
-      <FlowSection aria-label="The mission" style={{ backgroundColor: '#FFFFFF', color: '#000' }}>
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">02 — The mission</p>
-        <hr className="my-[1.5vw] border-none border-t border-black/10" />
+      <FlowSection aria-label="The mission" style={{ backgroundColor: '#ffffff', color: '#161616' }}>
+        <p className="text-xl font-hand text-[#2A6FDB]">02 — the mission</p>
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
-          <h2
-            className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.9] uppercase tracking-tight"
-          >
-            AI
+          <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
+            AI <span className="text-[#2A6FDB]">first</span>
             <br />
-            First
-            <br />
-            Always
+            always
           </h2>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-black/10" />
-        <p className="max-w-[60ch] text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           A global engineering collective built for startups. We're rewriting the rules of how software gets built, deployed, and scaled.
         </p>
-        <hr className="my-[1.5vw] border-none border-t border-black/10" />
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">Architecture</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">architecture</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Systems designed to scale from day one. No technical debt. No fragile foundations.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">Intelligence</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">intelligence</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Embedding generative AI natively into your workflows to outpace the competition.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">Speed</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">speed</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Rapid prototyping and CI/CD pipelines that get your product to market in weeks.
             </p>
           </div>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-black/10" />
-        <p className="mt-auto ml-auto max-w-[60ch] text-right text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="mt-auto ml-auto max-w-[60ch] text-right text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           Every system we build starts with one question — does this scale the business?
         </p>
       </FlowSection>
 
-      <FlowSection aria-label="How it works" style={{ backgroundColor: '#F5F0E8', color: '#000' }}>
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">03 — How it works</p>
-        <hr className="my-[1.5vw] border-none border-t border-black/60" />
+      <FlowSection aria-label="How it works" style={{ backgroundColor: '#f5f3ea', color: '#161616' }}>
+        <p className="text-xl font-hand text-[#2A6FDB]">03 — how it works</p>
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
-          <h2
-            className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.9] uppercase tracking-tight"
-          >
-            Show
+          <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
+            show up.
             <br />
-            Up.
-            <br />
-            Stand
-            <br />
-            Out.
+            <span className="scribble-underline text-[#2A6FDB]">stand out.</span>
           </h2>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-black/60" />
-        <p className="max-w-[60ch] text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           Three phases. Zero complexity. Your technical roadmap starts moving the moment we sync.
         </p>
-        <hr className="my-[1.5vw] border-none border-t border-black/60" />
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">01 — Discover</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">01 — discover</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               We audit your architecture, define the MVP scope, and establish the precise data models required.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">02 — Build</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">02 — build</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Our engineers execute in rapid sprints, providing you with staging environments every step of the way.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-600">03 — Scale</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-xl font-hand text-[#161616]">03 — scale</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               We deploy to production, monitor infrastructure, and seamlessly scale your backend as users surge.
             </p>
           </div>
         </div>
       </FlowSection>
 
-      <FlowSection aria-label="The vision" style={{ backgroundColor: '#3B82F6', color: '#fff' }}>
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">04 — The vision</p>
-        <hr className="my-[1.5vw] border-none border-t border-white/50" />
+      <FlowSection aria-label="The vision" style={{ backgroundColor: '#ffffff', color: '#161616' }}>
+        <p className="text-xl font-hand text-[#2A6FDB]">04 — the vision</p>
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
-          <h2
-            className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.9] uppercase tracking-tight"
-          >
-            Future
+          <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
+            future
             <br />
-            Of
-            <br />
-            Software
+            of <span className="text-[#2A6FDB]">software</span>
           </h2>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-white/50" />
-        <p className="max-w-[60ch] text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           We're not just building apps. We're building intelligent systems.
         </p>
-        <hr className="my-[1.5vw] border-none border-t border-white/50" />
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-200">100M+</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-4xl font-display text-[#2A6FDB]">100M+</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               API requests handled daily by the infrastructures we've designed.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-200">$50M+</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-4xl font-display text-[#2A6FDB]">$50M+</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Venture capital raised by the startups we've engineered products for.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-blue-200">100%</p>
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] leading-relaxed opacity-75">
+            <p className="mb-2 text-4xl font-display text-[#2A6FDB]">100%</p>
+            <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
               Client IP ownership. You own every line of code we push to production.
             </p>
           </div>
         </div>
       </FlowSection>
 
-      <FlowSection aria-label="Join us" style={{ backgroundColor: '#F9F9F7', color: '#000' }}>
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">05 — Join us</p>
-        <hr className="my-[1.5vw] border-none border-t border-black/20" />
+      <FlowSection aria-label="Join us" style={{ backgroundColor: '#FDFCF7', color: '#161616' }}>
+        <p className="text-xl font-hand text-[#2A6FDB]">05 — join us</p>
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
-          <h2
-            className="text-[clamp(2.5rem,8vw,7rem)] font-black leading-[0.9] uppercase tracking-tight"
-          >
-            Ready
+          <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
+            ready
             <br />
-            To
-            <br />
-            Begin?
+            to <span className="scribble-underline text-[#2A6FDB]">begin?</span>
           </h2>
         </div>
-        <hr className="my-[1.5vw] border-none border-t border-black/20" />
-        <p className="mt-auto max-w-[60ch] text-[clamp(1rem,1.5vw,1.25rem)] font-medium leading-relaxed text-zinc-600">
+        <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
+        <p className="mt-auto max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
           Take control of your technical journey. Let's shape the future of your product together. Scroll down to get in touch.
         </p>
       </FlowSection>

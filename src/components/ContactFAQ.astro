@@ -25,33 +25,33 @@ const faqs = [
 
 <div class="max-w-3xl mx-auto relative z-10 w-full">
     {/* Contact Form */}
-    <div class="bg-white/60 border border-zinc-200 p-8 md:p-12 rounded-[32px] backdrop-blur-xl gsap-reveal">
+    <div class="bg-white/60 border border-[#e8e5db] p-8 md:p-12 rounded-[32px] backdrop-blur-xl gsap-reveal">
         <div class="text-center mb-8">
-            <h3 class="text-3xl font-bold text-zinc-900 mb-2">Send us a message</h3>
-            <p class="text-zinc-600">You can also reach our technical sales team directly at <a href="mailto:hello@omnidevx.com" class="text-blue-600 font-medium hover:underline">hello@omnidevx.com</a></p>
+            <h3 class="text-3xl font-bold text-[#161616] mb-2">Send us a message</h3>
+            <p class="text-[#2A2A2A]">You can also reach our technical sales team directly at <a href="mailto:hello@omnidevx.com" class="text-[#2A6FDB] font-medium hover:underline">hello@omnidevx.com</a></p>
         </div>
         
         <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Form submitted! (This is a frontend demo)');">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="flex flex-col gap-2">
-                    <label for="firstName" class="text-sm font-semibold text-zinc-600 uppercase tracking-wider">First Name</label>
-                    <input type="text" id="firstName" required class="bg-white/80 border border-zinc-200 rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-400" placeholder="John" />
+                    <label for="firstName" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">First Name</label>
+                    <input type="text" id="firstName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="John" />
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label for="lastName" class="text-sm font-semibold text-zinc-600 uppercase tracking-wider">Last Name</label>
-                    <input type="text" id="lastName" required class="bg-white/80 border border-zinc-200 rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-400" placeholder="Doe" />
+                    <label for="lastName" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Last Name</label>
+                    <input type="text" id="lastName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="Doe" />
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="email" class="text-sm font-semibold text-zinc-600 uppercase tracking-wider">Work Email</label>
-                <input type="email" id="email" required class="bg-white/80 border border-zinc-200 rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-400" placeholder="john@company.com" />
+                <label for="email" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Work Email</label>
+                <input type="email" id="email" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="john@company.com" />
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="budget" class="text-sm font-semibold text-zinc-600 uppercase tracking-wider">Project Budget</label>
-                <select id="budget" class="bg-white/80 border border-zinc-200 rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none cursor-pointer">
-                    <option value="" disabled selected class="text-zinc-600">Select a range...</option>
+                <label for="budget" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Project Budget</label>
+                <select id="budget" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all appearance-none cursor-pointer">
+                    <option value="" disabled selected class="text-[#2A2A2A]">Select a range...</option>
                     <option value="10k-25k">$10k - $25k</option>
                     <option value="25k-50k">$25k - $50k</option>
                     <option value="50k-100k">$50k - $100k</option>
@@ -60,12 +60,12 @@ const faqs = [
             </div>
 
             <div class="flex flex-col gap-2">
-                <label for="message" class="text-sm font-semibold text-zinc-600 uppercase tracking-wider">Project Details</label>
-                <textarea id="message" required rows="4" class="bg-white/80 border border-zinc-200 rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-zinc-400 resize-none" placeholder="Tell us about your timeline, technical requirements, and ultimate goals..."></textarea>
+                <label for="message" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Project Details</label>
+                <textarea id="message" required rows="4" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444] resize-none" placeholder="Tell us about your timeline, technical requirements, and ultimate goals..."></textarea>
             </div>
 
-            <button type="submit" class="w-full mt-4 bg-blue-600 text-white font-bold uppercase tracking-[0.2em] text-sm py-4 rounded-xl hover:bg-blue-700 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
-                Submit Inquiry
+            <button type="submit" class="w-full mt-4 bg-[#111] text-white font-hand text-base py-4 rounded-xl hover:bg-[#2A6FDB] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                submit inquiry
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
         </form>

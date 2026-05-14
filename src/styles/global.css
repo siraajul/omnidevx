@@ -1,17 +1,24 @@
-@import "tailwindcss";
+/* ─── Brand Fonts (must precede all other @imports) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* ─── Brand Font ─── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 /* ─── Tailwind v4 Theme Configuration (Design Tokens) ─── */
 @theme {
-  --color-brand-accent: #2563eb;
-  --color-brand-bg: #F9F9F7;
-  --color-brand-text: #18181b;
-  --color-brand-muted: #71717a;
+  /* Colors — warm, organic palette */
+  --color-brand-accent: #2A6FDB;
+  --color-brand-bg: #FDFCF7;
+  --color-brand-text: #161616;
+  --color-brand-muted: #444444;
+  --color-brand-sub: #2A2A2A;
+  --color-brand-btn: #111111;
   
+  /* Fonts — handwritten + system */
   --font-brand: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Caveat', cursive;
+  --font-hand: 'Kalam', cursive;
   
+  /* Radii */
   --radius-brand-sm: 0.75rem;
   --radius-brand-md: 1.5rem;
   --radius-brand-lg: 2.5rem;
@@ -24,4 +31,42 @@ html, body {
   font-family: var(--font-brand);
   background-color: var(--color-brand-bg);
   color: var(--color-brand-text);
+}
+
+/* ─── Dot-Grid Texture Overlay ─── */
+.dot-grid-bg {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ─── Scribble Underline (SVG-based) ─── */
+.scribble-underline {
+  position: relative;
+  display: inline-block;
+}
+.scribble-underline::after {
+  content: '';
+  position: absolute;
+  left: -4%;
+  bottom: -0.1em;
+  width: 108%;
+  height: 0.35em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8c30-6 60 4 90-2s60-4 90 2' fill='none' stroke='%232A6FDB' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* ─── Handwritten Display Heading ─── */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* ─── Warm selection color ─── */
+::selection {
+  background-color: #2A6FDB;
+  color: #fff;
 }

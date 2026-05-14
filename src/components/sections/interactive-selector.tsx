@@ -65,7 +65,7 @@ const InteractiveSelector = () => {
       {/* Header Section */}
       <div className="w-full max-w-2xl px-6 mb-12 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg opacity-0 animate-[fadeInFromTop_0.8s_ease-in-out_0.3s_forwards]">Our Core Principles</h2>
-        <p className="text-lg md:text-xl text-zinc-400 font-medium max-w-xl mx-auto opacity-0 animate-[fadeInFromTop_0.8s_ease-in-out_0.6s_forwards]">The foundational values that drive how we build, interact, and succeed.</p>
+        <p className="text-lg md:text-xl text-[#444] font-medium max-w-xl mx-auto opacity-0 animate-[fadeInFromTop_0.8s_ease-in-out_0.6s_forwards]">The foundational values that drive how we build, interact, and succeed.</p>
       </div>
 
       {/* Options Container */}
@@ -75,7 +75,7 @@ const InteractiveSelector = () => {
             type="button"
             key={option.title}
             className={`
-              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl md:mx-1 my-1 md:my-0 min-h-[80px] md:min-h-0 md:min-w-[70px] border-none outline-none block text-left focus:ring-2 focus:ring-blue-500
+              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl md:mx-1 my-1 md:my-0 min-h-[80px] md:min-h-0 md:min-w-[70px] border-none outline-none block text-left focus:ring-2 focus:ring-[#2A6FDB]
               ${activeIndex === index ? 'active' : ''}
             `}
             style={{
@@ -109,7 +109,7 @@ const InteractiveSelector = () => {
             
             {/* Label with icon and info */}
             <div className="absolute left-0 right-0 bottom-6 flex items-center justify-start z-10 pointer-events-none px-4 gap-4 w-full overflow-hidden">
-              <div className={`min-w-[48px] h-[48px] flex items-center justify-center rounded-full backdrop-blur-md border border-white/20 transition-all duration-500 ${activeIndex === index ? 'bg-blue-600/90 shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'bg-black/50'}`}>
+              <div className={`min-w-[48px] h-[48px] flex items-center justify-center rounded-full backdrop-blur-md border border-white/20 transition-all duration-500 ${activeIndex === index ? 'bg-[#111]/90 shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'bg-black/50'}`}>
                 {option.icon}
               </div>
               <div className="text-white whitespace-pre relative flex-1">
@@ -124,7 +124,7 @@ const InteractiveSelector = () => {
                   {option.title}
                 </div>
                 <div 
-                  className="text-sm md:text-base text-zinc-300 transition-all duration-700 ease-in-out mt-1 whitespace-normal leading-snug"
+                  className="text-sm md:text-base text-[#666] transition-all duration-700 ease-in-out mt-1 whitespace-normal leading-snug"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
                     transform: activeIndex === index ? 'translateX(0)' : 'translateX(20px)',

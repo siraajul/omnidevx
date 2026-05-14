@@ -46,6 +46,9 @@
     "three": "^0.173.0"
   },
   "devDependencies": {
-    "@types/three": "^0.173.0"
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/three": "^0.173.0",
+    "satori": "^0.26.0",
+    "satori-html": "^0.3.2"
   }
 }

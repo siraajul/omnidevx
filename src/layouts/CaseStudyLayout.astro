@@ -28,7 +28,7 @@ const { name, category, tagline, gradient, accentColor, accentBg, ogImage } = As
 				<span class={`px-4 py-1.5 bg-white/20 text-white text-xs font-bold rounded-full backdrop-blur-sm mb-6 inline-block tracking-wider uppercase`}>
 					{category}
 				</span>
-				<h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight leading-tight">
+				<h1 class="text-4xl md:text-6xl font-display text-white mb-4 tracking-tight leading-tight">
 					{name}
 				</h1>
 				<p class="text-xl text-white/80 max-w-2xl">
@@ -40,8 +40,8 @@ const { name, category, tagline, gradient, accentColor, accentBg, ogImage } = As
 		{/* HERO VISUAL */}
 		<section class="relative -mt-8 px-8 z-10">
 			<div class="max-w-5xl mx-auto">
-				<div class="bg-white rounded-2xl shadow-2xl border border-zinc-200 overflow-hidden p-1">
-					<div class="bg-zinc-50 rounded-xl p-8 md:p-12">
+				<div class="bg-white rounded-2xl shadow-2xl border border-[#e8e5db] overflow-hidden p-1">
+					<div class="bg-[#f5f3ea] rounded-xl p-8 md:p-12">
 						<slot name="hero-visual" />
 					</div>
 				</div>
@@ -54,28 +54,28 @@ const { name, category, tagline, gradient, accentColor, accentBg, ogImage } = As
 		</div>
 
 		{/* IMPACT METRICS */}
-		<section class="bg-zinc-900 py-24 px-8">
+		<section class="bg-[#f5f3ea] py-24 px-8">
 			<div class="max-w-5xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight text-center">
+				<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4 text-center">
 					The <span class={accentColor}>Impact</span>
 				</h2>
-				<p class="text-zinc-400 text-center mb-16 max-w-xl mx-auto">Measurable results that speak for themselves.</p>
+				<p class="text-[#2A2A2A] text-center mb-16 max-w-xl mx-auto">Measurable results that speak for themselves.</p>
 				<slot name="impact" />
 			</div>
 		</section>
 
 		{/* CTA */}
 		<section class="py-24 px-8 text-center">
-			<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
-				Let's build something <span class="text-blue-600">like this</span>
+			<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4 tracking-tight">
+				Let's build something <span class="text-[#2A6FDB]">like this</span>
 			</h2>
-			<p class="text-zinc-500 mb-8 max-w-md mx-auto">Ready to turn your idea into a production-grade product?</p>
-			<div class="flex flex-wrap justify-center gap-4">
-				<a href="/contact" class="px-8 py-4 bg-zinc-900 text-white font-bold rounded-full hover:bg-zinc-800 transition-colors text-sm tracking-wide">
-					Book a Call →
+			<p class="text-[#444] mb-8 max-w-md mx-auto">Ready to turn your idea into a production-grade product?</p>
+			<div class="flex flex-wrap justify-center gap-4" style="font-family: 'Kalam', cursive;">
+				<a href="/contact" class="px-8 py-4 bg-[#111] text-white rounded-full hover:bg-[#2A6FDB] transition-colors text-sm">
+					book a call →
 				</a>
-				<a href="/portfolio" class="px-8 py-4 border border-zinc-300 text-zinc-700 font-bold rounded-full hover:bg-zinc-50 transition-colors text-sm tracking-wide">
-					See More Work
+				<a href="/portfolio" class="px-8 py-4 border border-[#e8e5db] text-[#161616] rounded-full hover:bg-[#f5f3ea] transition-colors text-sm">
+					see more work
 				</a>
 			</div>
 		</section>

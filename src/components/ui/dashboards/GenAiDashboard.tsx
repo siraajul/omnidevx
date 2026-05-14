@@ -42,14 +42,14 @@ export const GenAiDashboard = () => {
           New Chat
         </button>
         <div className="flex flex-col gap-2 mt-4 overflow-y-auto">
-          <div className="text-xs font-semibold text-zinc-500 mb-2">TODAY</div>
-          <div className="bg-zinc-800/50 text-zinc-300 text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800 transition-colors border border-zinc-700/50">
+          <div className="text-xs font-semibold text-[#444] mb-2">TODAY</div>
+          <div className="bg-zinc-800/50 text-[#666] text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800 transition-colors border border-zinc-700/50">
             Analyze customer feedback...
           </div>
-          <div className="text-zinc-400 text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800/50 transition-colors">
+          <div className="text-[#444] text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800/50 transition-colors">
             Generate financial report Q3
           </div>
-          <div className="text-zinc-400 text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800/50 transition-colors">
+          <div className="text-[#444] text-sm p-3 rounded-lg truncate cursor-pointer hover:bg-zinc-800/50 transition-colors">
             Summarize legal contracts
           </div>
         </div>
@@ -87,13 +87,13 @@ export const GenAiDashboard = () => {
 
           {/* Vertical Connecting Line */}
           <div className="w-0.5 h-12 bg-gradient-to-b from-purple-500 to-blue-500 relative -mt-4 mb-8 z-0 overflow-hidden">
-             {isProcessing && <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-6 bg-blue-400/50 blur-sm rounded-full animate-[slideDown_1.5s_linear_infinite_0.5s]"></div>}
+             {isProcessing && <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-6 bg-[#2A6FDB]/50 blur-sm rounded-full animate-[slideDown_1.5s_linear_infinite_0.5s]"></div>}
           </div>
 
           {/* Bottom Row: LLM & Output */}
           <div className="flex items-center gap-12">
-            <div className="bg-zinc-900 border-2 border-blue-500/50 rounded-xl p-4 w-48 text-center relative shadow-[0_0_30px_rgba(59,130,246,0.15)] z-10">
-              <div className="text-blue-400 text-xs font-bold tracking-widest mb-1">LLM</div>
+            <div className="bg-zinc-900 border-2 border-[#2A6FDB]/50 rounded-xl p-4 w-48 text-center relative shadow-[0_0_30px_rgba(59,130,246,0.15)] z-10">
+              <div className="text-[#2A6FDB] text-xs font-bold tracking-widest mb-1">LLM</div>
               <div className="text-white font-medium">Context Synthesis</div>
             </div>
             
@@ -113,7 +113,7 @@ export const GenAiDashboard = () => {
 
         {/* Bottom Chat Input Simulation */}
         <div className={`mt-8 bg-zinc-900 border ${isProcessing ? 'border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.15)]' : 'border-zinc-800'} rounded-xl p-3 flex items-center gap-4 transition-all duration-500`}>
-          <div className="flex-1 text-zinc-300 text-sm px-2 font-mono">
+          <div className="flex-1 text-[#666] text-sm px-2 font-mono">
             {typedPrompt}
             {!isProcessing && <span className="inline-block w-2 h-4 bg-purple-500 ml-1 animate-pulse"></span>}
           </div>

@@ -23,22 +23,22 @@ export function ServiceFeatures({ features }: ServiceFeaturesProps) {
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <Card key={feature.title} className="relative overflow-hidden bg-white border-zinc-200 hover:shadow-lg transition-shadow duration-300">
+              <Card key={feature.title} className="relative overflow-hidden bg-white border-[#e8e5db] hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="pt-6">
                   {feature.stat ? (
                     <div className="flex flex-col items-center mb-4">
-                      <span className="text-5xl font-bold text-blue-600">{feature.stat}</span>
+                      <span className="text-5xl font-bold text-[#2A6FDB]">{feature.stat}</span>
                       {feature.statLabel && (
-                        <span className="text-sm text-zinc-500 mt-1">{feature.statLabel}</span>
+                        <span className="text-sm text-[#444] mt-1">{feature.statLabel}</span>
                       )}
                     </div>
                   ) : (
-                    <div className="relative flex aspect-square size-12 rounded-full border border-zinc-200 mb-4 items-center justify-center">
-                      <Icon className="size-5 text-blue-600" strokeWidth={1.5} />
+                    <div className="relative flex aspect-square size-12 rounded-full border border-[#e8e5db] mb-4 items-center justify-center">
+                      <Icon className="size-5 text-[#2A6FDB]" strokeWidth={1.5} />
                     </div>
                   )}
-                  <h3 className="text-lg font-semibold text-zinc-900 mb-2">{feature.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg font-semibold text-[#161616] mb-2">{feature.title}</h3>
+                  <p className="text-sm text-[#444] leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
             );

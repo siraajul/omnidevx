@@ -3,29 +3,42 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Services | Omnidevx" ogImage="/og/services.png">
-	<main class="relative w-full min-h-screen bg-black pt-32 pb-16 px-8">
+	<main class="relative w-full min-h-screen pt-32 pb-16 px-8">
 		<div class="max-w-7xl mx-auto">
-			<h1 class="text-5xl md:text-7xl font-black text-indigo-600 mb-6">
-				Our Services
-			</h1>
-			<p class="text-xl text-zinc-400 max-w-2xl mb-16">
-				End-to-end software engineering, from concept to highly scalable cloud deployments. We build platforms that perform.
-			</p>
+			<div class="text-center mb-16">
+				<h1 class="text-5xl md:text-7xl font-display text-[#161616] mb-6">
+					Our <span class="scribble-underline text-[#2A6FDB]">Services</span>
+				</h1>
+				<p class="text-xl text-[#2A2A2A] max-w-2xl mx-auto">
+					End-to-end software engineering, from concept to highly scalable cloud deployments. We build platforms that perform.
+				</p>
+			</div>
 			
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{/* Service Cards Placeholder */}
-				<div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
-					<h3 class="text-2xl font-bold text-white mb-4">Web Applications</h3>
-					<p class="text-zinc-400">High-performance web apps built with modern stacks like React, Next.js, and Astro.</p>
-				</div>
-                <div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
-					<h3 class="text-2xl font-bold text-white mb-4">Mobile Development</h3>
-					<p class="text-zinc-400">Cross-platform native applications using React Native and Expo.</p>
-				</div>
-                <div class="p-8 bg-zinc-900 border border-zinc-800 rounded-3xl hover:border-indigo-500 transition-colors">
-					<h3 class="text-2xl font-bold text-white mb-4">Cloud Infrastructure</h3>
-					<p class="text-zinc-400">Scalable backend architecture and DevOps utilizing AWS, Vercel, and Kubernetes.</p>
-				</div>
+				<a href="/services/web-development" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">Web Applications</h3>
+					<p class="text-[#2A2A2A]">High-performance web apps built with modern stacks like React, Next.js, and Astro.</p>
+				</a>
+                <a href="/services/mobile-development" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">Mobile Development</h3>
+					<p class="text-[#2A2A2A]">Cross-platform native applications using React Native and Expo.</p>
+				</a>
+                <a href="/services/devops-sqa" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">Cloud Infrastructure</h3>
+					<p class="text-[#2A2A2A]">Scalable backend architecture and DevOps utilizing AWS, Vercel, and Kubernetes.</p>
+				</a>
+				<a href="/services/ai-mvp" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">AI-Powered MVP</h3>
+					<p class="text-[#2A2A2A]">From idea to production in weeks using generative AI to accelerate every phase.</p>
+				</a>
+				<a href="/services/generative-ai" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">Generative AI</h3>
+					<p class="text-[#2A2A2A]">Integrate advanced LLMs and intelligent automation directly into your products.</p>
+				</a>
+				<a href="/services/devops-sqa" class="group p-8 bg-white border border-[#e8e5db] rounded-3xl hover:border-[#2A6FDB] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(42,111,219,0.12)]">
+					<h3 class="text-2xl font-display text-[#161616] mb-4 group-hover:text-[#2A6FDB] transition-colors">DevOps & SQA</h3>
+					<p class="text-[#2A2A2A]">CI/CD pipelines, cloud infrastructure, and rigorous Software Quality Assurance.</p>
+				</a>
 			</div>
 		</div>
 	</main>

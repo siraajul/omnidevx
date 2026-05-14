@@ -194,7 +194,7 @@ export function VerticalImageStack() {
 
       {/* Instruction hint */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-none animate-bounce">
-        <div className="flex flex-col items-center gap-2 text-zinc-400">
+        <div className="flex flex-col items-center gap-2 text-[#444]">
           <svg
             width="24"
             height="24"
@@ -230,7 +230,7 @@ export function VerticalImageStack() {
             {String(currentIndex + 1).padStart(2, "0")}
           </span>
           <div className="my-2 h-px w-8 bg-white/20" />
-          <span className="text-sm text-zinc-400 tabular-nums">{String(images.length).padStart(2, "0")}</span>
+          <span className="text-sm text-[#444] tabular-nums">{String(images.length).padStart(2, "0")}</span>
         </div>
       </div>
     </div>
