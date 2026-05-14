@@ -8,12 +8,13 @@ interface Props {
 	gradient: string;
 	accentColor: string;
 	accentBg: string;
+	ogImage?: string;
 }
 
-const { name, category, tagline, gradient, accentColor, accentBg } = Astro.props;
+const { name, category, tagline, gradient, accentColor, accentBg, ogImage } = Astro.props;
 ---
 
-<Layout title={`${name} — Case Study | Omnidevx`} description={tagline}>
+<Layout title={`${name} — Case Study | Omnidevx`} description={tagline} ogImage={ogImage}>
 	<main class="relative w-full">
 		
 		{/* HERO */}

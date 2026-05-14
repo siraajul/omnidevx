@@ -30,10 +30,10 @@
   <rect x="80" y="80" width="120" height="4" rx="2" fill="url(#accent)"/>
   
   <!-- Brand name -->
-  <text x="80" y="200" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" fill="white" letter-spacing="-3">OMNIDEVX</text>
+  <text x="80" y="200" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" fill="white" letter-spacing="-3">{{TITLE}}</text>
   
   <!-- Tagline -->
-  <text x="80" y="270" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="32" font-weight="500" fill="#a1a1aa">Elite Software Engineering Agency</text>
+  <text x="80" y="270" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="32" font-weight="500" fill="#a1a1aa">{{TAGLINE}}</text>
   
   <!-- Service pills -->
   <rect x="80" y="340" width="140" height="40" rx="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>

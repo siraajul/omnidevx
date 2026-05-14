@@ -1,9 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CustomLanyard from "../components/ui/custom-lanyard";
+import { getJobsByDepartment } from "../data/jobs";
+
+const groupedJobs = getJobsByDepartment();
+const departments = Object.keys(groupedJobs);
 ---
 
-<Layout ctaType="careers">
+<Layout 
+	title="Careers | Omnidevx"
+	description="Join our team of exceptional engineers and designers building the future of the web."
+	ctaType="careers"
+	ogImage="/og/careers.png"
+>
 	<main class="relative w-full min-h-screen bg-[#F9F9F7] pt-32 pb-16 px-8">
 		<div class="max-w-7xl mx-auto">
 			<h1
@@ -21,42 +30,34 @@ import CustomLanyard from "../components/ui/custom-lanyard";
 				<CustomLanyard client:load />
 			</div>
 
-			<div class="space-y-4">
-				{/* Job Listing Placeholders */}
-				<a
-					href="#"
-					class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group"
-				>
+			<div class="space-y-16">
+				{departments.map(department => (
 					<div>
-						<h3 class="text-2xl font-bold text-zinc-900 mb-2">
-							Senior Frontend Engineer
-						</h3>
-						<p class="text-zinc-500 font-medium">
-							Remote · Full-time
-						</p>
+						<h2 class="text-2xl font-black text-zinc-900 mb-6 uppercase tracking-widest border-b border-zinc-200 pb-4">
+							{department}
+						</h2>
+						<div class="space-y-4">
+							{groupedJobs[department].map(job => (
+								<a
+									href={`/careers/${job.slug}`}
+									class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group"
+								>
+									<div>
+										<h3 class="text-2xl font-bold text-zinc-900 mb-2">
+											{job.title}
+										</h3>
+										<p class="text-zinc-500 font-medium">
+											{job.location} &middot; {job.type}
+										</p>
+									</div>
+									<span class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform">
+										View Role &rarr;
+									</span>
+								</a>
+							))}
+						</div>
 					</div>
-					<span
-						class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform"
-						>Apply &rarr;</span
-					>
-				</a>
-				<a
-					href="#"
-					class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group"
-				>
-					<div>
-						<h3 class="text-2xl font-bold text-zinc-900 mb-2">
-							Full-Stack Architect
-						</h3>
-						<p class="text-zinc-500 font-medium">
-							Remote · Full-time
-						</p>
-					</div>
-					<span
-						class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform"
-						>Apply &rarr;</span
-					>
-				</a>
+				))}
 			</div>
 		</div>
 	</main>
