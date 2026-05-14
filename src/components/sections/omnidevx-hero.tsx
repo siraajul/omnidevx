@@ -793,7 +793,12 @@ function PerchCreature({ color = '#2a6fdb' }: Readonly<{ color?: string }>) {
 function PhoneMock() {
   const [isFlipped, setIsFlipped] = React.useState(false);
   return (
-    <div className="phone-wrap" onClick={() => setIsFlipped(!isFlipped)} style={{ cursor: 'pointer' }}>
+    <button
+      className="phone-wrap"
+      type="button"
+      onClick={() => setIsFlipped(!isFlipped)}
+      style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0, outline: 'none', textAlign: 'left' }}
+    >
       <div className="phone">
         <div className="phone-flipper" style={{ transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
           <div className="phone-face phone-front">
@@ -806,7 +811,7 @@ function PhoneMock() {
               <div className="app-sub">Built right in.</div>
               <div className="placeholder">[ product screen ]</div>
               <div className="placeholder small">[ list row ]</div>
-              <div className={`app-cta ${!isFlipped ? 'perchable' : ''}`}>Start building</div>
+              <div className={`app-cta ${isFlipped ? '' : 'perchable'}`}>Start building</div>
             </div>
           </div>
           <div className="phone-face phone-back">
@@ -843,7 +848,7 @@ function PhoneMock() {
         />
       </svg>
       <div className="phone-annot">click to flip ↺</div>
-    </div>
+    </button>
   );
 }
 
