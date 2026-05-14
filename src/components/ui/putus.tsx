@@ -43,7 +43,7 @@ interface DomElements {
 
 class PutusEngine {
   x = globalThis.window === undefined ? 0 : globalThis.window.innerWidth / 2;
-  y = globalThis.window === undefined ? 0 : globalThis.window.innerHeight - 30;
+  y = globalThis.window === undefined ? 0 : globalThis.window.innerHeight - 12;
   vx = 0;
   vy = 0;
   
@@ -117,7 +117,7 @@ class PutusEngine {
       this.targetY = targetPos.y;
     } else {
       this.targetX = Math.max(40, Math.min(window.innerWidth - 40, this.x + (Math.random() > 0.5 ? 100 : -100) + (Math.random() * 60)));
-      this.targetY = window.innerHeight - 30;
+      this.targetY = window.innerHeight - 12;
     }
 
     const peakY = Math.min(this.startY, this.targetY) - 160 - Math.random() * 40;
@@ -147,15 +147,23 @@ class PutusEngine {
     this.timer += dt;
     const progress = Math.min(this.timer / this.duration, 1);
     const eased = easeInOutCubic(progress);
+    
+    // In wander, Putus should also hop instead of slide
     this.x = this.startX + (this.targetX - this.startX) * eased;
-    this.y = window.innerHeight - 30; 
+    
+    // Add a bounce to the Y position during wander
+    const hopHeight = 30;
+    const hopY = Math.sin(progress * Math.PI) * hopHeight;
+    this.y = (window.innerHeight - 12) - hopY;
 
     if (progress < 1) {
       this.legLAngle = Math.sin(walkCycle * Math.PI) * 22;
       this.legRAngle = Math.sin(walkCycle * Math.PI + Math.PI) * 22;
-      this.scaleX = 1 - walkBounce * 0.04;
-      this.scaleY = 1 + walkBounce * 0.04;
-      this.bodyYOffset = -walkBounce * 3;
+      
+      // Slight stretch during hop, squash at bottom
+      const hopStretch = Math.sin(progress * Math.PI);
+      this.scaleX = 1 - hopStretch * 0.1;
+      this.scaleY = 1 + hopStretch * 0.15;
     }
 
     if (progress >= 1) {
@@ -175,9 +183,10 @@ class PutusEngine {
     const preJumpDur = 0.15;
     const p = Math.min(this.timer / preJumpDur, 1);
     
-    this.scaleX = 1 + p * 0.1;
-    this.scaleY = 1 - p * 0.18;
-    this.bodyYOffset = p * 4;
+    // Anticipation: Squash down before jumping
+    this.scaleX = 1 + p * 0.2;
+    this.scaleY = 1 - p * 0.3;
+    this.bodyYOffset = p * 8;
     
     if (p >= 1) {
       if (this.targetElement && this.isJumpingOffFlag) {
@@ -194,8 +203,10 @@ class PutusEngine {
     this.x += this.vx * dt;
     this.y += this.vy * dt;
 
-    this.scaleX = 0.95;
-    this.scaleY = 1.08;
+    // Extreme stretch in the air based on vertical velocity
+    const speed = Math.abs(this.vy) / 1000;
+    this.scaleX = Math.max(0.7, 1 - speed * 0.3);
+    this.scaleY = Math.min(1.4, 1 + speed * 0.4);
     
     this.legLAngle = 15;
     this.legRAngle = -15;
@@ -217,19 +228,21 @@ class PutusEngine {
 
   updateLanding(dt: number) {
     this.timer += dt;
-    const landDur = 0.15;
+    const landDur = 0.2;
     const p = Math.min(this.timer / landDur, 1);
     
-    if (p < 0.5) {
-      const p2 = p * 2;
-      this.scaleX = 1 + easeOutQuad(p2) * 0.12;
-      this.scaleY = 1 - easeOutQuad(p2) * 0.22;
-      this.bodyYOffset = easeOutQuad(p2) * 5;
+    if (p < 0.4) {
+      // Squash upon impact
+      const p2 = p / 0.4;
+      this.scaleX = 1 + easeOutQuad(p2) * 0.3;
+      this.scaleY = 1 - easeOutQuad(p2) * 0.4;
+      this.bodyYOffset = easeOutQuad(p2) * 8;
     } else {
-      const p2 = (p - 0.5) * 2;
-      this.scaleX = 1.12 - easeInQuad(p2) * 0.12;
-      this.scaleY = 0.78 + easeInQuad(p2) * 0.22;
-      this.bodyYOffset = 5 - easeInQuad(p2) * 5;
+      // Recover to normal
+      const p2 = (p - 0.4) / 0.6;
+      this.scaleX = 1.3 - easeInQuad(p2) * 0.3;
+      this.scaleY = 0.6 + easeInQuad(p2) * 0.4;
+      this.bodyYOffset = 8 - easeInQuad(p2) * 8;
     }
 
     if (p >= 1) {
@@ -262,19 +275,20 @@ class PutusEngine {
   updateSit(dt: number, t: number) {
     this.timer += dt;
     
-    this.scaleX = 1.06;
-    this.scaleY = 0.9;
-    this.bodyRot = this.isFlipped ? -4 : 4;
-    this.bodyYOffset = 4;
+    // Just breathing naturally
+    this.scaleX = 1.0;
+    this.scaleY = 1.0;
+    this.bodyRot = 0; // No rotation
+    this.bodyYOffset = 0;
 
     const swingL = Math.sin(t * 2) * 12 + 60;
     const swingR = Math.sin((t - 0.35) * 2) * 11 + 45;
-    this.legLAngle = this.isFlipped ? -swingL : swingL;
-    this.legRAngle = this.isFlipped ? -swingR : swingR;
+    this.legLAngle = swingL;
+    this.legRAngle = swingR;
 
-    const breath = Math.sin(t * Math.PI);
-    this.bodyYOffset += breath * 1.6;
-    this.bodyRot += breath * 1.5;
+    const breath = Math.sin(t * Math.PI * 1.5);
+    this.scaleX += breath * 0.02;
+    this.scaleY -= breath * 0.02;
 
     if (this.targetElement) {
        const rect = this.targetElement.getBoundingClientRect();
@@ -299,10 +313,8 @@ class PutusEngine {
   }
 
   update(time: number, dt: number, dom: DomElements) {
-    if (this.state !== 'SIT') {
-      if (this.targetX > this.x + 5) this.isFlipped = false;
-      else if (this.targetX < this.x - 5) this.isFlipped = true;
-    }
+    // We removed flipping to match the video
+    this.isFlipped = false;
 
     this.resetVisuals();
     
@@ -336,9 +348,9 @@ class PutusEngine {
         break;
     }
 
-    // Apply transforms
-    dom.container.style.transform = `translate3d(${this.x}px, ${this.y}px, 0) scaleX(${this.isFlipped ? -1 : 1})`;
-    dom.body.style.transform = `translateY(${this.bodyYOffset}px) scale(${this.scaleX}, ${this.scaleY}) rotate(${this.bodyRot}deg)`;
+    // Apply transforms: Note we removed scaleX(-1) flipping and body rotation
+    dom.container.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
+    dom.body.style.transform = `translateY(${this.bodyYOffset}px) scale(${this.scaleX}, ${this.scaleY})`;
     dom.legL.style.transform = `rotate(${this.legLAngle}deg)`;
     dom.legR.style.transform = `rotate(${this.legRAngle}deg)`;
   }
@@ -389,9 +401,17 @@ export function Putus() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none will-change-transform"
+    <>
+      {/* Global Walkway for Putus */}
+      <div 
+        className="fixed bottom-0 left-0 right-0 h-3 pointer-events-none z-[9998]"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, transparent 0px, transparent 6px, rgba(0,0,0,0.04) 6px, rgba(0,0,0,0.04) 7px)',
+        }}
+      />
+      <div
+        ref={containerRef}
+        className="fixed top-0 left-0 z-[9999] pointer-events-none select-none will-change-transform"
       style={{ 
         width: '40px', 
         height: '40px',
@@ -416,18 +436,31 @@ export function Putus() {
           className="w-full h-full relative origin-bottom will-change-transform"
         >
           {/* Blue Body Surface */}
-          <div className="absolute inset-0 bg-[#2A6FDB] rounded-[20px] border-2 border-[#161616] shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center overflow-hidden">
-            {/* Eyes & Mouth */}
-            <div className="flex flex-col items-center gap-[3px] mt-1">
-              <div className="flex gap-2">
-                <div className="w-1.5 h-1.5 bg-[#161616] rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-[#161616] rounded-full"></div>
+          <div className="absolute inset-0 bg-[#2A6FDB] rounded-full border-2 border-[#161616] shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center overflow-hidden">
+            {/* Face Container */}
+            <div className="flex flex-col items-center mt-1 w-full relative z-10">
+              
+              {/* Eyes */}
+              <div className="flex gap-[6px] justify-center items-center w-full">
+                {/* Left Eye */}
+                <div className="w-[8px] h-[8px] bg-[#161616] rounded-full relative">
+                  <div className="absolute top-[1.5px] left-[1.5px] w-[2.5px] h-[2.5px] bg-white rounded-full"></div>
+                </div>
+                {/* Right Eye */}
+                <div className="w-[8px] h-[8px] bg-[#161616] rounded-full relative">
+                  <div className="absolute top-[1.5px] left-[1.5px] w-[2.5px] h-[2.5px] bg-white rounded-full"></div>
+                </div>
               </div>
-              <div className="w-2 h-1 border-b-2 border-[#161616] rounded-full"></div>
+
+              {/* Simple Smile */}
+              <svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-1">
+                <path d="M 3 2 Q 9 8 15 2" stroke="#161616" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+              </svg>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 }

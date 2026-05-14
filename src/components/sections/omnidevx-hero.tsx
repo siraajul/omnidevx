@@ -460,13 +460,6 @@ export default function OmnidevxHero() {
         </div>
       </div>
 
-      {/* Hatched line decoration at bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-3 pointer-events-none"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(45deg, transparent 0px, transparent 6px, rgba(0,0,0,0.04) 6px, rgba(0,0,0,0.04) 7px)',
-        }}
-      />
     </section>
   );
 }
