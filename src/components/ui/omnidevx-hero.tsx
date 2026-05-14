@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { HeroStatsCard } from "./hero-stats-card";
 
 /* ---------------- LettersPullUp ---------------- */
 interface LettersPullUpProps {
@@ -77,6 +78,12 @@ export default function OmnidevxHero() {
         {/* Gradient overlays for text legibility */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
 
+        {/* Hero Stats Card (Desktop Only) */}
+        <div className="hidden lg:block absolute right-12 xl:right-24 top-[45%] -translate-y-1/2 z-20">
+          <div className="fade-up-anim opacity-0">
+            <HeroStatsCard />
+          </div>
+        </div>
 
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 sm:px-10 md:px-16 lg:pb-12">

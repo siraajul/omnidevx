@@ -10,6 +10,7 @@ interface Props {
 	description?: string;
 	ogImage?: string;
 	canonicalUrl?: string;
+	ctaType?: "default" | "careers";
 }
 
 const SITE_URL = 'https://omnidevx-iota.vercel.app';
@@ -24,6 +25,7 @@ const {
 	description = defaults.description,
 	ogImage = defaults.ogImage,
 	canonicalUrl,
+	ctaType = "default",
 } = Astro.props;
 
 const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
@@ -109,7 +111,7 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 			<div class="flex-grow pb-24 md:pb-32">
 				<slot />
 			</div>
-			<Footer />
+			<Footer ctaType={ctaType} />
 		</SmoothScroll>
 
 		{/* GLOBAL NAVIGATION */}

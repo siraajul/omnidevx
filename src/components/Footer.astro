@@ -1,7 +1,12 @@
 ---
+interface Props {
+    ctaType?: "default" | "careers";
+}
+const { ctaType = "default" } = Astro.props;
+const isCareers = ctaType === "careers";
+
 const currentYear = new Date().getFullYear();
 ---
-
 <footer class="relative w-full bg-[#F9F9F7] border-t border-zinc-200 pt-32 pb-8 overflow-hidden font-sans">
     {/* Subtle Background Glow */}
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
@@ -12,15 +17,25 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
             <div class="max-w-2xl">
                 <h2 class="text-4xl md:text-5xl font-black text-zinc-900 mb-6 tracking-tight leading-tight">
-                    Let's build the <br/>
-                    <span class="text-blue-600">impossible.</span>
+                    {isCareers ? (
+                        <Fragment>Let's build the <br/>
+                        <span class="text-blue-600">future.</span></Fragment>
+                    ) : (
+                        <Fragment>Let's build the <br/>
+                        <span class="text-blue-600">impossible.</span></Fragment>
+                    )}
                 </h2>
-                <p class="text-xl text-zinc-500">Partner with our elite engineering team to scale your vision into reality.</p>
+                <p class="text-xl text-zinc-500">
+                    {isCareers
+                        ? "Join our elite engineering team and help us scale visions into reality."
+                        : "Partner with our elite engineering team to scale your vision into reality."
+                    }
+                </p>
             </div>
-            <a href="#" class="group relative inline-flex items-center justify-center px-8 py-5 bg-zinc-900 text-white font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(99,102,241,0.2)] shrink-0">
+            <a href={isCareers ? "mailto:careers@omnidevx.com" : "#"} class="group relative inline-flex items-center justify-center px-8 py-5 bg-zinc-900 text-white font-bold uppercase tracking-widest text-sm rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(99,102,241,0.2)] shrink-0">
                 <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span class="relative flex items-center gap-2">
-                    Estimate Project
+                    {isCareers ? "Send Resume for Future Openings" : "Estimate Project"}
                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </span>
             </a>

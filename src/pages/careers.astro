@@ -1,32 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import CustomLanyard from "../components/ui/custom-lanyard";
 ---
 
-<Layout>
+<Layout ctaType="careers">
 	<main class="relative w-full min-h-screen bg-[#F9F9F7] pt-32 pb-16 px-8">
 		<div class="max-w-7xl mx-auto">
-			<h1 class="text-5xl md:text-7xl font-black text-zinc-900 mb-6 tracking-tight">
+			<h1
+				class="text-5xl md:text-7xl font-black text-zinc-900 mb-6 tracking-tight"
+			>
 				Careers
 			</h1>
 			<p class="text-xl text-zinc-500 max-w-2xl mb-16">
-				Join our team of exceptional engineers and designers building the future of the web.
+				Join our team of exceptional engineers and designers building
+				the future of the web.
 			</p>
-			
+
+			{/* 2.5D Custom Lanyard Interactive Physics */}
+			<div class="w-full mb-16 relative">
+				<CustomLanyard client:load />
+			</div>
+
 			<div class="space-y-4">
 				{/* Job Listing Placeholders */}
-				<a href="#" class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group">
+				<a
+					href="#"
+					class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group"
+				>
 					<div>
-                        <h3 class="text-2xl font-bold text-zinc-900 mb-2">Senior Frontend Engineer</h3>
-                        <p class="text-zinc-500 font-medium">Remote · Full-time</p>
-                    </div>
-                    <span class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform">Apply &rarr;</span>
+						<h3 class="text-2xl font-bold text-zinc-900 mb-2">
+							Senior Frontend Engineer
+						</h3>
+						<p class="text-zinc-500 font-medium">
+							Remote · Full-time
+						</p>
+					</div>
+					<span
+						class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform"
+						>Apply &rarr;</span
+					>
 				</a>
-                <a href="#" class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group">
+				<a
+					href="#"
+					class="block p-8 bg-white border border-zinc-200 rounded-3xl hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-between group"
+				>
 					<div>
-                        <h3 class="text-2xl font-bold text-zinc-900 mb-2">Full-Stack Architect</h3>
-                        <p class="text-zinc-500 font-medium">Remote · Full-time</p>
-                    </div>
-                    <span class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform">Apply &rarr;</span>
+						<h3 class="text-2xl font-bold text-zinc-900 mb-2">
+							Full-Stack Architect
+						</h3>
+						<p class="text-zinc-500 font-medium">
+							Remote · Full-time
+						</p>
+					</div>
+					<span
+						class="text-blue-600 font-bold group-hover:translate-x-1 transition-transform"
+						>Apply &rarr;</span
+					>
 				</a>
 			</div>
 		</div>

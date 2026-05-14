@@ -4,11 +4,11 @@ import { StoryViewer, type Story } from "@/components/ui/story-viewer";
 const companyStories = [
   {
     username: "Team Offsite",
-    avatar: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=200&h=200&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=200&h=200&fit=crop",
     timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
     stories: [
-      { id: "offsite-1", type: "image" as const, src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=1200&fit=crop" },
-      { id: "offsite-2", type: "image" as const, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1200&fit=crop" },
+      { id: "offsite-1", type: "image" as const, src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=1200&fit=crop" },
+      { id: "offsite-2", type: "image" as const, src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=1200&fit=crop" },
     ],
   },
   {
@@ -16,9 +16,9 @@ const companyStories = [
     avatar: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=200&h=200&fit=crop",
     timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
     stories: [
-      { id: "hack-1", type: "image" as const, src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=1200&fit=crop" },
+      { id: "hack-1", type: "image" as const, src: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&h=1200&fit=crop" },
       { id: "hack-2", type: "video" as const, src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" },
-      { id: "hack-3", type: "image" as const, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=1200&fit=crop" },
+      { id: "hack-3", type: "image" as const, src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=1200&fit=crop" },
     ],
   },
   {
