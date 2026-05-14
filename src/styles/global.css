@@ -3,21 +3,25 @@
 /* ─── Brand Font ─── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* ─── Brand Design Tokens ─── */
-:root {
-  --brand-accent: 37 99 235;        /* blue-600 */
-  --brand-bg: 249 249 247;          /* #F9F9F7 */
-  --brand-text: 24 24 27;           /* zinc-900 */
-  --brand-muted: 113 113 122;       /* zinc-500 */
-  --brand-radius-sm: 0.75rem;
-  --brand-radius-md: 1.5rem;
-  --brand-radius-lg: 2.5rem;
-  --brand-font: 'Inter', system-ui, -apple-system, sans-serif;
+/* ─── Tailwind v4 Theme Configuration (Design Tokens) ─── */
+@theme {
+  --color-brand-accent: #2563eb;
+  --color-brand-bg: #F9F9F7;
+  --color-brand-text: #18181b;
+  --color-brand-muted: #71717a;
+  
+  --font-brand: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --radius-brand-sm: 0.75rem;
+  --radius-brand-md: 1.5rem;
+  --radius-brand-lg: 2.5rem;
 }
 
 html, body {
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  font-family: var(--brand-font);
+  font-family: var(--font-brand);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
 }

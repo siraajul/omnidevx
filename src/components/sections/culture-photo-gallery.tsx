@@ -1,6 +1,6 @@
 "use client";
 
-import { CardStack, type CardStackItem } from "@/components/ui/card-stack";
+import { CardStack, type CardStackItem } from "@/components/sections/card-stack";
 
 const galleryItems: CardStackItem[] = [
   {

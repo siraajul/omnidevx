@@ -1,6 +1,6 @@
 "use client";
-import { BentoFeatures } from "./bento-features";
-import { MOBILE_FEATURES, WEB_FEATURES, AI_FEATURES, DEVOPS_FEATURES, GENAI_FEATURES } from "./service-features";
+import { BentoFeatures } from "../sections/bento-features";
+import { MOBILE_FEATURES, WEB_FEATURES, AI_FEATURES, DEVOPS_FEATURES, GENAI_FEATURES } from "../sections/service-features";
 
 export const MobileFeatures = () => <BentoFeatures features={MOBILE_FEATURES} />;
 export const WebFeatures = () => <BentoFeatures features={WEB_FEATURES} />;

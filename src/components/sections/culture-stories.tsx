@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StoryViewer, type Story } from "@/components/ui/story-viewer";
+import { StoryViewer, type Story } from "@/components/sections/story-viewer";
 
 const companyStories = [
   {

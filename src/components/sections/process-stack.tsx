@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import MagnifiedBento from "./magnified-bento";
 import { useTransform, motion, useScroll, type MotionValue } from "motion/react";
 
 const PROCESS_STEPS = [
@@ -38,6 +37,47 @@ interface ProcessCardProps {
   targetScale: number;
 }
 
+function ProcessCardContent({ step, i }: { step: { title: string; description: string; color: string }, i: number }) {
+  const cleanTitle = step.title.replace(/^\d+\.\s*/, '');
+  
+  return (
+    <div className="relative w-full h-[400px] md:h-[500px] rounded-[2.5rem] bg-white border border-zinc-200 p-8 md:p-16 flex flex-col justify-center overflow-hidden shadow-2xl transition-all duration-500 group">
+      
+      {/* Background Gradients using step.color */}
+      <div 
+        className="absolute -top-32 -right-32 w-96 h-96 opacity-10 blur-[80px] rounded-full transition-transform duration-1000 group-hover:scale-125" 
+        style={{ backgroundColor: step.color }} 
+      />
+      <div 
+        className="absolute -bottom-32 -left-32 w-96 h-96 opacity-10 blur-[80px] rounded-full transition-transform duration-1000 group-hover:scale-125" 
+        style={{ backgroundColor: step.color }} 
+      />
+      
+      {/* Number Watermark */}
+      <div className="absolute -right-4 -bottom-10 text-[200px] md:text-[250px] font-black text-zinc-900/5 select-none pointer-events-none tracking-tighter">
+        0{i + 1}
+      </div>
+
+      <div className="relative z-10 max-w-4xl">
+        {/* Step Badge */}
+        <div 
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-50 border border-zinc-200 shadow-sm mb-6 md:mb-8"
+        >
+          <div className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: step.color }}></div>
+          <span className="text-sm font-bold tracking-widest text-zinc-600 uppercase">Phase 0{i + 1}</span>
+        </div>
+
+        <h3 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 mb-4 md:mb-6">
+          {cleanTitle}
+        </h3>
+        <p className="text-lg md:text-2xl leading-relaxed text-zinc-500">
+          {step.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function ProcessCard({ step, i, progress, range, targetScale }: ProcessCardProps) {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -45,7 +85,6 @@ function ProcessCard({ step, i, progress, range, targetScale }: ProcessCardProps
     offset: ["start end", "start start"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -58,13 +97,9 @@ function ProcessCard({ step, i, progress, range, targetScale }: ProcessCardProps
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className="flex flex-col relative -top-[25%] w-[95%] md:w-[95%] max-w-[1400px] rounded-[2.5rem] origin-top"
+        className="flex flex-col relative -top-[15%] w-[95%] md:w-[90%] max-w-[1200px] rounded-[2.5rem] origin-top will-change-transform"
       >
-        <MagnifiedBento
-          title={step.title}
-          description={step.description}
-          className="w-full !p-0"
-        />
+        <ProcessCardContent step={step} i={i} />
       </motion.div>
     </div>
   );

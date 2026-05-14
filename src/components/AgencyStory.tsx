@@ -1,5 +1,5 @@
 import React from 'react';
-import FlowArt, { FlowSection } from './ui/story-scroll';
+import FlowArt, { FlowSection } from './sections/story-scroll';
 
 export default function AgencyStory() {
   return (
