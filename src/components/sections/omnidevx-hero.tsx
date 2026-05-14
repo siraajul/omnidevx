@@ -3,6 +3,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
+const animateStatNumber = (el: HTMLElement) => {
+  const targetVal = Number.parseFloat(el.dataset.val || '0');
+  const format = el.dataset.format || '';
+  const isFloat = format === 'percent';
+  
+  const obj = { val: 0 };
+  gsap.to(obj, {
+    val: targetVal,
+    duration: 2.5,
+    ease: "power3.out",
+    delay: 0.8,
+    onUpdate: () => {
+      const formatted = isFloat ? obj.val.toFixed(1) : Math.round(obj.val).toString();
+      if (format === 'percent') el.innerHTML = formatted + '%';
+      else if (format === 'plus') el.innerHTML = formatted + '+';
+      else el.innerHTML = formatted;
+    }
+  });
+};
+
 /* ─── Phone Mockup (Right Column) ─── */
 function PhoneMockup() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -284,6 +304,9 @@ export default function OmnidevxHero() {
         }
       );
 
+      // 5. Stat Number Count-up Animation
+      (gsap.utils.toArray('.stat-number') as HTMLElement[]).forEach(animateStatNumber);
+
       // 4. Stagger internal phone UI cards jumping in after the phone enters
       gsap.fromTo('.mockup-card',
         { x: 30, opacity: 0 },
@@ -408,17 +431,19 @@ export default function OmnidevxHero() {
               style={{ fontFamily: "'Kalam', cursive" }}
             >
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-[#161616]">50+</span>
+                <span className="text-2xl font-bold text-[#161616] stat-number inline-block min-w-[40px]" data-val="50" data-format="plus">0+</span>
                 <span className="text-[#444]">products shipped</span>
               </div>
               <div className="w-px h-5 bg-[#e8e5db]" />
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-[#161616]">2 wk</span>
+                <span className="text-2xl font-bold text-[#161616]">
+                  <span className="stat-number inline-block min-w-[24px]" data-val="14" data-format="none">0</span> days
+                </span>
                 <span className="text-[#444]">avg MVP delivery</span>
               </div>
               <div className="w-px h-5 bg-[#e8e5db] hidden sm:block" />
               <div className="hidden sm:flex items-center gap-2">
-                <span className="text-2xl font-bold text-[#161616]">99.9%</span>
+                <span className="text-2xl font-bold text-[#161616] stat-number inline-block min-w-[56px]" data-val="99.9" data-format="percent">0.0%</span>
                 <span className="text-[#444]">uptime SLA</span>
               </div>
             </div>

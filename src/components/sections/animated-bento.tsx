@@ -10,6 +10,7 @@ if (globalThis.window !== undefined) {
 
 function SpeedIndicator() {
   const [loading, setLoading] = useState(true);
+  const numberRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 1200);
@@ -21,9 +22,21 @@ function SpeedIndicator() {
     const interval = setInterval(() => {
       setLoading(true);
       setTimeout(() => setLoading(false), 1200);
-    }, 6000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
+
+  // Count up animation
+  useEffect(() => {
+    if (!loading && numberRef.current) {
+       const obj = { val: 0 };
+       gsap.to(obj, { val: 14, duration: 1.5, ease: "power3.out", onUpdate: () => {
+         if (numberRef.current) numberRef.current.innerHTML = Math.round(obj.val) + " DAYS";
+       }});
+    } else if (loading && numberRef.current) {
+       numberRef.current.innerHTML = "0 DAYS";
+    }
+  }, [loading]);
 
   return (
     <div className="flex flex-col items-center justify-center h-full gap-4 w-full px-4">
@@ -36,8 +49,8 @@ function SpeedIndicator() {
         <div 
           className={`absolute transition-all duration-500 delay-200 ${loading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
         >
-          <span className="text-4xl sm:text-5xl font-display text-[#2A6FDB] tracking-tighter">
-            2 WEEKS
+          <span ref={numberRef} className="text-4xl sm:text-5xl font-display text-[#2A6FDB] tracking-tighter inline-block min-w-[120px] text-center">
+            0 DAYS
           </span>
         </div>
       </div>

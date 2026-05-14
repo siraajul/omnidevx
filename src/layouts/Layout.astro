@@ -4,6 +4,7 @@ import TrackingScripts from '../components/TrackingScripts.astro';
 import { SmoothScroll } from '../components/SmoothScroll';
 import Footer from '../components/Footer.astro';
 import GlobalTabbar from '../components/GlobalTabbar.astro';
+import { Putus } from '../components/ui/putus';
 
 interface Props {
 	title?: string;
@@ -118,6 +119,9 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 
 		{/* GLOBAL NAVIGATION */}
 		<GlobalTabbar />
+
+		{/* PUTUS EASTER EGG */}
+		<Putus client:load />
 
 		{/* GLOBAL EASTER EGGS */}
 		<script>
