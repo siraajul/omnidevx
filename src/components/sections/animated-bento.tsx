@@ -148,9 +148,9 @@ function WebAppsAnimation() {
   }, [isHacked]);
 
   return (
-    <button 
-      type="button"
-      className="flex items-center justify-center h-full w-full p-4 group cursor-pointer relative text-left bg-transparent border-none appearance-none p-0 m-0"
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div 
+      className="flex items-center justify-center h-full w-full p-4 group cursor-pointer relative"
       onDoubleClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -193,7 +193,7 @@ function WebAppsAnimation() {
           </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
