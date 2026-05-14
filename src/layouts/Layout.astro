@@ -108,7 +108,7 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 		{/* Inject Analytics/Tracking via Partytown */}
 		<TrackingScripts />
 	</head>
-	<body class="bg-[#F9F9F7] text-zinc-900 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+	<body class="bg-[#F9F9F7] text-zinc-900 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen overflow-x-hidden w-full relative">
 		<SmoothScroll client:idle>
 			<div class="flex-grow pb-24 md:pb-32">
 				<slot />

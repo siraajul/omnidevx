@@ -194,15 +194,7 @@ import { WorkShowcase } from '../components/sections/work-showcase';
 	
 	gsap.registerPlugin(ScrollTrigger);
 
-	// Initial Hero Animation
-	gsap.to('.hero-anim', {
-		y: 0,
-		opacity: 1,
-		duration: 1,
-		stagger: 0.15,
-		ease: 'power3.out',
-		delay: 0.2
-	});
+
 
 	// ScrollTrigger for Bento Grid & CTA
 	const revealElements = document.querySelectorAll('.gsap-reveal');

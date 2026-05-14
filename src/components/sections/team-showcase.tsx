@@ -212,18 +212,17 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
   };
 
   return (
-    <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-zinc-900/40 backdrop-blur-md overflow-y-auto"
-      onClick={onClose}
-      role="presentation"
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClose(); }}
-    >
-      <div 
-        className="relative w-full max-w-5xl rounded-[32px] border border-zinc-200 bg-white/95 p-8 md:p-12 shadow-2xl m-auto"
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-zinc-900/40 backdrop-blur-md overflow-y-auto">
+      <button 
+        type="button"
+        className="absolute inset-0 w-full h-full cursor-default bg-transparent border-none outline-none"
+        onClick={onClose}
+        aria-label="Close modal"
+      />
+      <dialog 
+        open
+        className="relative w-full max-w-5xl rounded-[32px] border border-zinc-200 bg-white/95 p-8 md:p-12 shadow-2xl m-auto z-10 block"
         aria-modal="true"
-        onKeyDown={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button 
@@ -339,8 +338,7 @@ function PortfolioModal({ member, onClose }: Readonly<{ member: TeamMember, onCl
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </dialog>
     </div>
   );
 }
@@ -366,18 +364,18 @@ function PhotoCard({
   const isDimmed = hoveredId !== null && !isActive;
 
   return (
-    <div
+    <button
+      type="button"
       className={cn(
-        'overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 transition-opacity duration-500',
+        'overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 transition-opacity duration-500 block border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-blue-500',
         className,
         isDimmed ? 'opacity-40' : 'opacity-100',
       )}
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(member.id)}
+      onBlur={() => onHover(null)}
       onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
       <img
         src={member.image}
@@ -388,7 +386,7 @@ function PhotoCard({
         }}
         draggable={false}
       />
-    </div>
+    </button>
   );
 }
 
@@ -410,17 +408,17 @@ function MemberRow({
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
   return (
-    <div
+    <button
+      type="button"
       className={cn(
-        'cursor-pointer transition-opacity duration-300',
+        'cursor-pointer transition-opacity duration-300 block w-full border-none outline-none p-0 bg-transparent text-left focus:ring-2 focus:ring-blue-500 rounded-lg',
         isDimmed ? 'opacity-30' : 'opacity-100',
       )}
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(member.id)}
+      onBlur={() => onHover(null)}
       onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
     >
       {/* Name + social*/}
       <div className="flex items-center gap-3">
@@ -444,6 +442,6 @@ function MemberRow({
       <p className="mt-2 pl-[44px] text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
         {member.role}
       </p>
-    </div>
+    </button>
   );
 }

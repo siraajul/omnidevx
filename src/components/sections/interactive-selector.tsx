@@ -47,12 +47,13 @@ const InteractiveSelector = () => {
   useEffect(() => {
     const timers: NodeJS.Timeout[] = [];
     
-    options.forEach((_, i) => {
-      const timer = setTimeout(() => {
-        setAnimatedOptions(prev => [...prev, i]);
-      }, 180 * i);
-      timers.push(timer);
-    });
+    for (let i = 0; i < options.length; i++) {
+      timers.push(
+        setTimeout(() => {
+          setAnimatedOptions(prev => [...prev, i]);
+        }, 180 * i)
+      );
+    }
     
     return () => {
       timers.forEach(timer => clearTimeout(timer));
@@ -70,10 +71,11 @@ const InteractiveSelector = () => {
       {/* Options Container */}
       <div className="options flex flex-col md:flex-row w-full max-w-[1000px] h-[600px] md:h-[500px] mx-auto items-stretch overflow-hidden relative px-4 md:px-8">
         {options.map((option, index) => (
-          <div
-            key={index}
+          <button
+            type="button"
+            key={option.title}
             className={`
-              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl md:mx-1 my-1 md:my-0 min-h-[80px] md:min-h-0 md:min-w-[70px]
+              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl md:mx-1 my-1 md:my-0 min-h-[80px] md:min-h-0 md:min-w-[70px] border-none outline-none block text-left focus:ring-2 focus:ring-blue-500
               ${activeIndex === index ? 'active' : ''}
             `}
             style={{
@@ -134,7 +136,7 @@ const InteractiveSelector = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
       
