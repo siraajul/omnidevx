@@ -35,6 +35,8 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
 		<!-- Primary Meta Tags -->
@@ -107,7 +109,7 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 		<TrackingScripts />
 	</head>
 	<body class="bg-[#F9F9F7] text-zinc-900 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
-		<SmoothScroll client:load>
+		<SmoothScroll client:idle>
 			<div class="flex-grow pb-24 md:pb-32">
 				<slot />
 			</div>

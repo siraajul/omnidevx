@@ -2,14 +2,21 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 export default function FAQWithSpiral() {
   const spiralRef = useRef<HTMLDivElement | null>(null);
-  const [panelOpen, setPanelOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, 300);
+    return () => clearTimeout(handler);
+  }, [query]);
 
   // Spiral configuration - Light Theme defaults
-  const [cfg, setCfg] = useState({
+  const [cfg] = useState({
     points: 700,
     dotRadius: 1.8,
-    duration: 3.0,
+    duration: 3,
     color: "#2563EB", // Blue-600
     gradient: "ocean" as
       | "none"
@@ -43,15 +50,7 @@ export default function FAQWithSpiral() {
     []
   );
 
-  // Keyboard shortcuts
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const k = e.key.toLowerCase();
-      if (k === "h") setPanelOpen((v) => !v);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  // Keyboard shortcuts removed as they were unused
 
   // Generate spiral SVG and mount
   useEffect(() => {
@@ -163,8 +162,8 @@ export default function FAQWithSpiral() {
     },
   ];
 
-  const filtered = query
-    ? faqs.filter(({ q, a }) => (q + a).toLowerCase().includes(query.toLowerCase()))
+  const filtered = debouncedQuery
+    ? faqs.filter(({ q, a }) => (q + a).toLowerCase().includes(debouncedQuery.toLowerCase()))
     : faqs;
 
   return (
@@ -207,7 +206,7 @@ export default function FAQWithSpiral() {
         <div className="relative">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {filtered.map((item, i) => (
-              <FAQItem key={i} q={item.q} a={item.a} index={i + 1} />
+              <FAQItem key={item.q} q={item.q} a={item.a} index={i + 1} />
             ))}
           </div>
           {filtered.length === 0 && (
@@ -219,7 +218,7 @@ export default function FAQWithSpiral() {
   );
 }
 
-function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
+function FAQItem({ q, a, index }: { readonly q: string; readonly a: string; readonly index: number }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur-sm p-6 transition-all duration-300 hover:border-blue-300 hover:shadow-md">

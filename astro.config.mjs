@@ -11,6 +11,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://omnidevx-iota.vercel.app',
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   integrations: [
     react(),
     partytown({

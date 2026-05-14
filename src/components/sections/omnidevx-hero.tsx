@@ -29,7 +29,7 @@ const LettersPullUp = ({ text, className = "", showAsterisk = false }: LettersPu
   return (
     <div ref={containerRef} className={`inline-flex ${className}`}>
       {letters.map((char, i) => (
-        <span key={i} className="letter-anim inline-block opacity-0 relative">
+        <span key={`${char}-${i}`} className="letter-anim inline-block opacity-0 relative">
           {char}
           {showAsterisk && i === letters.length - 1 && (
             <span className="absolute top-[0.1em] -right-[0.4em] text-[0.31em] text-blue-500">*</span>
@@ -65,6 +65,7 @@ export default function OmnidevxHero() {
           loop
           muted
           playsInline
+          poster="/og/home.png"
           className="absolute inset-0 h-full w-full object-cover opacity-80"
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
         />
@@ -108,7 +109,7 @@ export default function OmnidevxHero() {
               <button
                 className="fade-up-anim opacity-0 group inline-flex items-center gap-4 self-start rounded-full bg-white py-2 pl-6 pr-2 text-sm font-bold uppercase tracking-widest text-black transition-all hover:gap-6 sm:text-base hover:bg-zinc-100"
               >
-                Explore Services
+                Explore Services{" "}
                 <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </span>
