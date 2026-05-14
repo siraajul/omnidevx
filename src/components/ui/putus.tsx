@@ -276,8 +276,8 @@ class PutusEngine {
     this.timer += dt;
     
     // Just breathing naturally
-    this.scaleX = 1.0;
-    this.scaleY = 1.0;
+    this.scaleX = 1;
+    this.scaleY = 1;
     this.bodyRot = 0; // No rotation
     this.bodyYOffset = 0;
 
