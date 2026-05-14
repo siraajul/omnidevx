@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
-import https from 'node:https';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ogOutputDir = resolve(__dirname, '../public/og');
@@ -31,34 +30,29 @@ async function getCachedFont(urls, name, filename) {
   }
 
   // 2. Otherwise, download it once
+  const errors = [];
   for (const url of urls) {
     try {
       console.log(`📥 Downloading remote font ${name}...`);
-      const buffer = await new Promise((resolve, reject) => {
-        https.get(url, (res) => {
-          if (res.statusCode === 302 || res.statusCode === 301) {
-            return https.get(res.headers.location, handleResponse).on('error', reject);
-          }
-          function handleResponse(res) {
-            if (res.statusCode !== 200) return reject(new Error(`Status: ${res.statusCode}`));
-            const data = [];
-            res.on('data', chunk => data.push(chunk));
-            res.on('end', () => resolve(Buffer.concat(data)));
-            res.on('error', reject);
-          }
-          handleResponse(res);
-        }).on('error', reject);
-      });
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP Status ${response.status}`);
+      }
+      
+      const arrayBuffer = await response.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
       
       // Save it permanently so Vercel never has to download it again
       fs.writeFileSync(localPath, buffer);
       console.log(`✅ Saved ${name} font to local cache!`);
       return buffer;
     } catch (e) {
-      if (process.env.DEBUG) console.debug(`Failed to download from ${url}`);
+      errors.push(e);
+      console.warn(`⚠️ Failed to download from ${url}:`, e.message);
     }
   }
-  throw new Error(`Could not download ${name}`);
+  throw new Error(`Could not download ${name}. Errors: ${errors.map((e) => e.message).join(', ')}`);
 }
 
 // Base static pages

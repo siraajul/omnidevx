@@ -26,61 +26,36 @@ import { WorkShowcase } from '../components/sections/work-showcase';
 			
 			<p class="text-center text-sm font-hand text-[#444] mb-8">trusted by innovative companies</p>
 			
-			<div class="flex w-max animate-marquee">
-				<div class="flex gap-12 md:gap-24 px-6 md:px-12 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-					{/* Ruby */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-rose-500"><path d="M12 22L2 12l10-10 10 10-10 10z" fill="currentColor" /></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Ruby</h3>
+			<div class="flex w-max animate-marquee hover:[animation-play-state:paused]">
+				{[...Array(4)].map(() => (
+					<div class="flex gap-12 md:gap-24 px-6 md:px-12 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+						{/* Ruby */}
+						<div class="flex items-center gap-3 shrink-0">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-rose-500"><path d="M12 22L2 12l10-10 10 10-10 10z" fill="currentColor" /></svg>
+							<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Ruby</h3>
+						</div>
+						{/* Chipset */}
+						<div class="flex items-center gap-3 shrink-0">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-blue-500"><path d="M6 6h12v12H6z" fill="currentColor"/><path d="M4 8h2M4 12h2M4 16h2M18 8h2M18 12h2M18 16h2M8 4v2M12 4v2M16 4v2M8 18v2M12 18v2M16 18v2" stroke="currentColor" stroke-width="2"/></svg>
+							<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Chipset</h3>
+						</div>
+						{/* Acme Corp */}
+						<div class="flex items-center gap-3 shrink-0">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-indigo-500"><path d="M12 2l9 5v10l-9 5-9-5V7z" fill="currentColor"/></svg>
+							<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Acme Corp</h3>
+						</div>
+						{/* Nexus */}
+						<div class="flex items-center gap-3 shrink-0">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-500"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+							<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Nexus</h3>
+						</div>
+						{/* GlobalAI */}
+						<div class="flex items-center gap-3 shrink-0">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-sky-500"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+							<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">GlobalAI</h3>
+						</div>
 					</div>
-					{/* Chipset */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-blue-500"><path d="M6 6h12v12H6z" fill="currentColor"/><path d="M4 8h2M4 12h2M4 16h2M18 8h2M18 12h2M18 16h2M8 4v2M12 4v2M16 4v2M8 18v2M12 18v2M16 18v2" stroke="currentColor" stroke-width="2"/></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Chipset</h3>
-					</div>
-					{/* Acme Corp */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-indigo-500"><path d="M12 2l9 5v10l-9 5-9-5V7z" fill="currentColor"/></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Acme Corp</h3>
-					</div>
-					{/* Nexus */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-500"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Nexus</h3>
-					</div>
-					{/* GlobalAI */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-sky-500"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">GlobalAI</h3>
-					</div>
-				</div>
-				<div class="flex gap-12 md:gap-24 px-6 md:px-12 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-					{/* Ruby */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-rose-500"><path d="M12 22L2 12l10-10 10 10-10 10z" fill="currentColor" /></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Ruby</h3>
-					</div>
-					{/* Chipset */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-blue-500"><path d="M6 6h12v12H6z" fill="currentColor"/><path d="M4 8h2M4 12h2M4 16h2M18 8h2M18 12h2M18 16h2M8 4v2M12 4v2M16 4v2M8 18v2M12 18v2M16 18v2" stroke="currentColor" stroke-width="2"/></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Chipset</h3>
-					</div>
-					{/* Acme Corp */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-indigo-500"><path d="M12 2l9 5v10l-9 5-9-5V7z" fill="currentColor"/></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Acme Corp</h3>
-					</div>
-					{/* Nexus */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-500"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">Nexus</h3>
-					</div>
-					{/* GlobalAI */}
-					<div class="flex items-center gap-3 shrink-0">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-sky-500"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-						<h3 class="text-2xl font-bold text-zinc-900 tracking-tight">GlobalAI</h3>
-					</div>
-				</div>
+				))}
 			</div>
 		</section>
 
@@ -180,11 +155,11 @@ import { WorkShowcase } from '../components/sections/work-showcase';
 		100% { background-position: 0% 50%; }
 	}
 	.animate-marquee {
-		animation: marquee 20s linear infinite;
+		animation: marquee 30s linear infinite;
 	}
 	@keyframes marquee {
 		0% { transform: translateX(0%); }
-		100% { transform: translateX(-50%); }
+		100% { transform: translateX(-25%); }
 	}
 </style>
 

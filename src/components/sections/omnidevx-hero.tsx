@@ -7,58 +7,77 @@ import gsap from "gsap";
 function PhoneMockup() {
   return (
     <div className="relative flex items-center justify-center">
-      {/* Phone Frame */}
+      {/* Phone Hardware Frame */}
       <div
-        className="relative w-[260px] sm:w-[280px] md:w-[300px] flex flex-col bg-white rounded-[2.5rem] p-4 gap-3"
-        style={{ boxShadow: 'rgba(17, 17, 17, 0.13) 6px 8px 0px 0px' }}
+        className="relative w-[280px] h-[580px] sm:w-[300px] sm:h-[620px] bg-white border-[12px] border-[#161616] rounded-[3rem] overflow-hidden flex flex-col"
+        style={{ boxShadow: 'rgba(17, 17, 17, 0.15) 15px 20px 0px -5px' }}
       >
-        {/* Notch */}
-        <div className="mx-auto w-20 h-5 bg-[#f5f3ea] rounded-full" />
+        {/* Hardware details: Side buttons */}
+        <div className="absolute -left-[16px] top-[100px] w-[4px] h-8 bg-[#161616] rounded-l-md" />
+        <div className="absolute -left-[16px] top-[150px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
+        <div className="absolute -left-[16px] top-[210px] w-[4px] h-12 bg-[#161616] rounded-l-md" />
+        <div className="absolute -right-[16px] top-[160px] w-[4px] h-16 bg-[#161616] rounded-r-md" />
 
-        {/* Screen Content */}
-        <div className="flex flex-col gap-3 px-2 pb-4">
+        {/* Screen Background */}
+        <div className="absolute inset-0 bg-[#FDFCF7] z-0" />
+
+        {/* Dynamic Island / Notch */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-7 bg-[#161616] rounded-full z-20 flex items-center justify-end px-2 shadow-sm">
+           {/* Camera lens reflection */}
+           <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-[#222] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]" />
+        </div>
+
+        {/* Screen Content Wrapper */}
+        <div className="relative z-10 flex-1 flex flex-col pt-14 px-5 pb-6 overflow-hidden">
+          
           {/* App Header */}
           <div className="flex items-center justify-between" style={{ fontFamily: "'Kalam', cursive" }}>
-            <span className="text-sm text-[#161616] font-normal">◀ omnidevx</span>
-            <span className="text-[#444] text-sm">· · ·</span>
+            <span className="text-sm text-[#161616] font-semibold tracking-wide">◀ omnidev<span className="text-[#2A6FDB]">X</span></span>
+            <span className="text-[#161616] font-bold text-xl leading-none -mt-2 tracking-widest">...</span>
           </div>
 
           {/* App Headline */}
-          <div>
-            <h3 className="text-[26px] font-bold text-[#161616] leading-tight" style={{ fontFamily: "'Caveat', cursive" }}>
-              your MVP, live.
+          <div className="mt-8">
+            <h3 className="text-[36px] font-bold text-[#161616] leading-[1.05]" style={{ fontFamily: "'Caveat', cursive" }}>
+              your MVP,<br/>live.
             </h3>
-            <p className="text-sm text-[#444] mt-1">from idea to production in 14 days.</p>
+            <p className="text-sm text-[#444] mt-2 leading-relaxed">
+              from idea to production in just 14 days.
+            </p>
           </div>
 
-          {/* Placeholder Cards */}
-          <div className="flex flex-col gap-2.5 mt-1">
-            <div
-              className="w-full h-20 rounded-xl flex items-center justify-center text-xs text-[#444]"
-              style={{
-                fontFamily: "'Kalam', cursive",
-                backgroundImage: 'repeating-linear-gradient(45deg, #fafaf3 0px, #fafaf3 10px, #f4f1e6 10px, #f4f1e6 20px)'
-              }}
-            >
-              [ live dashboard ]
+          {/* Spacer to push content down */}
+          <div className="flex-1" />
+
+          {/* Placeholder UI Elements (Simulating a sleek app interface) */}
+          <div className="flex flex-col gap-3 w-full">
+            <div className="mockup-card opacity-0 w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02] cursor-pointer">
+               <div className="w-10 h-10 rounded-xl bg-[#2A6FDB]/10 flex items-center justify-center">
+                 <span className="text-[#2A6FDB] text-lg">⚡</span>
+               </div>
+               <div className="flex flex-col">
+                 <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">Live Dashboard</span>
+                 <span className="text-[10px] text-[#71717a]">Real-time analytics</span>
+               </div>
             </div>
-            <div
-              className="w-full h-10 rounded-lg flex items-center justify-center text-xs text-[#444]"
-              style={{
-                fontFamily: "'Kalam', cursive",
-                backgroundImage: 'repeating-linear-gradient(135deg, #fbfaf1 0px, #fbfaf1 10px, #f1ecdb 10px, #f1ecdb 20px)'
-              }}
-            >
-              [ API metrics ]
+
+            <div className="mockup-card opacity-0 w-full bg-white rounded-2xl p-3 border border-[#e8e5db] shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.02] cursor-pointer">
+               <div className="w-10 h-10 rounded-xl bg-[#FF8C42]/10 flex items-center justify-center">
+                 <span className="text-[#FF8C42] text-lg">⚙️</span>
+               </div>
+               <div className="flex flex-col">
+                 <span className="text-xs font-bold text-[#161616] uppercase tracking-wide">API Metrics</span>
+                 <span className="text-[10px] text-[#71717a]">0 ms latency • 100% uptime</span>
+               </div>
             </div>
           </div>
 
           {/* App CTA Button */}
           <button
-            className="w-full mt-1 py-3 bg-[#111] text-white text-sm rounded-xl transition-colors hover:bg-[#2A6FDB]"
+            className="w-full mt-5 py-4 bg-[#161616] text-white text-[16px] rounded-2xl transition-transform active:scale-95 hover:bg-[#2A6FDB] shadow-md"
             style={{ fontFamily: "'Kalam', cursive" }}
           >
-            start building →
+            open app →
           </button>
         </div>
       </div>
@@ -66,6 +85,7 @@ function PhoneMockup() {
       {/* Annotation below phone */}
       <span
         className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-[#2A6FDB] italic whitespace-nowrap"
+        style={{ fontFamily: "'Kalam', cursive" }}
       >
         ← what we deliver →
       </span>
@@ -77,11 +97,22 @@ function PhoneMockup() {
 function OrangeBlob() {
   return (
     <svg
-      className="absolute -right-20 -top-20 w-[400px] h-[400px] opacity-20 pointer-events-none select-none z-0"
+      className="absolute -right-20 -top-20 w-[400px] h-[400px] opacity-20 pointer-events-none select-none z-0 blob-animate"
       viewBox="0 0 400 400"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <style>{`
+        .blob-animate {
+          animation: blob-spin 25s ease-in-out infinite;
+          transform-origin: center;
+        }
+        @keyframes blob-spin {
+          0% { transform: rotate(0deg) scale(1); }
+          50% { transform: rotate(180deg) scale(1.15); }
+          100% { transform: rotate(360deg) scale(1); }
+        }
+      `}</style>
       <path
         d="M280 60c60 30 100 90 100 160s-50 130-120 150c-70 20-140-10-180-60S30 180 70 120C110 60 180 10 280 60z"
         fill="#FF8C42"
@@ -103,15 +134,41 @@ export default function OmnidevxHero() {
   useEffect(() => {
     if (!containerRef.current) return;
     const ctx = gsap.context(() => {
-      // Animate left column content
+      // 1. Animate left column content
       gsap.fromTo('.hero-fade',
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.2 }
       );
-      // Animate phone mockup
+      
+      // 2. Draw the scribble underline dynamically
+      gsap.to('.scribble-svg path', {
+        strokeDashoffset: 0,
+        duration: 0.8,
+        ease: 'power2.inOut',
+        delay: 1
+      });
+
+      // 3. Animate phone mockup entrance, then seamlessly transition into a continuous float
       gsap.fromTo('.hero-phone',
         { y: 60, opacity: 0, rotate: 3 },
-        { y: 0, opacity: 1, rotate: 0, duration: 1.2, ease: 'power3.out', delay: 0.6 }
+        { 
+          y: 0, opacity: 1, rotate: 0, duration: 1.2, ease: 'power3.out', delay: 0.6,
+          onComplete: () => {
+            gsap.to('.hero-phone', {
+              y: -15,
+              duration: 2.5,
+              yoyo: true,
+              repeat: -1,
+              ease: 'sine.inOut'
+            });
+          }
+        }
+      );
+
+      // 4. Stagger internal phone UI cards jumping in after the phone enters
+      gsap.fromTo('.mockup-card',
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'back.out(1.7)', delay: 1.2 }
       );
     }, containerRef);
     return () => ctx.revert();
@@ -156,7 +213,12 @@ export default function OmnidevxHero() {
               style={{ fontFamily: "'Caveat', cursive", fontWeight: 700 }}
             >
               we build{' '}
-              <span className="scribble-underline text-[#2A6FDB]">AI-powered products</span>{' '}
+              <span className="relative inline-block whitespace-nowrap">
+                <span className="relative z-10 text-[#2A6FDB]">AI-powered products</span>
+                <svg className="absolute w-full h-[14px] -bottom-1 left-0 stroke-[#2A6FDB] z-0 scribble-svg pointer-events-none" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none">
+                  <path d="M 3 9 C 50 2 150 2 197 9" strokeWidth="4" strokeLinecap="round" strokeDasharray="200" strokeDashoffset="200" />
+                </svg>
+              </span>{' '}
               that ship in weeks, not months.
             </h1>
 
@@ -165,28 +227,65 @@ export default function OmnidevxHero() {
               an elite engineering agency for startups who need production-ready MVPs, scalable platforms, and intelligent automation — without the big-agency overhead.
             </p>
 
-            {/* CTA Buttons Row */}
+            {/* CTA Buttons & Social Proof Row */}
             <div
-              className="hero-fade opacity-0 flex flex-wrap items-center gap-4 mt-2"
+              className="hero-fade opacity-0 flex flex-wrap items-center gap-6 mt-4"
               style={{ fontFamily: "'Kalam', cursive" }}
             >
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#111] text-white text-lg rounded-full transition-all duration-300 hover:bg-[#2A6FDB] hover:shadow-lg hover:scale-105"
-              >
-                start a project →
-              </a>
-              <a
-                href="/portfolio"
-                className="inline-flex items-center gap-2 px-5 py-3.5 text-[#161616] text-lg border-b-2 border-[#161616] rounded-none transition-all duration-300 hover:text-[#2A6FDB] hover:border-[#2A6FDB]"
-              >
-                see our work
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#111] text-white text-lg rounded-full transition-all duration-300 hover:bg-[#2A6FDB] hover:shadow-lg hover:scale-105"
+                >
+                  start a project →
+                </a>
+                <a
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 text-[#161616] text-lg border-b-2 border-[#161616] rounded-none transition-all duration-300 hover:text-[#2A6FDB] hover:border-[#2A6FDB]"
+                >
+                  see our work
+                </a>
+              </div>
+
+              {/* Animated Avatar Group (Moved here for better conversion & layout) */}
+              <div className="hidden sm:flex items-center gap-3 pl-2 sm:pl-4 sm:border-l sm:border-[#e8e5db]">
+                <div className="flex items-center -space-x-3 rtl:space-x-reverse">
+                  {[
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80",
+                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80",
+                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80",
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
+                  ].map((src, idx) => (
+                    <img
+                      key={src}
+                      className="w-9 h-9 rounded-full border-2 border-[#FDFCF7] shadow-sm object-cover hover:-translate-y-1 transition-transform duration-300"
+                      src={src}
+                      alt="Client Avatar"
+                      style={{
+                        animation: `float 3s ease-in-out infinite`,
+                        animationDelay: `${idx * 0.2}s`
+                      }}
+                    />
+                  ))}
+                  <style>{`
+                    @keyframes float {
+                      0%, 100% { transform: translateY(0); }
+                      50% { transform: translateY(-4px); }
+                    }
+                  `}</style>
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <div className="flex items-center gap-0.5 text-[#f59e0b] text-[10px]">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <span className="text-[11px] text-[#444] font-sans tracking-wide mt-0.5 uppercase">Loved by founders</span>
+                </div>
+              </div>
             </div>
 
-            {/* Stat Strip */}
+            {/* Core Stat Strip (Restored Original Alignment) */}
             <div
-              className="hero-fade opacity-0 flex flex-wrap items-center gap-5 sm:gap-6 mt-4 text-sm"
+              className="hero-fade opacity-0 flex flex-wrap items-center gap-5 sm:gap-6 mt-6 text-sm"
               style={{ fontFamily: "'Kalam', cursive" }}
             >
               <div className="flex items-center gap-2">
@@ -208,8 +307,10 @@ export default function OmnidevxHero() {
           </div>
 
           {/* ── RIGHT COLUMN (Phone Mockup) ── */}
-          <div className="hero-phone opacity-0 hidden lg:flex items-center justify-center lg:justify-end">
-            <PhoneMockup />
+          <div className="hero-phone opacity-0 hidden lg:flex items-center justify-center lg:justify-end xl:pr-8">
+            <div className="transform transition-transform duration-500 origin-center lg:origin-right lg:scale-[0.95] xl:scale-[1.15]">
+              <PhoneMockup />
+            </div>
           </div>
 
         </div>
