@@ -30,14 +30,14 @@ const PROCESS_STEPS = [
 ];
 
 interface ProcessCardProps {
-  step: { title: string; description: string; color: string };
-  i: number;
-  progress: MotionValue<number>;
-  range: [number, number];
-  targetScale: number;
+  readonly step: { readonly title: string; readonly description: string; readonly color: string };
+  readonly i: number;
+  readonly progress: MotionValue<number>;
+  readonly range: [number, number];
+  readonly targetScale: number;
 }
 
-function ProcessCardContent({ step, i }: { step: { title: string; description: string; color: string }, i: number }) {
+function ProcessCardContent({ step, i }: Readonly<{ step: Readonly<{ title: string; description: string; color: string }>; i: number }>) {
   const cleanTitle = step.title.replace(/^\d+\.\s*/, '');
   
   return (
@@ -79,24 +79,17 @@ function ProcessCardContent({ step, i }: { step: { title: string; description: s
 }
 
 function ProcessCard({ step, i, progress, range, targetScale }: ProcessCardProps) {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "start start"],
-  });
-
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
     <div
-      ref={container}
       className="h-screen flex items-center justify-center sticky top-0"
     >
       <motion.div
         style={{
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
-        }}
+        } as any}
         className="flex flex-col relative -top-[15%] w-[95%] md:w-[90%] max-w-[1200px] rounded-[2.5rem] origin-top will-change-transform"
       >
         <ProcessCardContent step={step} i={i} />

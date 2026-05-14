@@ -64,7 +64,7 @@ if (fs.existsSync(oldSanityPath)) {
   try {
     fs.rmdirSync(path.join(srcDir, 'utils'));
     console.log(`  Deleted empty src/utils folder`);
-  } catch (e) {
+  } catch {
     console.log(`  Note: Could not delete src/utils (might not be empty)`);
   }
 }
@@ -79,10 +79,8 @@ function getAllFiles(dirPath, arrayOfFiles) {
   files.forEach(function(file) {
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
       filesArray = getAllFiles(dirPath + "/" + file, filesArray);
-    } else {
-      if (file.endsWith('.astro') || file.endsWith('.tsx') || file.endsWith('.ts')) {
-        filesArray.push(path.join(dirPath, file));
-      }
+    } else if (file.endsWith('.astro') || file.endsWith('.tsx') || file.endsWith('.ts')) {
+      filesArray.push(path.join(dirPath, file));
     }
   });
   return filesArray;
@@ -111,7 +109,7 @@ allFiles.forEach(file => {
   }
 
   // Replace utils/sanity -> lib/sanity
-  content = content.replace(/utils\/sanity/g, 'lib/sanity');
+  content = content.replaceAll('utils/sanity', 'lib/sanity');
 
   if (content !== originalContent) {
     fs.writeFileSync(file, content, 'utf-8');
