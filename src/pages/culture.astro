@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InteractiveSelector from '../components/ui/interactive-selector';
+import CultureStoriesList from '../components/ui/culture-stories';
+import CulturePhotoGallery from '../components/ui/culture-photo-gallery';
+---
+
+<Layout>
+	<main class="relative w-full min-h-screen bg-[#F9F9F7] pt-32 pb-16 overflow-hidden">
+        {/* Subtle Background Glow */}
+        <div class="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-blue-100/50 to-transparent pointer-events-none -z-10"></div>
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-cyan-100/30 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+		{/* HERO SECTION */}
+		<div class="max-w-7xl mx-auto px-8 relative z-10 mb-20 text-center">
+            <h1 class="text-5xl md:text-7xl font-black text-zinc-900 mb-6 tracking-tight">
+                Our <span class="text-blue-600">Culture.</span>
+            </h1>
+            <p class="text-xl text-zinc-600 max-w-2xl mx-auto">
+                We are a collective of engineers, designers, and dreamers. We build exceptional software by fostering an environment of radical transparency and relentless curiosity.
+            </p>
+		</div>
+
+        {/* STORY VIEWER GALLERY */}
+        <CultureStoriesList client:load />
+
+        {/* 3D CARD STACK PHOTO GALLERY */}
+        <CulturePhotoGallery client:load />
+
+        {/* 5 PRINCIPLES INTERACTIVE SELECTOR */}
+        <section class="max-w-7xl mx-auto px-8 mb-24">
+            <InteractiveSelector client:load />
+        </section>
+
+	</main>
+</Layout>
