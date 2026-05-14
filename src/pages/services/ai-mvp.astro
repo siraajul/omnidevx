@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { ContainerScroll } from '../../components/ui/container-scroll-animation';
 import { AiMvpDashboard } from '../../components/ui/dashboards/AiMvpDashboard';
+import { AiFeatures } from '../../components/ui/feature-wrappers';
 ---
 
 <Layout>
@@ -21,6 +22,15 @@ import { AiMvpDashboard } from '../../components/ui/dashboards/AiMvpDashboard';
 				<AiMvpDashboard />
 			</ContainerScroll>
 		</div>
+
+		{/* CORE COMPETENCIES */}
+		<section class="py-16 border-t border-zinc-900 bg-zinc-950/30">
+			<div class="max-w-6xl mx-auto px-8 text-center mb-8">
+				<h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Core <span class="text-purple-400">Competencies</span></h2>
+				<p class="text-zinc-400 max-w-xl mx-auto">AI-first engineering for rapid market entry.</p>
+			</div>
+			<AiFeatures client:visible />
+		</section>
 
 		{/* HOW WE APPROACH IT */}
 		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">

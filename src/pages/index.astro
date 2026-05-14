@@ -10,6 +10,7 @@ import GlobeSection from '../components/ui/globe-section';
 import AnimatedBento from '../components/ui/animated-bento';
 import MagnifiedBento from '../components/ui/magnified-bento';
 import { ProcessStack } from '../components/ui/process-stack';
+import { WorkShowcase } from '../components/ui/work-showcase';
 ---
 
 <Layout>
@@ -53,6 +54,11 @@ import { ProcessStack } from '../components/ui/process-stack';
 				<AnimatedBento client:visible />
 			</div>
 		</section>
+
+		{/* OUR WORK SHOWCASE */}
+		<div class="border-t border-zinc-200">
+			<WorkShowcase client:visible />
+		</div>
 
 		{/* PROCESS — STACKING CARDS (naturally follows services: what we do → how we do it) */}
 		<section id="process" class="relative w-full bg-white border-t border-zinc-200 pt-32 pb-0">
