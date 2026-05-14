@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { CardStack, type CardStackItem } from "@/components/sections/card-stack";
 
 const galleryItems: CardStackItem[] = [
@@ -36,6 +37,29 @@ const galleryItems: CardStackItem[] = [
 ];
 
 export default function CulturePhotoGallery() {
+  const [dimensions, setDimensions] = useState({ width: 600, height: 400 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 480) {
+        setDimensions({ width: 320, height: 420 });
+      } else if (w < 768) {
+        setDimensions({ width: 480, height: 400 });
+      } else {
+        setDimensions({ width: 600, height: 400 });
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (!mounted) return <div className="w-full h-[600px]"></div>;
+
   return (
     <div className="w-full flex justify-center py-16 mb-8 overflow-hidden">
       <div className="w-full max-w-5xl px-4 md:px-8">
@@ -50,8 +74,8 @@ export default function CulturePhotoGallery() {
           intervalMs={3000}
           pauseOnHover
           showDots
-          cardWidth={600}
-          cardHeight={400}
+          cardWidth={dimensions.width}
+          cardHeight={dimensions.height}
           className="mx-auto"
         />
       </div>

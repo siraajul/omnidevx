@@ -175,7 +175,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
         </div>
 
         {/* ── Right: member name list*/}
-        <div className="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-col gap-6 md:gap-8 pt-8 md:pt-12 flex-1 w-full max-w-md">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:flex md:flex-col gap-6 md:gap-8 pt-8 md:pt-12 flex-1 w-full max-w-md">
           {members.map((member) => (
             <MemberRow
               key={member.id}

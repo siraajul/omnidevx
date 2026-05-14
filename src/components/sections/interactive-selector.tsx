@@ -68,22 +68,22 @@ const InteractiveSelector = () => {
       </div>
 
       {/* Options Container */}
-      <div className="options flex w-full max-w-[1000px] h-[500px] mx-auto items-stretch overflow-hidden relative px-4 md:px-8">
+      <div className="options flex flex-col md:flex-row w-full max-w-[1000px] h-[600px] md:h-[500px] mx-auto items-stretch overflow-hidden relative px-4 md:px-8">
         {options.map((option, index) => (
           <div
             key={index}
             className={`
-              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl mx-1
+              relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-2xl md:mx-1 my-1 md:my-0 min-h-[80px] md:min-h-0 md:min-w-[70px]
               ${activeIndex === index ? 'active' : ''}
             `}
             style={{
               backgroundImage: `url('${option.image}')`,
-              backgroundSize: activeIndex === index ? 'auto 100%' : 'auto 120%',
+              backgroundSize: 'cover',
               backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
               backfaceVisibility: 'hidden',
               opacity: animatedOptions.includes(index) ? 1 : 0,
               transform: animatedOptions.includes(index) ? 'translateX(0)' : 'translateX(-60px)',
-              minWidth: '70px',
               cursor: 'pointer',
               backgroundColor: '#18181b',
               boxShadow: activeIndex === index 
