@@ -5,12 +5,12 @@
       <stop offset="100%" style="stop-color:#18181b"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2563eb"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
+      <stop offset="0%" style="stop-color:{{COLOR_MAIN}}"/>
+      <stop offset="100%" style="stop-color:{{COLOR_LIGHT}}"/>
     </linearGradient>
     <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0"/>
+      <stop offset="0%" style="stop-color:{{COLOR_MAIN}};stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:{{COLOR_MAIN}};stop-opacity:0"/>
     </linearGradient>
   </defs>
   
@@ -36,17 +36,17 @@
   <text x="80" y="270" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="32" font-weight="500" fill="#a1a1aa">{{TAGLINE}}</text>
   
   <!-- Service pills -->
-  <rect x="80" y="340" width="140" height="40" rx="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-  <text x="150" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1">AI / ML</text>
+  <rect x="80" y="340" width="140" height="40" rx="20" fill="{{COLOR_MAIN}}" fill-opacity="0.15" stroke="{{COLOR_MAIN}}" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="150" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="{{COLOR_LIGHT}}" text-anchor="middle" letter-spacing="1">AI / ML</text>
   
-  <rect x="240" y="340" width="180" height="40" rx="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-  <text x="330" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1">WEB APPS</text>
+  <rect x="240" y="340" width="180" height="40" rx="20" fill="{{COLOR_MAIN}}" fill-opacity="0.15" stroke="{{COLOR_MAIN}}" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="330" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="{{COLOR_LIGHT}}" text-anchor="middle" letter-spacing="1">WEB APPS</text>
   
-  <rect x="440" y="340" width="160" height="40" rx="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-  <text x="520" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1">MOBILE</text>
+  <rect x="440" y="340" width="160" height="40" rx="20" fill="{{COLOR_MAIN}}" fill-opacity="0.15" stroke="{{COLOR_MAIN}}" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="520" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="{{COLOR_LIGHT}}" text-anchor="middle" letter-spacing="1">MOBILE</text>
   
-  <rect x="620" y="340" width="160" height="40" rx="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
-  <text x="700" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1">DEVOPS</text>
+  <rect x="620" y="340" width="160" height="40" rx="20" fill="{{COLOR_MAIN}}" fill-opacity="0.15" stroke="{{COLOR_MAIN}}" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="700" y="366" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="{{COLOR_LIGHT}}" text-anchor="middle" letter-spacing="1">DEVOPS</text>
   
   <!-- Bottom domain -->
   <text x="80" y="560" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#71717a" letter-spacing="2">OMNIDEVX.COM</text>
@@ -55,7 +55,7 @@
   <rect x="80" y="580" width="1040" height="1" fill="rgba(255,255,255,0.06)"/>
   
   <!-- Right side decorative elements -->
-  <circle cx="1050" cy="160" r="6" fill="#2563eb" opacity="0.6"/>
-  <circle cx="1080" cy="190" r="4" fill="#2563eb" opacity="0.4"/>
-  <circle cx="1020" cy="200" r="3" fill="#2563eb" opacity="0.3"/>
+  <circle cx="1050" cy="160" r="6" fill="{{COLOR_MAIN}}" opacity="0.6"/>
+  <circle cx="1080" cy="190" r="4" fill="{{COLOR_MAIN}}" opacity="0.4"/>
+  <circle cx="1020" cy="200" r="3" fill="{{COLOR_MAIN}}" opacity="0.3"/>
 </svg>

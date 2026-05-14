@@ -60,14 +60,40 @@ function escapeXml(unsafe) {
   });
 }
 
+// Helper to determine brand colors based on page type
+function getColors(filename) {
+  // Job Postings
+  if (filename === 'jobs-engineering.png') return { main: '#059669', light: '#34d399' }; // Emerald Green
+  if (filename === 'jobs-design.png') return { main: '#db2777', light: '#f472b6' }; // Pink
+  if (filename === 'jobs-product.png') return { main: '#0284c7', light: '#38bdf8' }; // Sky Blue
+  
+  // Services
+  if (filename.startsWith('services-') || filename === 'services.png') return { main: '#7c3aed', light: '#a78bfa' }; // Violet
+  
+  // Portfolios
+  if (filename.startsWith('portfolio-') || filename === 'portfolio.png') return { main: '#e11d48', light: '#fb7185' }; // Rose
+  
+  // Core Pages
+  if (filename === 'team.png') return { main: '#d97706', light: '#fbbf24' }; // Amber
+  if (filename === 'culture.png') return { main: '#c026d3', light: '#e879f9' }; // Fuchsia
+  if (filename === 'careers.png') return { main: '#0d9488', light: '#2dd4bf' }; // Teal
+  if (filename === 'contact.png') return { main: '#65a30d', light: '#a3e635' }; // Lime
+  
+  // Default (Home and any others)
+  return { main: '#2563eb', light: '#60a5fa' }; // Blue
+}
+
 async function generateImages() {
   for (const page of pages) {
     const pngPath = resolve(ogOutputDir, page.file);
+    const colors = getColors(page.file);
     
     // Replace placeholders with real content (safely escaped for XML)
     let customizedSvg = baseSvg
       .replace('{{TITLE}}', escapeXml(page.title))
-      .replace('{{TAGLINE}}', escapeXml(page.tagline));
+      .replace('{{TAGLINE}}', escapeXml(page.tagline))
+      .replaceAll('{{COLOR_MAIN}}', colors.main)
+      .replaceAll('{{COLOR_LIGHT}}', colors.light);
       
     // Convert string to buffer
     const svgBuffer = Buffer.from(customizedSvg);
