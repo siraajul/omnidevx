@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { readFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,7 +31,6 @@ const pages = [
   { file: 'services-devops.png', title: 'DEVOPS & SQA', tagline: 'Scalable Infrastructure & Quality' }
 ];
 
-import { readdirSync } from 'node:fs';
 
 console.log('🔍 Scanning codebase for dynamic pages...');
 
@@ -41,8 +40,8 @@ if (existsSync(portfolioDir)) {
   const portfolioFiles = readdirSync(portfolioDir).filter(f => f.endsWith('.astro'));
   for (const file of portfolioFiles) {
     const content = readFileSync(resolve(portfolioDir, file), 'utf-8');
-    const nameMatch = content.match(/name="([^"]+)"/);
-    const categoryMatch = content.match(/category="([^"]+)"/);
+    const nameMatch = /name="([^"]+)"/.exec(content);
+    const categoryMatch = /category="([^"]+)"/.exec(content);
     
     if (nameMatch && categoryMatch) {
       const slug = file.replace('.astro', '');
