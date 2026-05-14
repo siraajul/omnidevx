@@ -45,7 +45,7 @@ class PerchEngine {
   pressedContactFrac = 0;
   pressedElHalfW = 0;
 
-  PERCH_SELECTORS = ['.pill', '.btn-primary', '.btn-ghost', '.app-cta', '.phone'];
+  PERCH_SELECTORS = ['.pill', '.btn-primary', '.btn-ghost', '.perchable', '.phone'];
 
   constructor(el: HTMLElement, root: HTMLElement, body: SVGElement | null) {
     this.el = el;
@@ -393,7 +393,11 @@ class PerchEngine {
 
   updatePress(depth: number, tiltDeg: number) {
     if (!this.pressedNode) return;
-    const totalRot = this.pressedBaseRotDeg + tiltDeg;
+    let effectiveTilt = tiltDeg;
+    if (this.pressedNode.classList.contains('android-cta')) {
+      effectiveTilt = -tiltDeg;
+    }
+    const totalRot = this.pressedBaseRotDeg + effectiveTilt;
     this.pressedNode.style.transform = `translateY(${depth}px) rotate(${totalRot}deg)`;
   }
 
@@ -787,19 +791,38 @@ function PerchCreature({ color = '#2a6fdb' }: Readonly<{ color?: string }>) {
 
 /* ─── Phone Mockup (matches wireframe) ─── */
 function PhoneMock() {
+  const [isFlipped, setIsFlipped] = React.useState(false);
   return (
-    <div className="phone-wrap">
+    <div className="phone-wrap" onClick={() => setIsFlipped(!isFlipped)} style={{ cursor: 'pointer' }}>
       <div className="phone">
-        <div className="screen">
-          <div className="app-header">
-            <span>◀ omnidevx</span>
-            <span>· · ·</span>
+        <div className="phone-flipper" style={{ transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
+          <div className="phone-face phone-front">
+            <div className="screen">
+              <div className="app-header">
+                <span>◀ Omnidevx</span>
+                <span>· · ·</span>
+              </div>
+              <div className="app-headline">Intelligence.</div>
+              <div className="app-sub">Built right in.</div>
+              <div className="placeholder">[ product screen ]</div>
+              <div className="placeholder small">[ list row ]</div>
+              <div className={`app-cta ${!isFlipped ? 'perchable' : ''}`}>Start building</div>
+            </div>
           </div>
-          <div className="app-headline">build with us.</div>
-          <div className="app-sub">scale faster. ship smarter.</div>
-          <div className="placeholder">[ product screen ]</div>
-          <div className="placeholder small">[ list row ]</div>
-          <div className="app-cta">start a project</div>
+          <div className="phone-face phone-back">
+            <div className="screen">
+              <div className="app-header android">
+                <span>≡</span>
+                <span style={{flex: 1, textAlign: 'center', fontWeight: 'bold'}}>Omnidevx</span>
+                <span>⋮</span>
+              </div>
+              <div className="app-headline">Any platform.</div>
+              <div className="app-sub">Materially better.</div>
+              <div className="placeholder">[ android widget ]</div>
+              <div className="placeholder small">[ list row ]</div>
+              <div className={`app-cta android-cta ${isFlipped ? 'perchable' : ''}`}>DOWNLOAD</div>
+            </div>
+          </div>
         </div>
       </div>
       <svg className="phone-doodle" viewBox="0 0 120 80">
@@ -819,7 +842,7 @@ function PhoneMock() {
           strokeLinecap="round"
         />
       </svg>
-      <div className="phone-annot">app preview →</div>
+      <div className="phone-annot">click to flip ↺</div>
     </div>
   );
 }
@@ -834,37 +857,35 @@ export default function OmnidevxHero() {
         {/* nav row */}
         <div className="wf-nav">
           <div className="logo">
-            omnidev<span style={{ color: '#2a6fdb' }}>X</span>
+            Omnidev<span style={{ color: '#2a6fdb' }}>X</span>
           </div>
           <div className="links">
-            <span>work</span>
-            <span>process</span>
-            <span>team</span>
-            <span>contact</span>
+            <span>Work</span>
+            <span>Process</span>
+            <span>Team</span>
+            <span>Contact</span>
           </div>
-          <div className="cta">start a project →</div>
+          <div className="cta">Start a project</div>
         </div>
 
         {/* main grid */}
         <div className="wf-pad">
           <div className="left-col">
-            <span className="pill">↳ premium software & AI development</span>
+            <span className="pill">↳ The AI-first studio</span>
             <h1 className="headline">
-              we build <span className="scribble-underline accent">high-performance</span> web apps,
-              AI MVPs, and enterprise platforms.
+              Powered by AI. <span className="scribble-underline accent">Engineered</span> for performance.
             </h1>
             <p className="sub">
-              a specialized studio of elite developers and system architects. we engineer scalable 
-              infrastructure and ship market-ready products with FAANG-level design patterns.
+              Intelligence isn’t an add-on. It’s our main engine. We craft enterprise-grade software and platforms driven by state-of-the-art AI.
             </p>
             <div className="row">
-              <a className="btn-primary" href="/contact">start a project →</a>
-              <a className="btn-ghost" href="/portfolio">view our work</a>
+              <a className="btn-primary" href="/contact">Get started.</a>
+              <a className="btn-ghost" href="/portfolio">Learn more.</a>
             </div>
             <div className="stat-strip">
-              <div><b>50+</b> products shipped</div>
-              <div><b>10x</b> faster delivery</div>
-              <div><b>99.9%</b> system uptime</div>
+              <div><b>50+</b> Platforms shipped.</div>
+              <div><b>10x</b> Faster delivery.</div>
+              <div><b>99.9%</b> Reliability.</div>
             </div>
           </div>
 
@@ -876,7 +897,6 @@ export default function OmnidevxHero() {
           <div className="putus-label">
             <span className="putus-tag">✦ meet putus</span>
             <span className="putus-line">your future AI pet — motivates you, listens, gets you</span>
-            <span className="putus-hint">↓ watch them work down here ↓</span>
           </div>
         </div>
 
@@ -1044,19 +1064,39 @@ export default function OmnidevxHero() {
         .hero-wireframe-section .phone {
           width: 260px;
           height: 530px;
+          position: relative;
+          perspective: 1200px;
+          transform: rotate(3deg);
+          will-change: transform;
+        }
+        .hero-wireframe-section .phone-flipper {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          transform-style: preserve-3d;
+          transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hero-wireframe-section .phone-face {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           border: 3px solid #111;
           border-radius: 38px;
           background: #fff;
-          position: relative;
           box-shadow: 6px 8px 0 rgba(17,17,17,0.13);
           padding: 14px 12px;
           display: flex;
           flex-direction: column;
           gap: 10px;
-          transform: rotate(3deg);
-          will-change: transform;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
         }
-        .hero-wireframe-section .phone::before {
+        .hero-wireframe-section .phone-face.phone-back {
+          transform: rotateY(180deg);
+        }
+        .hero-wireframe-section .phone-face.phone-front::before {
           content: "";
           position: absolute;
           top: 10px;
@@ -1068,7 +1108,19 @@ export default function OmnidevxHero() {
           border-radius: 999px;
           background: #f3f0e6;
         }
-        .hero-wireframe-section .phone .screen {
+        .hero-wireframe-section .phone-face.phone-back::before {
+          content: "";
+          position: absolute;
+          top: 14px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 10px;
+          height: 10px;
+          border: 2px solid #111;
+          border-radius: 50%;
+          background: #111;
+        }
+        .hero-wireframe-section .phone-face .screen {
           margin-top: 30px;
           flex: 1;
           border: 2px dashed #888;
@@ -1079,7 +1131,12 @@ export default function OmnidevxHero() {
           gap: 10px;
           background: repeating-linear-gradient(45deg, #fafaf3 0 10px, #f4f1e6 10px 20px);
         }
-        .hero-wireframe-section .phone .app-header {
+        .hero-wireframe-section .phone-face.phone-back .screen {
+          background: repeating-linear-gradient(135deg, #f0f7f4 0 10px, #e6f3eb 10px 20px);
+          border-radius: 8px;
+          margin-top: 24px;
+        }
+        .hero-wireframe-section .app-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -1087,7 +1144,12 @@ export default function OmnidevxHero() {
           font-size: 13px;
           color: #444;
         }
-        .hero-wireframe-section .phone .app-headline {
+        .hero-wireframe-section .app-header.android {
+          font-family: "Patrick Hand", sans-serif;
+          font-size: 18px;
+          color: #222;
+        }
+        .hero-wireframe-section .app-headline {
           font-family: "Caveat", cursive;
           font-weight: 700;
           font-size: 28px;
@@ -1095,13 +1157,13 @@ export default function OmnidevxHero() {
           color: #111;
           margin-top: 6px;
         }
-        .hero-wireframe-section .phone .app-sub {
+        .hero-wireframe-section .app-sub {
           font-family: "Patrick Hand", sans-serif;
           font-size: 14px;
           color: #333;
           line-height: 1.25;
         }
-        .hero-wireframe-section .phone .app-cta {
+        .hero-wireframe-section .app-cta {
           margin-top: auto;
           border: 2px solid #111;
           background: #111;
@@ -1114,7 +1176,16 @@ export default function OmnidevxHero() {
           cursor: pointer;
           will-change: transform;
         }
-        .hero-wireframe-section .phone .placeholder {
+        .hero-wireframe-section .app-cta.android-cta {
+          border-radius: 4px;
+          background: #2a6fdb;
+          border-color: #2a6fdb;
+          color: white;
+          text-transform: uppercase;
+          font-family: "Patrick Hand", sans-serif;
+          letter-spacing: 1px;
+        }
+        .hero-wireframe-section .placeholder {
           border: 1.5px dashed #888;
           border-radius: 10px;
           height: 70px;
@@ -1126,7 +1197,7 @@ export default function OmnidevxHero() {
           font-size: 12px;
           color: #666;
         }
-        .hero-wireframe-section .phone .placeholder.small { height: 42px; }
+        .hero-wireframe-section .placeholder.small { height: 42px; }
 
         .hero-wireframe-section .phone-doodle {
           position: absolute;
