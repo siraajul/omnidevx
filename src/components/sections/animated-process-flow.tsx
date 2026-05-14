@@ -139,50 +139,22 @@ export function AnimatedProcessFlow({ type = "devops" }: { type?: ServiceType })
         </svg>
       </div>
 
-      {/* Mobile Vertical Line */}
-      <div className="md:hidden absolute top-[10%] bottom-[10%] left-8 w-1 z-0">
-        <svg width="100%" height="100%" preserveAspectRatio="none" className="absolute inset-0">
-          <line
-            x1="50%"
-            y1="0"
-            x2="50%"
-            y2="100%"
-            stroke="#e4e4e7"
-            strokeWidth="2"
-            strokeDasharray="8 8"
-          />
-          <motion.line
-            x1="50%"
-            y1="0"
-            x2="50%"
-            y2="100%"
-            stroke={data.colorHex}
-            strokeWidth="3"
-            strokeLinecap="round"
-            style={{
-              pathLength: scrollYProgress,
-              transformOrigin: "top",
-            }}
-          />
-        </svg>
-      </div>
-
       {/* Nodes */}
-      <div className={`relative z-10 grid grid-cols-1 ${gridClass} gap-8`}>
+      <div className={`relative z-10 grid grid-cols-2 ${gridClass} gap-8`}>
         {steps.map((step, index) => {
           const Icon = step.icon;
           return (
-            <div key={step.id} className="relative flex flex-col md:items-center text-left md:text-center px-4 pl-20 md:pl-4 group">
+            <div key={step.id} className="relative flex flex-col items-center text-center px-2 md:px-4 group">
               {/* Icon Circle */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`absolute md:relative left-0 md:left-auto top-0 md:top-auto w-16 h-16 bg-white border-2 border-zinc-200 rounded-2xl flex items-center justify-center shadow-sm mb-6 z-10 ${data.borderClass} group-hover:shadow-md transition-all duration-300`}
+                className={`relative w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-zinc-200 rounded-2xl flex items-center justify-center shadow-sm mb-4 md:mb-6 z-10 ${data.borderClass} group-hover:shadow-md transition-all duration-300`}
               >
                 <div className={`absolute inset-0 ${data.bgHoverClass} rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-300`} />
-                <Icon className={`w-6 h-6 ${data.colorClass} relative z-10`} />
+                <Icon className={`w-5 h-5 md:w-6 md:h-6 ${data.colorClass} relative z-10`} />
               </motion.div>
 
               {/* Content */}
@@ -193,9 +165,9 @@ export function AnimatedProcessFlow({ type = "devops" }: { type?: ServiceType })
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
                 className="pt-2 md:pt-0"
               >
-                <div className={`text-sm font-bold ${data.labelClass} mb-2 uppercase tracking-wider`}>Step 0{step.id}</div>
-                <h3 className="text-xl font-bold text-zinc-900 mb-3">{step.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
+                <div className={`text-xs md:text-sm font-bold ${data.labelClass} mb-1 md:mb-2 uppercase tracking-wider`}>Step 0{step.id}</div>
+                <h3 className="text-sm md:text-xl font-bold text-zinc-900 mb-2 md:mb-3">{step.title}</h3>
+                <p className="hidden md:block text-zinc-500 text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             </div>
           );

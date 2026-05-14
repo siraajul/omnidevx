@@ -87,18 +87,18 @@ export default function OmnidevxHero() {
         </div>
 
         {/* Hero content */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 sm:px-10 md:px-16 lg:pb-12">
+        <div className="absolute top-1/2 -translate-y-1/2 lg:top-auto lg:translate-y-0 lg:bottom-0 left-0 right-0 px-6 sm:px-10 md:px-16 lg:pb-12">
           <div className="grid grid-cols-12 items-end gap-6 md:gap-12">
             
-            <div className="col-span-12 lg:col-span-8">
+            <div className="col-span-12 lg:col-span-8 flex justify-center lg:justify-start">
               <h1
-                className="font-black leading-[0.85] tracking-tighter text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] text-white"
+                className="font-black leading-[0.85] tracking-tighter text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] text-white text-center lg:text-left"
               >
                 <LettersPullUp text="OMNIDEVX" showAsterisk />
               </h1>
             </div>
 
-            <div className="col-span-12 flex flex-col gap-6 pb-2 lg:col-span-4 lg:pb-8">
+            <div className="col-span-12 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 pb-2 lg:col-span-4 lg:pb-8">
               
               <p
                 className="fade-up-anim opacity-0 text-sm md:text-base lg:text-lg text-zinc-300 leading-relaxed max-w-md font-medium"
@@ -107,7 +107,7 @@ export default function OmnidevxHero() {
               </p>
 
               <button
-                className="fade-up-anim opacity-0 group inline-flex items-center gap-4 self-start rounded-full bg-white py-2 pl-6 pr-2 text-sm font-bold uppercase tracking-widest text-black transition-all hover:gap-6 sm:text-base hover:bg-zinc-100"
+                className="fade-up-anim opacity-0 group inline-flex items-center gap-4 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-bold uppercase tracking-widest text-black transition-all hover:gap-6 sm:text-base hover:bg-zinc-100"
               >
                 Explore Services{" "}
                 <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110">
