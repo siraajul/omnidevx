@@ -3,18 +3,19 @@ import Layout from '../../layouts/Layout.astro';
 import { ContainerScroll } from '../../components/ui/container-scroll-animation';
 import { GenAiDashboard } from '../../components/ui/dashboards/GenAiDashboard';
 import { GenAiFeatures } from '../../components/ui/feature-wrappers';
+import { AnimatedProcessFlow } from '../../components/ui/animated-process-flow';
 ---
 
 <Layout>
-	<main class="relative w-full overflow-hidden bg-black">
+	<main class="relative w-full overflow-hidden bg-white">
 		
 		{/* HERO SECTION */}
 		<div class="flex flex-col overflow-hidden pt-20 pb-10 md:pt-32 md:pb-20">
 			<ContainerScroll client:load>
 				<div slot="titleComponent">
-					<h1 class="text-4xl md:text-5xl font-semibold text-white mb-8">
-						<span class="text-purple-400 font-black">Generative AI</span> Integration <br />
-						<span class="text-xl md:text-2xl font-normal mt-4 block text-zinc-400 max-w-2xl mx-auto">
+					<h1 class="text-4xl md:text-5xl font-semibold text-zinc-900 mb-8">
+						<span class="text-purple-600 font-black">Generative AI</span> Integration <br />
+						<span class="text-xl md:text-2xl font-normal mt-4 block text-zinc-500 max-w-2xl mx-auto">
 							Embed intelligent automation directly into your products using advanced LLMs and custom RAG pipelines.
 						</span>
 					</h1>
@@ -24,112 +25,120 @@ import { GenAiFeatures } from '../../components/ui/feature-wrappers';
 		</div>
 
 		{/* CORE COMPETENCIES */}
-		<section class="py-16 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-16 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto px-8 text-center mb-8">
-				<h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Core <span class="text-cyan-400">Competencies</span></h2>
-				<p class="text-zinc-400 max-w-xl mx-auto">Production-ready generative AI at scale.</p>
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Core <span class="text-cyan-600">Competencies</span></h2>
+				<p class="text-zinc-500 max-w-xl mx-auto">Production-ready generative AI at scale.</p>
 			</div>
 			<GenAiFeatures client:visible />
 		</section>
 
+		{/* SOCIAL PROOF */}
+		<section class="py-12 px-8 border-t border-zinc-200">
+			<div class="max-w-4xl mx-auto">
+				<a href="/portfolio/nexusai" class="group flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-zinc-200 bg-zinc-50 hover:border-zinc-300 transition-colors">
+					<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex-shrink-0 flex items-center justify-center">
+						<span class="text-zinc-900 font-black text-lg">NX</span>
+					</div>
+					<div class="flex-1 text-center md:text-left">
+						<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Case Study</p>
+						<h3 class="text-lg font-bold text-zinc-900 group-hover:text-cyan-600 transition-colors">NexusAI — 95% accuracy across 12M enterprise documents</h3>
+					</div>
+					<span class="text-zinc-500 group-hover:text-zinc-900 transition-colors text-sm font-medium flex items-center gap-1 flex-shrink-0">Read story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+				</a>
+			</div>
+		</section>
+
 		{/* HOW WE APPROACH IT */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-24 px-8 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-16 text-center gsap-reveal">How we approach AI Integration</h2>
-				
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-purple-500/20 text-purple-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">1</div>
-						<h3 class="text-xl font-bold text-white mb-3">Data Strategy</h3>
-						<p class="text-zinc-400 text-sm">We analyze your proprietary data and prepare it for embedding, ensuring the AI model has deep, accurate context specific to your business.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-purple-500/20 text-purple-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">2</div>
-						<h3 class="text-xl font-bold text-white mb-3">Model Selection & RAG</h3>
-						<p class="text-zinc-400 text-sm">We select the right LLM (OpenAI, Claude, open-source) and build Retrieval-Augmented Generation pipelines to minimize hallucinations.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-purple-500/20 text-purple-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">3</div>
-						<h3 class="text-xl font-bold text-white mb-3">UI/UX Implementation</h3>
-						<p class="text-zinc-400 text-sm">We design seamless conversational interfaces or predictive UI elements that make interacting with the AI feel natural to the end user.</p>
-					</div>
-				</div>
+				<h2 class="text-4xl font-bold text-zinc-900 mb-16 text-center gsap-reveal">How we approach AI Integration</h2>
+				<AnimatedProcessFlow type="genai" client:visible />
 			</div>
 		</section>
 
 		{/* TECH STACK */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-3xl font-bold text-white mb-6">The Intelligence Stack</h2>
-				<p class="text-zinc-400 mb-12">The industry-leading AI models and vector databases we use to build cognitive features.</p>
+				<h2 class="text-3xl font-bold text-zinc-900 mb-6">The Intelligence Stack</h2>
+				<p class="text-zinc-500 mb-12">The industry-leading AI models and vector databases we use to build cognitive features.</p>
 				
 				<div class="flex flex-wrap justify-center gap-4">
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/openai/white" class="w-5 h-5" alt="OpenAI" /> OpenAI GPT-4
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/openai/09090b" class="w-5 h-5" alt="OpenAI" /> OpenAI GPT-4
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/anthropic/D97757" class="w-5 h-5" alt="Anthropic Claude" /> Anthropic Claude
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/pinecone/white" class="w-5 h-5" alt="Pinecone" /> Pinecone
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/meta/0467DF" class="w-5 h-5" alt="Meta Llama" /> Llama 3
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/langchain/white" class="w-5 h-5" alt="LangChain" /> LangChain
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/huggingface/FFD21E" class="w-5 h-5" alt="Hugging Face" /> Hugging Face
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/vercel/white" class="w-5 h-5" alt="Vercel AI SDK" /> Vercel AI SDK
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/mongodb/47A248" class="w-5 h-5" alt="MongoDB" /> MongoDB
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/elasticsearch/005571" class="w-5 h-5" alt="Elasticsearch" /> Elasticsearch
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/supabase/3ECF8E" class="w-5 h-5" alt="Supabase" /> Supabase
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/langchain/09090b" class="w-5 h-5" alt="LangChain" /> LangChain
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/vercel/09090b" class="w-5 h-5" alt="Vercel AI SDK" /> Vercel AI SDK
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/python/3776AB" class="w-5 h-5" alt="Python" /> Python
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/pytorch/EE4C2C" class="w-5 h-5" alt="PyTorch" /> PyTorch
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/tensorflow/FF6F00" class="w-5 h-5" alt="TensorFlow" /> TensorFlow
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/fastapi/009688" class="w-5 h-5" alt="FastAPI" /> FastAPI
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/redis/FF4438" class="w-5 h-5" alt="Redis" /> Redis
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/googlecloud/4285F4" class="w-5 h-5" alt="Google Cloud" /> Google Cloud
 					</span>
 				</div>
 			</div>
 		</section>
 
-		{/* CASE STUDIES */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-12 gsap-reveal">AI Case Studies</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">Legal Document Analyzer</h3>
-							<p class="text-zinc-300 text-sm mb-4">Reduced contract review time by 80% using custom RAG.</p>
-							<a href="#" class="text-purple-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">Automated Support Agent</h3>
-							<p class="text-zinc-300 text-sm mb-4">Handled 60% of Tier 1 support tickets autonomously.</p>
-							<a href="#" class="text-purple-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 
 		{/* TESTIMONIALS */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
 				<svg class="w-12 h-12 text-purple-500 mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-				<p class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+				<p class="text-2xl md:text-3xl font-medium text-zinc-900 mb-8 leading-relaxed">
 					"Integrating LLMs seemed like a monumental task, but the team at omnidevx built a custom vector database and search interface that completely revolutionized our product."
 				</p>
 				<div>
-					<p class="font-bold text-white">David Chen</p>
+					<p class="font-bold text-zinc-900">David Chen</p>
 					<p class="text-zinc-500 text-sm">CTO, Nexus Data</p>
 				</div>
 			</div>
 		</section>
 
-		{/* FINAL CTA */}
-		<section class="py-32 px-8 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
-			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-5xl md:text-7xl font-black text-white mb-8">Ready to integrate AI?</h2>
-				<p class="text-xl text-zinc-400 mb-12">Get an accurate cost and timeline estimate for adding intelligent features to your app.</p>
-				<button class="px-10 py-5 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-colors text-xl shadow-[0_0_40px_-10px_rgba(147,51,234,0.5)]">
-					Launch AI Estimator &rarr;
-				</button>
+
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-zinc-200 text-center">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Ready to harness <span class="text-cyan-600">Generative AI</span>?</h2>
+				<p class="text-zinc-500 mb-8">Let's build intelligent systems that transform your business.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-cyan-600 hover:bg-cyan-500 text-zinc-900 font-bold rounded-full transition-colors text-lg">
+					Book a Call →
+				</a>
 			</div>
 		</section>
 

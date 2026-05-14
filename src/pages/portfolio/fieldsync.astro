@@ -1,0 +1,111 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+	name="FieldSync"
+	category="SaaS"
+	tagline="A cross-platform mobile + web app for managing field teams, scheduling, GPS tracking, and automated reporting — built for scale from day one."
+	gradient="from-emerald-500 to-teal-600"
+	accentColor="text-emerald-400"
+	accentBg="bg-emerald-500/10"
+>
+	<div slot="hero-visual" class="grid grid-cols-3 gap-4">
+		<div class="col-span-2 h-48 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 p-6">
+			<div class="flex items-center gap-3 mb-4">
+				<div class="w-8 h-8 rounded-full bg-emerald-200 flex items-center justify-center">
+					<div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+				</div>
+				<div class="h-3 w-32 bg-emerald-100 rounded"></div>
+				<div class="ml-auto px-2 py-0.5 bg-emerald-100 rounded text-[10px] text-emerald-700 font-bold">LIVE</div>
+			</div>
+			<div class="h-20 bg-emerald-100/50 rounded-lg border border-emerald-100 p-3">
+				<div class="flex gap-2 mb-2">
+					<div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+					<div class="w-2 h-2 rounded-full bg-teal-400"></div>
+					<div class="w-2 h-2 rounded-full bg-emerald-300"></div>
+				</div>
+				<div class="h-2 w-3/4 bg-emerald-100 rounded"></div>
+			</div>
+		</div>
+		<div class="h-48 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border border-teal-100 p-6 flex flex-col justify-between">
+			<div class="h-3 w-16 bg-teal-200 rounded"></div>
+			<div class="text-3xl font-black text-emerald-600">24/7</div>
+			<div class="h-2 w-20 bg-teal-100 rounded"></div>
+		</div>
+	</div>
+
+	<section>
+		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+			The <span class="text-emerald-600">Problem</span>
+		</h2>
+		<p class="text-zinc-500 text-lg leading-relaxed">
+			A logistics company with <strong class="text-zinc-700">400+ field technicians</strong> across 12 cities was managing schedules via WhatsApp groups and Excel. Dispatchers had zero real-time visibility into technician locations, job status updates were delayed by hours, and customers were left guessing when their service would arrive. The company was losing an estimated <strong class="text-zinc-700">$800K annually</strong> in operational inefficiency.
+		</p>
+	</section>
+
+	<section>
+		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+			Our <span class="text-emerald-600">Approach</span>
+		</h2>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+				<div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
+					<span class="text-emerald-600 font-black text-sm">01</span>
+				</div>
+				<h3 class="font-bold text-zinc-900 mb-2">Ride-Along Research</h3>
+				<p class="text-sm text-zinc-500">Spent 3 days riding with field techs to understand real-world constraints — spotty signal, gloved hands, time pressure.</p>
+			</div>
+			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+				<div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
+					<span class="text-emerald-600 font-black text-sm">02</span>
+				</div>
+				<h3 class="font-bold text-zinc-900 mb-2">Offline-First Mobile</h3>
+				<p class="text-sm text-zinc-500">Built React Native app with local SQLite sync, ensuring technicians can log jobs even in dead zones.</p>
+			</div>
+			<div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+				<div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
+					<span class="text-emerald-600 font-black text-sm">03</span>
+				</div>
+				<h3 class="font-bold text-zinc-900 mb-2">Real-Time Dashboard</h3>
+				<p class="text-sm text-zinc-500">WebSocket-powered dispatch board with Mapbox live tracking, automated ETA calculations, and smart routing.</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">
+			The <span class="text-emerald-600">Solution</span>
+		</h2>
+		<p class="text-zinc-500 text-lg leading-relaxed mb-8">
+			FieldSync gives dispatchers a live bird's-eye view of every technician, job, and customer interaction. Field techs get a one-thumb mobile app with offline support, photo capture, digital signatures, and automatic time logging. Managers get weekly PDF reports with efficiency metrics, customer satisfaction scores, and route optimization suggestions.
+		</p>
+		<div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
+			<span class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 block">Tech Stack</span>
+			<div class="flex flex-wrap gap-2">
+				{["React Native", "TypeScript", "Firebase", "Mapbox GL", "WebSockets", "Node.js", "PostgreSQL", "AWS"].map(tag => (
+					<span class="px-3 py-1.5 bg-white border border-zinc-200 text-zinc-600 text-xs font-semibold rounded-full">{tag}</span>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<div slot="impact" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+		<div class="text-center">
+			<div class="text-4xl md:text-5xl font-black text-emerald-400 mb-2">50%</div>
+			<div class="text-zinc-400 text-sm font-medium">Faster response</div>
+		</div>
+		<div class="text-center">
+			<div class="text-4xl md:text-5xl font-black text-emerald-400 mb-2">24/7</div>
+			<div class="text-zinc-400 text-sm font-medium">Live tracking</div>
+		</div>
+		<div class="text-center">
+			<div class="text-4xl md:text-5xl font-black text-emerald-400 mb-2">400+</div>
+			<div class="text-zinc-400 text-sm font-medium">Field technicians</div>
+		</div>
+		<div class="text-center">
+			<div class="text-4xl md:text-5xl font-black text-emerald-400 mb-2">$800K</div>
+			<div class="text-zinc-400 text-sm font-medium">Annual savings</div>
+		</div>
+	</div>
+</CaseStudyLayout>

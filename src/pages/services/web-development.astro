@@ -3,18 +3,19 @@ import Layout from '../../layouts/Layout.astro';
 import { ContainerScroll } from '../../components/ui/container-scroll-animation';
 import { WebDevDashboard } from '../../components/ui/dashboards/WebDevDashboard';
 import { WebFeatures } from '../../components/ui/feature-wrappers';
+import { AnimatedProcessFlow } from '../../components/ui/animated-process-flow';
 ---
 
 <Layout>
-	<main class="relative w-full overflow-hidden bg-black">
+	<main class="relative w-full overflow-hidden bg-white">
 		
 		{/* HERO SECTION */}
 		<div class="flex flex-col overflow-hidden pt-20 pb-10 md:pt-32 md:pb-20">
 			<ContainerScroll client:load>
 				<div slot="titleComponent">
-					<h1 class="text-4xl md:text-5xl font-semibold text-white mb-8">
+					<h1 class="text-4xl md:text-5xl font-semibold text-zinc-900 mb-8">
 						Enterprise <br />
-						<span class="text-5xl md:text-[6rem] font-black mt-2 leading-none text-blue-400 block">
+						<span class="text-5xl md:text-[6rem] font-black mt-2 leading-none text-blue-600 block">
 							Web Applications
 						</span>
 					</h1>
@@ -24,120 +25,120 @@ import { WebFeatures } from '../../components/ui/feature-wrappers';
 		</div>
 
 		{/* CORE COMPETENCIES */}
-		<section class="py-16 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-16 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto px-8 text-center mb-8">
-				<h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Core <span class="text-blue-400">Competencies</span></h2>
-				<p class="text-zinc-400 max-w-xl mx-auto">Enterprise-grade web engineering that scales.</p>
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Core <span class="text-blue-600">Competencies</span></h2>
+				<p class="text-zinc-500 max-w-xl mx-auto">Enterprise-grade web engineering that scales.</p>
 			</div>
 			<WebFeatures client:visible />
 		</section>
 
+		{/* SOCIAL PROOF */}
+		<section class="py-12 px-8 border-t border-zinc-200">
+			<div class="max-w-4xl mx-auto">
+				<a href="/portfolio/paylab-pro" class="group flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-zinc-200 bg-zinc-50 hover:border-zinc-300 transition-colors">
+					<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex-shrink-0 flex items-center justify-center">
+						<span class="text-zinc-900 font-black text-lg">PL</span>
+					</div>
+					<div class="flex-1 text-center md:text-left">
+						<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Case Study</p>
+						<h3 class="text-lg font-bold text-zinc-900 group-hover:text-blue-600 transition-colors">PayLab Pro — 3x faster invoicing, 40% cost reduction</h3>
+					</div>
+					<span class="text-zinc-500 group-hover:text-zinc-900 transition-colors text-sm font-medium flex items-center gap-1 flex-shrink-0">Read story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+				</a>
+			</div>
+		</section>
+
 		{/* HOW WE APPROACH IT */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-24 px-8 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-16 text-center gsap-reveal">Our Engineering Process</h2>
-				
-				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">1</div>
-						<h3 class="text-xl font-bold text-white mb-3">Systems Design</h3>
-						<p class="text-zinc-400 text-sm">We architect the database schemas, API contracts, and component libraries required for a scalable frontend and backend.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">2</div>
-						<h3 class="text-xl font-bold text-white mb-3">Frontend Execution</h3>
-						<p class="text-zinc-400 text-sm">Translating high-fidelity designs into pixel-perfect React code, emphasizing web core vitals and accessibility.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">3</div>
-						<h3 class="text-xl font-bold text-white mb-3">Backend Integration</h3>
-						<p class="text-zinc-400 text-sm">Connecting the interface to robust REST or GraphQL APIs, ensuring secure authentication and data fetching.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">4</div>
-						<h3 class="text-xl font-bold text-white mb-3">Performance Audit</h3>
-						<p class="text-zinc-400 text-sm">Before launch, we rigorously test load times, SEO metrics, and edge-caching strategies to guarantee sub-second rendering.</p>
-					</div>
-				</div>
+				<h2 class="text-4xl font-bold text-zinc-900 mb-16 text-center gsap-reveal">Our Engineering Process</h2>
+				<AnimatedProcessFlow type="web" client:visible />
 			</div>
 		</section>
 
 		{/* TECH STACK */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-3xl font-bold text-white mb-6">The Modern Web Stack</h2>
-				<p class="text-zinc-400 mb-12">We use the most reliable, modern frameworks to ensure your application stands the test of time.</p>
+				<h2 class="text-3xl font-bold text-zinc-900 mb-6">The Modern Web Stack</h2>
+				<p class="text-zinc-500 mb-12">We use the most reliable, modern frameworks to ensure your application stands the test of time.</p>
 				
 				<div class="flex flex-wrap justify-center gap-4">
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/react/61DAFB" class="w-5 h-5" alt="React" /> React 19
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/nextdotjs/white" class="w-5 h-5" alt="Next.js" /> Next.js App Router
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/nextdotjs/09090b" class="w-5 h-5" alt="Next.js" /> Next.js
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/typescript/3178C6" class="w-5 h-5" alt="TypeScript" /> TypeScript
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/tailwindcss/38B2AC" class="w-5 h-5" alt="Tailwind CSS" /> Tailwind CSS
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/prisma/white" class="w-5 h-5" alt="Prisma" /> Prisma ORM
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/prisma/09090b" class="w-5 h-5" alt="Prisma" /> Prisma ORM
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-5 h-5" alt="PostgreSQL" /> PostgreSQL
 					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/nodedotjs/339933" class="w-5 h-5" alt="Node.js" /> Node.js
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/graphql/E10098" class="w-5 h-5" alt="GraphQL" /> GraphQL
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/radixui/09090b" class="w-5 h-5" alt="Radix UI" /> Radix UI
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/framer/0055FF" class="w-5 h-5" alt="Framer Motion" /> Framer Motion
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/vercel/09090b" class="w-5 h-5" alt="Vercel" /> Vercel
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/supabase/3ECF8E" class="w-5 h-5" alt="Supabase" /> Supabase
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/stripe/008CDD" class="w-5 h-5" alt="Stripe" /> Stripe
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/figma/F24E1E" class="w-5 h-5" alt="Figma" /> Figma
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/vitest/6E9F18" class="w-5 h-5" alt="Vitest" /> Vitest
+					</span>
 				</div>
 			</div>
 		</section>
 
-		{/* CASE STUDIES */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-12 gsap-reveal">Web Case Studies</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">Global E-Commerce Rebuild</h3>
-							<p class="text-zinc-300 text-sm mb-4">Migrated a legacy monolith to a headless Next.js architecture, increasing conversion by 22%.</p>
-							<a href="#" class="text-blue-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">B2B SaaS Portal</h3>
-							<p class="text-zinc-300 text-sm mb-4">Engineered a complex data-visualization dashboard serving 10k+ enterprise users.</p>
-							<a href="#" class="text-blue-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 
 		{/* TESTIMONIALS */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
 				<svg class="w-12 h-12 text-blue-500 mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-				<p class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+				<p class="text-2xl md:text-3xl font-medium text-zinc-900 mb-8 leading-relaxed">
 					"The attention to detail regarding frontend performance and accessibility was unmatched. Our web app now scores 100 on Lighthouse across the board."
 				</p>
 				<div>
-					<p class="font-bold text-white">Elena Rodriguez</p>
+					<p class="font-bold text-zinc-900">Elena Rodriguez</p>
 					<p class="text-zinc-500 text-sm">VP of Engineering, TechCorp</p>
 				</div>
 			</div>
 		</section>
 
-		{/* FINAL CTA */}
-		<section class="py-32 px-8 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
-			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-5xl md:text-7xl font-black text-white mb-8">Ready to build?</h2>
-				<p class="text-xl text-zinc-400 mb-12">Get an accurate cost and timeline estimate for your web application.</p>
-				<button class="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-colors text-xl shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)]">
-					Launch AI Estimator &rarr;
-				</button>
+
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-zinc-200 text-center">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Ready to build your <span class="text-blue-600">platform</span>?</h2>
+				<p class="text-zinc-500 mb-8">Let's architect something that scales with your ambition.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-blue-600 hover:bg-blue-500 text-zinc-900 font-bold rounded-full transition-colors text-lg">
+					Book a Call →
+				</a>
 			</div>
 		</section>
 

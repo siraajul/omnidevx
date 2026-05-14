@@ -3,18 +3,19 @@ import Layout from '../../layouts/Layout.astro';
 import { ContainerScroll } from '../../components/ui/container-scroll-animation';
 import { MobileDevDashboard } from '../../components/ui/dashboards/MobileDevDashboard';
 import { MobileFeatures } from '../../components/ui/feature-wrappers';
+import { AnimatedProcessFlow } from '../../components/ui/animated-process-flow';
 ---
 
 <Layout>
-	<main class="relative w-full overflow-hidden bg-black">
+	<main class="relative w-full overflow-hidden bg-white">
 		
 		{/* HERO SECTION */}
 		<div class="flex flex-col overflow-hidden pt-20 pb-10 md:pt-32 md:pb-20">
 			<ContainerScroll client:load>
 				<div slot="titleComponent">
-					<h1 class="text-4xl md:text-5xl font-semibold text-white mb-8">
+					<h1 class="text-4xl md:text-5xl font-semibold text-zinc-900 mb-8">
 						Native-Feeling <br />
-						<span class="text-5xl md:text-[6rem] font-black mt-2 leading-none text-green-400 block">
+						<span class="text-5xl md:text-[6rem] font-black mt-2 leading-none text-green-600 block">
 							Mobile Apps
 						</span>
 					</h1>
@@ -24,112 +25,120 @@ import { MobileFeatures } from '../../components/ui/feature-wrappers';
 		</div>
 
 		{/* CORE COMPETENCIES */}
-		<section class="py-16 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-16 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto px-8 text-center mb-8">
-				<h2 class="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Core <span class="text-green-400">Competencies</span></h2>
-				<p class="text-zinc-400 max-w-xl mx-auto">What makes our mobile apps stand apart.</p>
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Core <span class="text-green-600">Competencies</span></h2>
+				<p class="text-zinc-500 max-w-xl mx-auto">What makes our mobile apps stand apart.</p>
 			</div>
 			<MobileFeatures client:visible />
 		</section>
 
+		{/* SOCIAL PROOF — COMPACT CASE STUDY */}
+		<section class="py-12 px-8 border-t border-zinc-200">
+			<div class="max-w-4xl mx-auto">
+				<a href="/portfolio/fieldsync" class="group flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-zinc-200 bg-zinc-50 hover:border-zinc-300 transition-colors">
+					<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex-shrink-0 flex items-center justify-center">
+						<span class="text-zinc-900 font-black text-lg">FS</span>
+					</div>
+					<div class="flex-1 text-center md:text-left">
+						<p class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-1">Case Study</p>
+						<h3 class="text-lg font-bold text-zinc-900 group-hover:text-emerald-600 transition-colors">FieldSync — 50% faster response for 400+ field techs</h3>
+					</div>
+					<span class="text-zinc-500 group-hover:text-zinc-900 transition-colors text-sm font-medium flex items-center gap-1 flex-shrink-0">Read story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+				</a>
+			</div>
+		</section>
+
 		{/* HOW WE APPROACH IT */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
+		<section class="py-24 px-8 border-t border-zinc-200 bg-zinc-50">
 			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-16 text-center gsap-reveal">Our Mobile Approach</h2>
-				
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-green-500/20 text-green-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">1</div>
-						<h3 class="text-xl font-bold text-white mb-3">Native Planning</h3>
-						<p class="text-zinc-400 text-sm">We map out device-specific UI patterns and hardware requirements (camera, GPS, biometrics) before writing any code.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-green-500/20 text-green-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">2</div>
-						<h3 class="text-xl font-bold text-white mb-3">React Native Architecture</h3>
-						<p class="text-zinc-400 text-sm">We leverage React Native and Expo to write 90% shared code, reducing development time while maintaining 60fps performance.</p>
-					</div>
-					<div class="gsap-reveal p-6 bg-zinc-900 rounded-2xl border border-zinc-800">
-						<div class="w-12 h-12 bg-green-500/20 text-green-400 flex items-center justify-center rounded-xl mb-6 font-bold text-xl">3</div>
-						<h3 class="text-xl font-bold text-white mb-3">App Store Deployment</h3>
-						<p class="text-zinc-400 text-sm">We handle the grueling Apple App Store and Google Play Store review processes, ensuring a smooth, compliant launch.</p>
-					</div>
-				</div>
+				<h2 class="text-4xl font-bold text-zinc-900 mb-16 text-center gsap-reveal">Our Mobile Approach</h2>
+				<AnimatedProcessFlow type="mobile" client:visible />
 			</div>
 		</section>
 
 		{/* TECH STACK */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-3xl font-bold text-white mb-6">The Mobile Stack</h2>
-				<p class="text-zinc-400 mb-12">Industry-standard tools for shipping reliable applications to millions of devices.</p>
+				<h2 class="text-3xl font-bold text-zinc-900 mb-6">The Mobile Stack</h2>
+				<p class="text-zinc-500 mb-12">Industry-standard tools for shipping reliable applications to millions of devices.</p>
 				
 				<div class="flex flex-wrap justify-center gap-4">
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/react/61DAFB" class="w-5 h-5" alt="React Native" /> React Native
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/expo/white" class="w-5 h-5" alt="Expo" /> Expo
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/expo/09090b" class="w-5 h-5" alt="Expo" /> Expo
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
-						<img src="https://cdn.simpleicons.org/swift/F05138" class="w-5 h-5" alt="Swift" /> Swift / Kotlin
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/swift/F05138" class="w-5 h-5" alt="Swift" /> Swift
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/kotlin/7F52FF" class="w-5 h-5" alt="Kotlin" /> Kotlin
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/nodedotjs/339933" class="w-5 h-5" alt="Zustand" /> Zustand
 					</span>
-					<span class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white rounded-full font-medium">
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
 						<img src="https://cdn.simpleicons.org/sentry/362D59" class="w-5 h-5" alt="Sentry" /> Sentry (Crashlytics)
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/android/3DDC84" class="w-5 h-5" alt="Android" /> Android
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/apple/09090b" class="w-5 h-5" alt="iOS" /> Apple iOS
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/firebase/FFCA28" class="w-5 h-5" alt="Firebase" /> Firebase
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/sqlite/003B57" class="w-5 h-5" alt="SQLite" /> SQLite
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/fastlane/00F200" class="w-5 h-5" alt="Fastlane" /> Fastlane
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/jest/C21325" class="w-5 h-5" alt="Jest" /> Jest
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/stripe/008CDD" class="w-5 h-5" alt="Stripe" /> Stripe Connect
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/tailwindcss/38B2AC" class="w-5 h-5" alt="Tailwind CSS" /> NativeWind
+					</span>
+					<span class="flex items-center gap-2 px-6 py-3 bg-white border border-zinc-200 text-zinc-900 rounded-full font-medium">
+						<img src="https://cdn.simpleicons.org/githubactions/2088FF" class="w-5 h-5" alt="GitHub Actions" /> CI/CD
 					</span>
 				</div>
 			</div>
 		</section>
 
-		{/* CASE STUDIES */}
-		<section class="py-24 px-8 border-t border-zinc-900 bg-zinc-950/30">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-4xl font-bold text-white mb-12 gsap-reveal">Mobile Case Studies</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">Fitness Tracking App</h3>
-							<p class="text-zinc-300 text-sm mb-4">Real-time GPS tracking and offline data synchronization.</p>
-							<a href="#" class="text-green-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-					<div class="gsap-reveal group relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
-						<div class="absolute bottom-0 left-0 p-8 z-20">
-							<h3 class="text-2xl font-bold text-white mb-2">On-Demand Delivery App</h3>
-							<p class="text-zinc-300 text-sm mb-4">Complex map integration and live push notification systems.</p>
-							<a href="#" class="text-green-400 font-semibold group-hover:underline">Read Case Study &rarr;</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 
 		{/* TESTIMONIALS */}
-		<section class="py-24 px-8 border-t border-zinc-900">
+		<section class="py-24 px-8 border-t border-zinc-200">
 			<div class="max-w-4xl mx-auto text-center gsap-reveal">
 				<svg class="w-12 h-12 text-green-500 mx-auto mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-				<p class="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+				<p class="text-2xl md:text-3xl font-medium text-zinc-900 mb-8 leading-relaxed">
 					"We thought we needed two separate teams for iOS and Android. omnidevx delivered both simultaneously using React Native, saving us massive amounts of capital."
 				</p>
 				<div>
-					<p class="font-bold text-white">Michael Chang</p>
+					<p class="font-bold text-zinc-900">Michael Chang</p>
 					<p class="text-zinc-500 text-sm">CEO, FitPulse</p>
 				</div>
 			</div>
 		</section>
 
-		{/* FINAL CTA */}
-		<section class="py-32 px-8 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
-			<div class="max-w-4xl mx-auto text-center gsap-reveal">
-				<h2 class="text-5xl md:text-7xl font-black text-white mb-8">Ready to go mobile?</h2>
-				<p class="text-xl text-zinc-400 mb-12">Get an accurate cost and timeline estimate for your iOS and Android application.</p>
-				<button class="px-10 py-5 bg-green-600 hover:bg-green-500 text-white font-bold rounded-full transition-colors text-xl shadow-[0_0_40px_-10px_rgba(22,163,74,0.5)]">
-					Launch AI Estimator &rarr;
-				</button>
+
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-zinc-200 text-center">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4 tracking-tight">Ready to build your <span class="text-green-600">app</span>?</h2>
+				<p class="text-zinc-500 mb-8">Let's discuss your project and ship something users love.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-green-600 hover:bg-green-500 text-zinc-900 font-bold rounded-full transition-colors text-lg">
+					Book a Call →
+				</a>
 			</div>
 		</section>
 
