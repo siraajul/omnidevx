@@ -14,31 +14,47 @@ if (!fs.existsSync(ogOutputDir)) {
   fs.mkdirSync(ogOutputDir, { recursive: true });
 }
 
-// Download font utility
-function downloadFont(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
-      if (res.statusCode === 302 || res.statusCode === 301) {
-        return downloadFont(res.headers.location).then(resolve).catch(reject);
-      }
-      if (res.statusCode !== 200) {
-        return reject(new Error(`Failed to download from ${url} (Status: ${res.statusCode})`));
-      }
-      const data = [];
-      res.on('data', chunk => data.push(chunk));
-      res.on('end', () => resolve(Buffer.concat(data)));
-      res.on('error', reject);
-    }).on('error', reject);
-  });
+// Ensure fonts directory exists for caching
+const fontsDir = resolve(__dirname, '../public/fonts');
+if (!fs.existsSync(fontsDir)) {
+  fs.mkdirSync(fontsDir, { recursive: true });
 }
 
-// Helper to try multiple font URLs
-async function tryDownload(urls, name) {
+// Download font utility with local disk caching
+async function getCachedFont(urls, name, filename) {
+  const localPath = resolve(fontsDir, filename);
+  
+  // 1. If it exists locally, read it instantly (Zero network latency on Vercel)
+  if (fs.existsSync(localPath)) {
+    console.log(`📦 Loaded ${name} font from local cache.`);
+    return fs.readFileSync(localPath);
+  }
+
+  // 2. Otherwise, download it once
   for (const url of urls) {
     try {
-      return await downloadFont(url);
+      console.log(`📥 Downloading remote font ${name}...`);
+      const buffer = await new Promise((resolve, reject) => {
+        https.get(url, (res) => {
+          if (res.statusCode === 302 || res.statusCode === 301) {
+            return https.get(res.headers.location, handleResponse).on('error', reject);
+          }
+          function handleResponse(res) {
+            if (res.statusCode !== 200) return reject(new Error(`Status: ${res.statusCode}`));
+            const data = [];
+            res.on('data', chunk => data.push(chunk));
+            res.on('end', () => resolve(Buffer.concat(data)));
+            res.on('error', reject);
+          }
+          handleResponse(res);
+        }).on('error', reject);
+      });
+      
+      // Save it permanently so Vercel never has to download it again
+      fs.writeFileSync(localPath, buffer);
+      console.log(`✅ Saved ${name} font to local cache!`);
+      return buffer;
     } catch (e) {
-      // Log silently to satisfy linter, then try the next URL
       if (process.env.DEBUG) console.debug(`Failed to download from ${url}`);
     }
   }
@@ -122,20 +138,22 @@ function decodeHtml(str) {
 }
 
 async function run() {
-  console.log('\n📥 Fetching remote fonts for Satori...');
-  const caveatBuffer = await tryDownload([
+  console.log('\n⚡ Preparing Vercel Build Optimization...');
+  
+  const caveatBuffer = await getCachedFont([
     'https://raw.githubusercontent.com/googlefonts/caveat/main/fonts/ttf/Caveat-Bold.ttf',
     'https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/Caveat-Bold.ttf'
-  ], 'Caveat');
+  ], 'Caveat', 'Caveat-Bold.ttf');
   
-  const kalamBuffer = await tryDownload([
+  const kalamBuffer = await getCachedFont([
     'https://raw.githubusercontent.com/itfoundry/kalam/master/fonts/Kalam-Bold.ttf',
     'https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/Kalam-Bold.ttf'
-  ], 'Kalam');
+  ], 'Kalam', 'Kalam-Bold.ttf');
 
-  console.log(`🖼️ Starting Vercel Satori generation for ${pages.length} images...`);
+  console.log(`\n🚀 Starting parallel concurrent Satori generation for ${pages.length} images...`);
 
-  for (const page of pages) {
+  // Use Promise.all to generate all images simultaneously, saving massive build time
+  await Promise.all(pages.map(async (page) => {
     const pngPath = resolve(ogOutputDir, page.file);
     const color = getColors(page.file);
     
@@ -143,7 +161,6 @@ async function run() {
     const cleanTitle = decodeHtml(page.title);
     const cleanTagline = decodeHtml(page.tagline);
 
-    // Removed unsupported <pattern> tag, keeping it simple and elegant
     const rawHtml = `
       <div style="display: flex; flex-direction: column; width: 1200px; height: 630px; background-color: #FDFCF7; padding: 80px; font-family: 'Kalam'; position: relative;">
         <!-- Background SVG Glow -->
@@ -206,10 +223,10 @@ async function run() {
     const pngBuffer = pngData.asPng();
     
     fs.writeFileSync(pngPath, pngBuffer);
-    console.log(`✅ Generated: public/og/\${page.file}`);
-  }
+    console.log(`✅ Generated: public/og/${page.file}`);
+  }));
   
-  console.log('🎉 All OG images perfectly generated with Satori!');
+  console.log('🎉 All OG images perfectly generated with parallel execution!');
 }
 
 try {
