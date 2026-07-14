@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { mockPosts as posts } from '../../data/blog';
+---
+
+<Layout title="Blog | Omnidevx" ogImage="/og/blog.png" description="Insights, engineering tutorials, and company updates from the Omnidevx team.">
+	<main class="relative w-full pt-32 pb-16 px-8">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h1 class="text-4xl md:text-5xl font-display text-[#161616] mb-6">
+					Our <span class="scribble-underline text-[#2A6FDB]">Insights</span>
+				</h1>
+				<p class="text-xl text-[#444] max-w-2xl mx-auto">
+					Engineering tutorials, architecture deep-dives, and company updates from our team.
+				</p>
+			</div>
+			{/* Filter Chips */}
+			<div class="flex flex-wrap items-center justify-center gap-3 mb-12" id="blog-filters">
+				<button class="filter-chip px-6 py-2 rounded-full text-sm font-bold border transition-colors bg-[#161616] text-white border-[#161616]" data-filter="all">All</button>
+				{[...new Set(posts.map((p: any) => p.category))].filter(Boolean).map((category: any) => (
+					<button class="filter-chip px-6 py-2 rounded-full text-sm font-bold border border-[#e8e5db] text-[#444] bg-white hover:border-[#2A6FDB] hover:text-[#2A6FDB] transition-colors" data-filter={category}>{category}</button>
+				))}
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+				{posts && posts.length > 0 ? posts.map((post: any) => (
+					<a href={`/blog/${post.slug}`} class="blog-card group relative flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#e8e5db] hover:border-[#2A6FDB]" data-category={post.category} style={`view-transition-name: blog-card-${post.slug}`}>
+						{post.imageUrl && (
+                            <div class="aspect-[16/10] overflow-hidden relative">
+                                <img src={post.imageUrl} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-60"></div>
+                                <div class="absolute bottom-4 left-4 z-20">
+                                    <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#161616] text-xs font-bold rounded-full tracking-wider uppercase shadow-sm">
+                                        {post.category || 'Article'}
+                                    </span>
+                                </div>
+                            </div>
+                        )}
+						
+						<div class="p-8 flex flex-col flex-grow">
+							<div class="flex items-center text-sm text-[#666] mb-4 space-x-4 font-medium">
+								<span>{post.date ? new Date(post.date).toLocaleDateString() : 'Recent'}</span>
+								{post.author && (
+                                    <>
+                                        <span>&bull;</span>
+                                        <span>{post.author}</span>
+                                    </>
+                                )}
+							</div>
+							<h3 class="text-2xl font-bold text-[#161616] mb-3 group-hover:text-[#2A6FDB] transition-colors line-clamp-2">
+								{post.title}
+							</h3>
+							<p class="text-[#444] line-clamp-3 mb-6 flex-grow">
+								{post.excerpt}
+							</p>
+							<div class="flex items-center text-[#2A6FDB] font-bold text-sm mt-auto group-hover:translate-x-1 transition-transform">
+								Read Article <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+							</div>
+						</div>
+					</a>
+				)) : (
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-xl text-[#666]">No posts found yet. Add some in the Sanity Studio!</p>
+                    </div>
+                )}
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const filters = document.querySelectorAll('.filter-chip');
+		const cards = document.querySelectorAll('.blog-card');
+
+		// Function to actually toggle the cards
+		const updateCards = (selectedCategory: string) => {
+			cards.forEach(card => {
+				const cardCategory = card.getAttribute('data-category');
+				if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+					card.classList.remove('hidden');
+					card.classList.add('flex');
+				} else {
+					card.classList.remove('flex');
+					card.classList.add('hidden');
+				}
+			});
+		};
+
+		filters.forEach(filter => {
+			filter.addEventListener('click', () => {
+				const selectedCategory = filter.getAttribute('data-filter') || 'all';
+
+				// Reset styling for all chips
+				filters.forEach(f => {
+					f.classList.remove('bg-[#161616]', 'text-white', 'border-[#161616]');
+					f.classList.add('bg-white', 'text-[#444]', 'border-[#e8e5db]');
+				});
+				// Apply active styling to the clicked chip
+				filter.classList.remove('bg-white', 'text-[#444]', 'border-[#e8e5db]');
+				filter.classList.add('bg-[#161616]', 'text-white', 'border-[#161616]');
+
+				// Use modern View Transitions API for buttery smooth layout animations
+				if (!document.startViewTransition) {
+					updateCards(selectedCategory);
+				} else {
+					document.startViewTransition(() => {
+						updateCards(selectedCategory);
+					});
+				}
+			});
+		});
+	});
+</script>

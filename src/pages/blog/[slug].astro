@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { mockPosts } from '../../data/blog';
+
+const { slug } = Astro.params;
+
+// Fetch the specific post from mock data
+const post = mockPosts.find(p => p.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const pageTitle = `${post.title} | Blog | Omnidevx`;
+const pageDescription = post.excerpt;
+const pageOgImage = post.imageUrl || '/og/blog.png';
+---
+
+<Layout title={pageTitle} ogImage={pageOgImage} description={pageDescription}>
+	<main class="relative w-full pt-32 pb-24 px-8 overflow-hidden bg-[#FDFCF7]">
+        {/* Subtle Background Elements */}
+        <div class="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none -z-10"></div>
+        
+		<article class="max-w-4xl mx-auto relative z-10">
+			{/* Post Header */}
+			<header class="mb-12 text-center">
+                <div class="mb-6 flex justify-center items-center gap-4 text-sm font-medium text-[#666]">
+                    {post.category && (
+                        <span class="px-3 py-1 bg-white border border-[#e8e5db] text-[#2A6FDB] rounded-full uppercase tracking-wider">{post.category}</span>
+                    )}
+                    {post.date && <span>{new Date(post.date).toLocaleDateString()}</span>}
+                </div>
+                
+				<h1 class="text-4xl md:text-6xl font-display text-[#161616] mb-8 tracking-tight leading-tight">
+					{post.title}
+				</h1>
+                
+                {post.author && (
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#111] text-white flex items-center justify-center font-bold text-lg">
+                            {post.author.charAt(0)}
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[#161616] font-bold">{post.author}</p>
+                            <p class="text-sm text-[#666]">Omnidevx Team</p>
+                        </div>
+                    </div>
+                )}
+			</header>
+
+            {/* Featured Image */}
+            {post.imageUrl && (
+                <div class="w-full aspect-[2/1] rounded-3xl overflow-hidden mb-16 shadow-xl border border-[#e8e5db]">
+                    <img src={post.imageUrl} alt={post.title} class="w-full h-full object-cover" />
+                </div>
+            )}
+
+            {/* Post Content */}
+			<div class="prose prose-lg md:prose-xl prose-zinc max-w-3xl mx-auto text-[#2A2A2A] prose-headings:font-display prose-headings:text-[#161616] prose-a:text-[#2A6FDB] prose-img:rounded-2xl">
+                {post.content ? (
+                    <div set:html={post.content} />
+                ) : (
+                    <p>No content provided for this post.</p>
+                )}
+			</div>
+
+            {/* Back to Blog CTA */}
+            <div class="max-w-3xl mx-auto mt-20 pt-10 border-t border-[#e8e5db] text-center">
+                <a href="/blog" class="inline-flex items-center justify-center px-8 py-4 bg-[#111] hover:bg-[#2A6FDB] text-white font-bold rounded-full transition-colors">
+                    <svg class="mr-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Blog
+                </a>
+            </div>
+		</article>
+	</main>
+</Layout>
