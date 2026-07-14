@@ -10,7 +10,7 @@ import {
   LayoutTemplate, Server, Gauge
 } from "lucide-react";
 
-export type ServiceType = "web" | "mobile" | "ai" | "genai" | "devops";
+export type ServiceType = "web" | "mobile" | "ai" | "genai" | "devops" | "standard";
 
 const PROCESS_DATA = {
   devops: {
@@ -74,6 +74,19 @@ const PROCESS_DATA = {
       { id: 1, title: "Data Strategy", description: "We analyze your proprietary data and prepare it for embedding, ensuring the AI model has deep, accurate context specific to your business.", icon: Database },
       { id: 2, title: "Model Selection & RAG", description: "We select the right LLM (OpenAI, Claude, open-source) and build Retrieval-Augmented Generation pipelines to minimize hallucinations.", icon: Brain },
       { id: 3, title: "UI/UX Implementation", description: "We design seamless conversational interfaces or predictive UI elements that make interacting with the AI feel natural to the end user.", icon: MessageSquare },
+    ]
+  },
+  standard: {
+    colorHex: "#2563eb", // blue-600
+    colorClass: "text-[#2A6FDB]",
+    borderClass: "group-hover:border-[#2A6FDB]",
+    bgHoverClass: "bg-[#2A6FDB]/10",
+    labelClass: "text-[#2A6FDB]",
+    steps: [
+      { id: 1, title: "Discovery", description: "We sit down with you to figure out exactly what needs to be built and, more importantly, what doesn't.", icon: Lightbulb },
+      { id: 2, title: "Development", description: "We write the code. You get access to a staging environment on day one so you can see progress in real-time.", icon: Code },
+      { id: 3, title: "Testing", description: "We try to break it. If our automated test suites and manual QA can't crash it, it's ready.", icon: TestTube },
+      { id: 4, title: "Deployment", description: "We ship it to production, set up the monitoring alerts, and make sure it stays online.", icon: Rocket },
     ]
   }
 };

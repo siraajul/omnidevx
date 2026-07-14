@@ -9,13 +9,13 @@ if (globalThis.window !== undefined) {
 }
 
 const INDUSTRIES = [
-  { name: 'AI', value: 100 },
-  { name: 'FINTECH', value: 85 },
-  { name: 'EDTECH', value: 65 },
-  { name: 'LOGISTICS', value: 75 },
-  { name: 'SAAS', value: 95 },
+  { name: 'AI', value: 100, href: '/services/ai-mvp' },
+  { name: 'FINTECH', value: 85, href: '/industries/fintech' },
+  { name: 'EDTECH', value: 65, href: '/industries/edtech' },
+  { name: 'LOGISTICS', value: 75, href: '/industries/logistics' },
+  { name: 'SAAS', value: 95, href: '/industries/saas' },
   { name: 'PROPTECH', value: 60 },
-  { name: 'HEALTHTECH', value: 85 },
+  { name: 'HEALTHTECH', value: 85, href: '/industries/healthcare' },
   { name: 'CRM', value: 70 },
 ];
 
@@ -204,17 +204,30 @@ export default function IndustryRadar() {
             if (angle === 0) dy = -10;
             if (angle === 180) dy = 10;
 
-            return (
+            const textElement = (
               <text
-                key={`label-${ind.name}`}
                 x={labelPos.x + dx}
                 y={labelPos.y + dy}
                 textAnchor={textAnchor}
                 alignmentBaseline="middle"
-                className="radar-label opacity-0 text-[11px] sm:text-[13px] font-bold fill-zinc-600 tracking-[0.2em] uppercase"
+                className={`radar-label opacity-0 text-[11px] sm:text-[13px] font-bold tracking-[0.2em] uppercase transition-colors ${ind.href ? 'fill-[#2563EB] hover:fill-[#161616] cursor-pointer' : 'fill-zinc-600'}`}
               >
                 [ {ind.name} ]
               </text>
+            );
+
+            if (ind.href) {
+                return (
+                    <a href={ind.href} key={`label-${ind.name}`}>
+                        {textElement}
+                    </a>
+                );
+            }
+
+            return (
+              <g key={`label-${ind.name}`}>
+                  {textElement}
+              </g>
             );
           })}
 

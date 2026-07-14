@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AnimatedProcessFlow } from '../../components/sections/animated-process-flow';
+---
+
+<Layout title="Fintech Software Development Agency | Omnidevx" ogImage="/og/industries.png" description="Build PCI-compliant payment gateways, blockchain protocols, and automated trading algorithms.">
+	<main class="relative w-full overflow-hidden bg-[#FDFCF7]">
+		
+		{/* HERO SECTION */}
+		<div class="flex flex-col overflow-hidden pt-32 pb-20 px-8 relative">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
+			<div class="max-w-5xl mx-auto text-center">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 font-bold tracking-widest uppercase text-sm rounded-full mb-6">Financial Technology</span>
+				<h1 class="text-4xl md:text-6xl font-display text-[#161616] mb-8 leading-tight">
+					High-Performance & Secure <br />
+					<span class="text-blue-600 scribble-underline">Fintech Software</span>
+				</h1>
+				<p class="text-xl text-[#2A2A2A] max-w-3xl mx-auto mb-12">
+					We build PCI-compliant payment gateways, highly concurrent trading engines, and enterprise-grade ledger systems that handle millions of transactions flawlessly.
+				</p>
+				<div class="flex justify-center gap-4">
+					<a href="/contact" class="px-8 py-4 bg-[#161616] text-[#FDFCF7] rounded-full font-bold hover:bg-[#2A2A2A] transition-colors">
+						Discuss Your Infrastructure
+					</a>
+				</div>
+			</div>
+		</div>
+
+        {/* INDUSTRY CHALLENGES */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 relative gsap-reveal rounded-3xl overflow-hidden shadow-2xl border border-[#e8e5db]">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop" alt="Financial Trading Graph" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616]/80 to-transparent flex items-end p-8">
+                            <p class="text-white font-medium text-lg border-l-4 border-blue-500 pl-4">"They architected an event-driven system capable of processing 10,000 TPS with zero data loss or concurrency issues."</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 gsap-reveal">
+                        <h2 class="text-3xl md:text-5xl font-display text-[#161616] mb-6 leading-tight">In Finance, <span class="text-blue-600">Zero-Downtime</span> isn't a buzzword.</h2>
+                        <p class="text-lg text-[#444] mb-8 leading-relaxed">
+                            Fintech requires absolute precision. A single dropped database transaction or race condition can mean millions of dollars lost and catastrophic regulatory action.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">Concurrency & Race Conditions</h4>
+                                    <p class="text-sm text-[#444]">Handling thousands of simultaneous balance updates requires deep database locking expertise.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">PCI-DSS & Security</h4>
+                                    <p class="text-sm text-[#444]">Processing cardholder data demands strict physical, network, and application-layer security measures.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">The Omnidevx Solution</h4>
+                                    <p class="text-sm text-[#444]">We utilize ACID-compliant databases, idempotent API design, and immutable ledgers to ensure absolute mathematical certainty.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+		{/* WHAT WE BUILD (Detailed Solutions) */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">What We <span class="text-blue-600">Build</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">We engineer the hard stuff so you can focus on unit economics.</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h20"/><path d="M5 18v-4"/><path d="M9 18v-6"/><path d="M13 18v-8"/><path d="M17 18V6"/><path d="M21 18V2"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Trading & Execution</h3>
+						<p class="text-[#444] mb-4">Low-latency matching engines, real-time charting with WebSockets, and algorithmic trading bot infrastructure.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Event-Driven Arch (Kafka)</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> WebSocket Data Streams</li>
+                        </ul>
+					</div>
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Payment Gateways</h3>
+						<p class="text-[#444] mb-4">Custom payment orchestration layers, Plaid integrations for bank auth, and complex multi-party payout routing via Stripe Connect.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Idempotent API Design</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> PCI-Compliant Vaults</li>
+                        </ul>
+					</div>
+                    <div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Ledger & Lending</h3>
+						<p class="text-[#444] mb-4">Immutable double-entry ledger databases, automated underwriting algorithms, and KYC/AML verification pipelines.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Double-Entry Accounting DB</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Persona / Socure KYC</li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        {/* SPECIALIZED TECH STACK */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#161616] text-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display mb-4">Built for <span class="text-blue-500">Scale</span></h2>
+					<p class="text-zinc-400 max-w-2xl mx-auto">Technologies chosen specifically for high-throughput, low-latency finance applications.</p>
+				</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Go / Rust</div>
+                        <p class="text-xs text-zinc-400">Microservices requiring sub-millisecond execution.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Apache Kafka</div>
+                        <p class="text-xs text-zinc-400">Distributed event streaming and message queuing.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">PostgreSQL</div>
+                        <p class="text-xs text-zinc-400">Strict ACID compliance for all financial records.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Redis</div>
+                        <p class="text-xs text-zinc-400">In-memory caching and rapid session management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		{/* HOW WE APPROACH IT */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-[#161616] mb-16 text-center gsap-reveal">Development Pipeline</h2>
+				<AnimatedProcessFlow type="standard" client:visible />
+			</div>
+		</section>
+
+        {/* FAQ SECTION */}
+        <section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+            <div class="max-w-3xl mx-auto gsap-reveal">
+                <h2 class="text-3xl font-display text-[#161616] mb-12 text-center">Frequently Asked <span class="text-blue-600">Questions</span></h2>
+                <div class="space-y-4">
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-blue-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            How do you handle API idempotency?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            We implement strict idempotency keys on all state-mutating endpoints (like POST/charges). This ensures that if a client's network drops and they retry a payment request, the transaction is only ever processed exactly once.
+                        </p>
+                    </details>
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-blue-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            Can you help us achieve PCI compliance?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            Yes. We typically advise limiting your PCI scope by utilizing tokenization services (like Stripe Elements or VGS). We build the infrastructure to handle these tokens securely without raw PAN data ever touching your servers.
+                        </p>
+                    </details>
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-blue-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            Do you have experience with Plaid or Open Banking?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            Absolutely. We have extensive experience implementing Plaid Link for account verification, handling webhook updates for transaction pulling, and working with Dwolla for ACH transfers.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] text-center bg-white">
+			<div class="max-w-2xl mx-auto gsap-reveal">
+				<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">Ready to build your <span class="text-blue-600">Fintech</span> product?</h2>
+				<p class="text-[#444] mb-8">Schedule a technical discovery call to discuss database architecture, scaling, and compliance.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-colors text-lg">
+					Speak to an Architect →
+				</a>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: { trigger: el, start: 'top 85%' },
+			y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+		});
+	});
+</script>
+<style>
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

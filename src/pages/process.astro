@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AnimatedProcessFlow } from '../components/sections/animated-process-flow';
+---
+
+<Layout title="How We Work | Engineering Process | Omnidevx" ogImage="/og/process.png" description="Discover our agile engineering methodology, from discovery and architecture design to CI/CD deployment and QA.">
+	<main class="relative w-full overflow-hidden bg-[#FDFCF7]">
+		
+		{/* HERO SECTION */}
+		<div class="flex flex-col overflow-hidden pt-32 pb-20 px-8">
+			<div class="max-w-5xl mx-auto text-center">
+				<h1 class="text-4xl md:text-6xl font-display text-[#161616] mb-8 leading-tight">
+					How we <br />
+					<span class="text-[#2A6FDB] scribble-underline">build software</span>
+				</h1>
+				<p class="text-xl text-[#2A2A2A] max-w-3xl mx-auto mb-12">
+					No black boxes. No surprise invoices. Here is exactly how we take a project from an initial conversation to a production deployment.
+				</p>
+			</div>
+		</div>
+
+		{/* THE PIPELINE */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">The Development <span class="text-[#2A6FDB]">Lifecycle</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">From an initial idea to a highly scalable production deployment.</p>
+				</div>
+				<AnimatedProcessFlow type="standard" client:visible />
+			</div>
+		</section>
+
+		{/* ENGAGEMENT MODELS */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">Engagement <span class="text-[#2A6FDB]">Models</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">Flexible partnership structures designed to fit your operational needs.</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="p-10 border border-[#e8e5db] rounded-3xl bg-white hover:border-[#2A6FDB] transition-colors gsap-reveal shadow-sm">
+						<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+						</div>
+						<h3 class="text-2xl font-display text-[#161616] mb-4">Dedicated Teams</h3>
+						<p class="text-[#444] mb-6 leading-relaxed">
+							We drop into your existing workflow. You get a team of engineers, QA, and DevOps who live in your Slack and commit directly to your repos. It feels like an in-house team.
+						</p>
+						<ul class="space-y-3">
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monthly Retainer</li>
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Scale up or down easily</li>
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direct developer access</li>
+						</ul>
+					</div>
+					
+					<div class="p-10 border border-[#e8e5db] rounded-3xl bg-white hover:border-[#2A6FDB] transition-colors gsap-reveal shadow-sm">
+						<div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+						</div>
+						<h3 class="text-2xl font-display text-[#161616] mb-4">Project-Based</h3>
+						<p class="text-[#444] mb-6 leading-relaxed">
+							For when you know exactly what you need built. We agree on the scope and the timeline, and we deliver the final product. No endless hourly billing.
+						</p>
+						<ul class="space-y-3">
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Predictable budget</li>
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Defined milestones</li>
+							<li class="flex items-center gap-3 text-[#2A2A2A]"><svg class="text-blue-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Turnkey delivery</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] text-center bg-[#161616] text-[#FDFCF7]">
+			<div class="max-w-2xl mx-auto gsap-reveal">
+				<h2 class="text-3xl md:text-4xl font-display mb-4">Ready to <span class="text-[#2A6FDB]">build?</span></h2>
+				<p class="text-zinc-400 mb-8">Book a discovery call. We'll audit your current stack and tell you exactly what it takes to get to the next level.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-[#2A6FDB] hover:bg-blue-500 text-white font-bold rounded-full transition-colors text-lg">
+					Get Started
+				</a>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: { trigger: el, start: 'top 85%' },
+			y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+		});
+	});
+</script>

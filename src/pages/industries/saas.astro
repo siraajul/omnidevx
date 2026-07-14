@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AnimatedProcessFlow } from '../../components/sections/animated-process-flow';
+---
+
+<Layout title="B2B SaaS Software Development Agency | Omnidevx" ogImage="/og/industries.png" description="Build scalable, multi-tenant B2B SaaS platforms with usage-based billing and high-availability infrastructure.">
+	<main class="relative w-full overflow-hidden bg-[#FDFCF7]">
+		
+		{/* HERO SECTION */}
+		<div class="flex flex-col overflow-hidden pt-32 pb-20 px-8 relative">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-50/50 to-transparent -z-10"></div>
+			<div class="max-w-5xl mx-auto text-center">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 font-bold tracking-widest uppercase text-sm rounded-full mb-6">B2B SaaS</span>
+				<h1 class="text-4xl md:text-6xl font-display text-[#161616] mb-8 leading-tight">
+					Scalable, Multi-Tenant <br />
+					<span class="text-purple-600 scribble-underline">SaaS Architectures</span>
+				</h1>
+				<p class="text-xl text-[#2A2A2A] max-w-3xl mx-auto mb-12">
+					We build enterprise-grade B2B SaaS platforms with isolated data tenancies, usage-based billing systems, and lightning-fast edge compute for global availability.
+				</p>
+				<div class="flex justify-center gap-4">
+					<a href="/contact" class="px-8 py-4 bg-[#161616] text-[#FDFCF7] rounded-full font-bold hover:bg-[#2A2A2A] transition-colors">
+						Scale Your SaaS
+					</a>
+				</div>
+			</div>
+		</div>
+
+        {/* INDUSTRY CHALLENGES */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="gsap-reveal">
+                        <h2 class="text-3xl md:text-5xl font-display text-[#161616] mb-6 leading-tight">Growth breaks <span class="text-purple-600">bad architecture.</span></h2>
+                        <p class="text-lg text-[#444] mb-8 leading-relaxed">
+                            A prototype built over a weekend might get you your first 10 customers, but it will inevitably collapse when you land your first Enterprise contract.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">Data Leakage Risks</h4>
+                                    <p class="text-sm text-[#444]">Failing to properly isolate tenant data can lead to catastrophic security breaches across your entire user base.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">Complex Billing Logistics</h4>
+                                    <p class="text-sm text-[#444]">Handling seat-based pricing, usage tiers, prorations, and enterprise invoice logic is a nightmare to build from scratch.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">The Omnidevx Solution</h4>
+                                    <p class="text-sm text-[#444]">We engineer multi-tenant databases with Row Level Security (RLS) and deeply integrate with Stripe Billing to ensure absolute scalability.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative gsap-reveal rounded-3xl overflow-hidden shadow-2xl border border-[#e8e5db]">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="SaaS Dashboard Analytics" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616]/80 to-transparent flex items-end p-8">
+                            <p class="text-white font-medium text-lg border-l-4 border-purple-500 pl-4">"Omnidevx took us from a clunky MVP to a SOC2-ready enterprise platform that handled our 10x growth without breaking a sweat."</p>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+		{/* WHAT WE BUILD (Detailed Solutions) */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">SaaS Foundations We <span class="text-purple-600">Build</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">The unglamorous, highly technical scaffolding required to run a real business.</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-purple-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Multi-Tenancy</h3>
+						<p class="text-[#444] mb-4">Architecting databases that securely partition user data, preventing cross-tenant leakage while remaining highly performant.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Row Level Security (RLS)</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Subdomain Routing</li>
+                        </ul>
+					</div>
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-purple-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Usage Billing</h3>
+						<p class="text-[#444] mb-4">Complex Stripe or Paddle integrations handling seat changes, metered API usage, free-trial gates, and prorated downgrades.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Stripe Webhook Sync</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Metered Entitlements</li>
+                        </ul>
+					</div>
+                    <div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-purple-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">RBAC Auth</h3>
+						<p class="text-[#444] mb-4">Role-Based Access Control (RBAC) allowing organization owners to manage granular team permissions, invitiations, and SAML/SSO.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Auth0 / Supabase Auth</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Enterprise SSO (SAML)</li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        {/* SPECIALIZED TECH STACK */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#161616] text-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display mb-4">Enterprise <span class="text-purple-500">Infrastructure</span></h2>
+					<p class="text-zinc-400 max-w-2xl mx-auto">The modern stack required for a globally distributed B2B platform.</p>
+				</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Next.js / React</div>
+                        <p class="text-xs text-zinc-400">Server-Side Rendering for fast initial loads and SEO.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Vercel Edge</div>
+                        <p class="text-xs text-zinc-400">Global edge computing for sub-50ms API responses.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Supabase / Postgres</div>
+                        <p class="text-xs text-zinc-400">Scalable relational data with baked-in RLS security.</p>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-2xl bg-zinc-900/50 gsap-reveal">
+                        <div class="font-bold text-xl mb-2 text-white">Tailwind CSS</div>
+                        <p class="text-xs text-zinc-400">Scalable, maintainable utility-first design systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		{/* HOW WE APPROACH IT */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-4xl font-bold text-[#161616] mb-16 text-center gsap-reveal">Development Pipeline</h2>
+				<AnimatedProcessFlow type="standard" client:visible />
+			</div>
+		</section>
+
+        {/* FAQ SECTION */}
+        <section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+            <div class="max-w-3xl mx-auto gsap-reveal">
+                <h2 class="text-3xl font-display text-[#161616] mb-12 text-center">Frequently Asked <span class="text-purple-600">Questions</span></h2>
+                <div class="space-y-4">
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-purple-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            Do you build White-Label solutions?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            Yes. We can architect your SaaS to support dynamic theming, custom domains (CNAME), and white-labeled email sending so your enterprise clients can brand the platform as their own.
+                        </p>
+                    </details>
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-purple-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            How do you handle multi-tenant databases?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            Depending on your scale and compliance needs, we either use a pooled database with strict Row Level Security (RLS) via a `tenant_id` column, or we implement completely separate database schemas/instances for high-security enterprise clients.
+                        </p>
+                    </details>
+                    <details class="group bg-white border border-[#e8e5db] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-purple-600 transition-colors">
+                        <summary class="flex justify-between items-center font-bold text-lg text-[#161616]">
+                            Can you help integrate with Salesforce or Hubspot?
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-[#444] mt-4 leading-relaxed animate-fade-in">
+                            Absolutely. Most B2B SaaS applications require deep integrations with existing CRM ecosystems. We build robust OAuth flows and bi-directional API syncs to keep data unified across platforms.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] text-center bg-white">
+			<div class="max-w-2xl mx-auto gsap-reveal">
+				<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">Ready to scale your <span class="text-purple-600">SaaS</span>?</h2>
+				<p class="text-[#444] mb-8">Schedule a technical discovery call to discuss database architecture, billing engines, and scaling up.</p>
+				<a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition-colors text-lg">
+					Speak to a Solutions Architect →
+				</a>
+			</div>
+		</section>
+
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: { trigger: el, start: 'top 85%' },
+			y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+		});
+	});
+</script>
+<style>
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

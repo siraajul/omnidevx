@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404: Page Not Found | Omnidevx" description="The page you are looking for does not exist.">
+	<main class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#FDFCF7]">
+        {/* Background Gradients */}
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 pointer-events-none -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-100/30 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+
+		<div class="max-w-2xl mx-auto px-8 relative z-10 text-center">
+            {/* Visual Element */}
+            <div class="mb-10 inline-flex items-center justify-center w-32 h-32 rounded-full bg-white shadow-xl border-4 border-[#2A6FDB]/20 text-[#2A6FDB]">
+                <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+
+            <h1 class="text-7xl md:text-9xl font-display text-[#161616] mb-6 tracking-tighter">
+                404
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-[#161616] mb-6">
+                Lost in the <span class="scribble-underline text-[#2A6FDB]">Matrix.</span>
+            </h2>
+            <p class="text-xl text-[#444] mb-12">
+                The page you're looking for doesn't exist or has been moved. Let's get you back to familiar territory.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/" class="w-full sm:w-auto px-8 py-4 bg-[#111] hover:bg-[#2A6FDB] text-white font-bold rounded-full transition-colors text-lg shadow-lg">
+                    Return Home
+                </a>
+                <a href="/contact" class="w-full sm:w-auto px-8 py-4 bg-white text-[#161616] border border-[#e8e5db] hover:border-[#2A6FDB] font-bold rounded-full transition-colors text-lg shadow-sm">
+                    Contact Support
+                </a>
+            </div>
+		</div>
+	</main>
+</Layout>

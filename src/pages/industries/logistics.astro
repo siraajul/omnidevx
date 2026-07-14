@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AnimatedProcessFlow } from '../../components/sections/animated-process-flow';
+---
+
+<Layout title="Logistics & Supply Chain Software Development | Omnidevx" ogImage="/og/industries.png" description="Build high-throughput logistics platforms, real-time fleet tracking, and resilient warehouse management systems.">
+	<main class="relative w-full overflow-hidden bg-[#FDFCF7]">
+		
+		{/* HERO SECTION */}
+		<div class="flex flex-col overflow-hidden pt-32 pb-20 px-8 relative">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
+			<div class="max-w-5xl mx-auto text-center">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 font-bold tracking-widest uppercase text-sm rounded-full mb-6">Logistics & Supply Chain</span>
+				<h1 class="text-4xl md:text-6xl font-display text-[#161616] mb-8 leading-tight">
+					High-Throughput <br />
+					<span class="text-blue-600 scribble-underline">Supply Chain Architecture</span>
+				</h1>
+				<p class="text-xl text-[#2A2A2A] max-w-3xl mx-auto mb-12">
+					We build logistics platforms that don't crack under load. Real-time fleet tracking, intelligent routing algorithms, and warehouse management systems that actually work in production.
+				</p>
+				<div class="flex justify-center gap-4">
+					<a href="/contact" class="px-8 py-4 bg-[#161616] text-[#FDFCF7] rounded-full font-bold hover:bg-[#2A2A2A] transition-colors">
+						Modernize Your Infrastructure
+					</a>
+				</div>
+			</div>
+		</div>
+
+        {/* INDUSTRY CHALLENGES */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="gsap-reveal">
+                        <h2 class="text-3xl md:text-5xl font-display text-[#161616] mb-6 leading-tight">Legacy systems choke on <span class="text-blue-600">real-time data.</span></h2>
+                        <p class="text-lg text-[#444] mb-8 leading-relaxed">
+                            Your 15-year-old on-premise ERP wasn't built to process GPS pings from 10,000 trucks every three seconds. When supply chains move to real-time, the technical bottlenecks become glaringly obvious.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">Data Latency</h4>
+                                    <p class="text-sm text-[#444]">Batch processing overnight isn't acceptable anymore. If your dispatchers see where a truck was ten minutes ago, they are flying blind.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">Integration Hell</h4>
+                                    <p class="text-sm text-[#444]">Stitching together fragile EDI connections, third-party carrier APIs, and warehouse hardware usually results in a brittle, failing system.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                                <div>
+                                    <h4 class="font-bold text-[#161616]">The Omnidevx Solution</h4>
+                                    <p class="text-sm text-[#444]">We deploy event-driven architectures (Kafka/Redpanda) and robust anti-corruption layers to modernize operations without halting existing business.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative gsap-reveal rounded-3xl overflow-hidden shadow-2xl border border-[#e8e5db]">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?q=80&w=2000&auto=format&fit=crop" alt="Logistics Warehouse" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#161616]/80 to-transparent flex items-end p-8">
+                            <p class="text-white font-medium text-lg border-l-4 border-blue-500 pl-4">"Omnidevx untangled our spaghetti architecture and gave us a real-time tracking dashboard that our dispatchers actually trust."</p>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+		{/* WHAT WE BUILD (Detailed Solutions) */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#FDFCF7]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">Logistics Systems We <span class="text-blue-600">Build</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">The heavy-lifting backend infrastructure that keeps the physical world moving.</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Real-Time Tracking</h3>
+						<p class="text-[#444] mb-4">Ingesting millions of telemetry data points via WebSockets and stream processors to provide live visibility across the entire fleet.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Event Streaming (Kafka)</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> WebSocket Subscriptions</li>
+                        </ul>
+					</div>
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Route Optimization</h3>
+						<p class="text-[#444] mb-4">Implementing geospatial databases and graph algorithms to calculate the most efficient paths considering traffic, weight limits, and delivery windows.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> PostGIS / Geospatial Data</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Graph-based Routing</li>
+                        </ul>
+					</div>
+					<div class="p-8 border border-[#e8e5db] rounded-3xl bg-white hover:border-blue-600 transition-colors shadow-sm gsap-reveal">
+						<div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+						</div>
+						<h3 class="text-xl font-bold text-[#161616] mb-3">Legacy Integration</h3>
+						<p class="text-[#444] mb-4">Building reliable anti-corruption layers and ETL pipelines that allow modern applications to safely interface with ancient AS/400 mainframes.</p>
+                        <ul class="text-sm text-[#444] space-y-2">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Anti-Corruption Layers</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Resilient API Gateways</li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* PROCESS FLOW OVERRIDE */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-white overflow-hidden">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16 gsap-reveal">
+					<h2 class="text-3xl md:text-4xl font-display text-[#161616] mb-4">Engineering <span class="text-blue-600">Reliability</span></h2>
+					<p class="text-[#444] max-w-2xl mx-auto">In logistics, downtime means trucks stop moving. We build for absolute resilience.</p>
+				</div>
+				<AnimatedProcessFlow client:visible />
+			</div>
+		</section>
+
+		{/* CTA */}
+		<section class="py-24 px-8 border-t border-[#e8e5db] bg-[#161616] text-white">
+			<div class="max-w-4xl mx-auto text-center gsap-reveal">
+				<h2 class="text-4xl md:text-5xl font-display mb-6">Stop fighting your infrastructure.</h2>
+				<p class="text-xl text-zinc-400 mb-10">Let's discuss how we can modernize your logistics operations.</p>
+				<a href="/contact" class="inline-block px-10 py-4 bg-white text-[#161616] rounded-full font-bold hover:bg-blue-50 transition-colors">
+					Talk to an engineer
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	
+	gsap.registerPlugin(ScrollTrigger);
+
+	const revealElements = document.querySelectorAll('.gsap-reveal');
+	revealElements.forEach((el) => {
+		gsap.from(el, {
+			scrollTrigger: {
+				trigger: el,
+				start: 'top 85%',
+			},
+			y: 30,
+			opacity: 0,
+			duration: 0.8,
+			ease: 'power3.out'
+		});
+	});
+</script>
