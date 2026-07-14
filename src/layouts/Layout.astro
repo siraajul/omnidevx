@@ -4,6 +4,8 @@ import TrackingScripts from '../components/TrackingScripts.astro';
 import { SmoothScroll } from '../components/SmoothScroll';
 import Footer from '../components/Footer.astro';
 import GlobalTabbar from '../components/GlobalTabbar.astro';
+import { SEO } from 'astro-seo';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
 	title?: string;
@@ -39,36 +41,47 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<ClientRouter />
 		
-		<!-- Primary Meta Tags -->
-		<title>{title}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={description} />
-		<meta name="author" content="Omnidevx" />
-		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={canonical} />
-
-		<!-- Favicons -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-		<link rel="apple-touch-icon" href="/favicon.svg?v=2" />
-
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={canonical} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={ogImage} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:site_name" content="Omnidevx" />
-		<meta property="og:locale" content="en_US" />
-
-		<!-- Twitter / X -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={canonical} />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImage} />
+		<SEO
+			title={title}
+			description={description}
+			canonical={canonical}
+			openGraph={{
+				basic: {
+					title: title,
+					type: "website",
+					image: ogImage,
+					url: canonical,
+				},
+				optional: {
+					description: description,
+					siteName: "Omnidevx",
+					locale: "en_US",
+				},
+				image: {
+					width: 1200,
+					height: 630,
+					alt: title,
+				}
+			}}
+			twitter={{
+				card: "summary_large_image",
+				title: title,
+				description: description,
+				image: ogImage,
+			}}
+			extend={{
+				meta: [
+					{ name: "author", content: "Omnidevx" },
+					{ name: "robots", content: "index, follow" },
+				],
+				link: [
+					{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=2" },
+					{ rel: "apple-touch-icon", href: "/favicon.svg?v=2" },
+				],
+			}}
+		/>
 
 		<!-- Search Engine Verification (add your codes) -->
 		<!-- <meta name="google-site-verification" content="YOUR_CODE" /> -->
@@ -109,6 +122,7 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 		<TrackingScripts />
 	</head>
 	<body class="bg-[#FDFCF7] text-[#161616] antialiased selection:bg-[#2A6FDB] selection:text-white flex flex-col min-h-screen overflow-x-hidden w-full relative dot-grid-bg">
+		<div id="reading-progress" class="fixed top-0 left-0 h-[3px] bg-[#2A6FDB] z-[10000] origin-left scale-x-0 transition-transform duration-100 ease-out shadow-[0_0_10px_#2A6FDB]"></div>
 		<SmoothScroll client:idle>
 			<div class="flex-grow pb-24 md:pb-32">
 				<slot />
@@ -172,6 +186,25 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, SITE_URL).href;
 						keystrokes = '';
 					}
 				}
+			});
+		</script>
+		
+		{/* READING PROGRESS SCRIPT */}
+		<script>
+			// Use astro:page-load to support View Transitions
+			document.addEventListener('astro:page-load', () => {
+				const progressBar = document.getElementById('reading-progress');
+				if (!progressBar) return;
+				
+				const updateProgress = () => {
+					const scrollTop = window.scrollY || document.documentElement.scrollTop;
+					const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+					const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+					progressBar.style.transform = `scaleX(${progress})`;
+				};
+				
+				window.addEventListener('scroll', updateProgress, { passive: true });
+				updateProgress(); // Initial call
 			});
 		</script>
 	</body>

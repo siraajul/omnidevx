@@ -884,7 +884,7 @@ export default function OmnidevxHero() {
               Intelligence isn’t an add-on. It’s our main engine. We craft enterprise-grade software and platforms driven by state-of-the-art AI.
             </p>
             <div className="row">
-              <a className="btn-primary" href="/contact">Get started.</a>
+              <a className="btn-primary btn-shimmer" href="/contact">Get started.</a>
               <a className="btn-ghost" href="/portfolio">Learn more.</a>
             </div>
             <div className="stat-strip">

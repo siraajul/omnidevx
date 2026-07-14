@@ -3,8 +3,10 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/' || currentPath === '';
 
 const navItems = [
-  { name: 'Services', href: '/#services' },
+  { name: 'Services', href: '/services' },
+  { name: 'Process', href: '/process' },
   { name: 'Work', href: '/portfolio' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];
 ---
@@ -40,7 +42,7 @@ const navItems = [
         return (
           <a
             href={item.href}
-            class={`text-[11px] sm:text-xs md:text-sm font-normal transition-all px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${
+            class={`magnetic-nav text-[11px] sm:text-xs md:text-sm font-normal transition-all px-3 py-1.5 sm:px-4 sm:py-2 rounded-full inline-block ${
               isActive 
                 ? 'text-[#2A6FDB] bg-blue-50/80 shadow-sm' 
                 : 'text-[#444] hover:text-[#161616] hover:bg-[#f5f3ea]'
@@ -55,3 +57,27 @@ const navItems = [
   </nav>
 </div>
 
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const magneticElements = document.querySelectorAll('.magnetic-nav, .group'); // include the back button and logo
+    
+    magneticElements.forEach((elem) => {
+      // Cast to HTMLElement to access offset properties safely
+      const htmlElem = elem as HTMLElement;
+      
+      htmlElem.addEventListener('mousemove', (e) => {
+        const rect = htmlElem.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Gentle translation
+        htmlElem.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      });
+      
+      htmlElem.addEventListener('mouseleave', () => {
+        // Reset translation
+        htmlElem.style.transform = `translate(0px, 0px)`;
+      });
+    });
+  });
+</script>
