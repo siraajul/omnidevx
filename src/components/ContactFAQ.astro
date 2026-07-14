@@ -31,26 +31,31 @@ const faqs = [
             <p class="text-[#2A2A2A]">You can also reach our technical sales team directly at <a href="mailto:hello@omnidevx.com" class="text-[#2A6FDB] font-medium hover:underline">hello@omnidevx.com</a></p>
         </div>
         
-        <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Form submitted! (This is a frontend demo)');">
+        <form id="contact-form" class="flex flex-col gap-6">
+            <div id="form-error" class="hidden p-4 bg-red-50 text-red-600 border border-red-200 rounded-xl text-sm font-medium"></div>
+            <div id="form-success" class="hidden p-4 bg-emerald-50 text-emerald-600 border border-emerald-200 rounded-xl text-sm font-medium">
+                Thank you! Your inquiry has been sent to our sales team. We'll be in touch within 24 hours.
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="flex flex-col gap-2">
                     <label for="firstName" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">First Name</label>
-                    <input type="text" id="firstName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="John" />
+                    <input type="text" id="firstName" name="firstName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="John" />
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="lastName" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Last Name</label>
-                    <input type="text" id="lastName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="Doe" />
+                    <input type="text" id="lastName" name="lastName" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="Doe" />
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
                 <label for="email" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Work Email</label>
-                <input type="email" id="email" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="john@company.com" />
+                <input type="email" id="email" name="email" required class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444]" placeholder="john@company.com" />
             </div>
 
             <div class="flex flex-col gap-2">
                 <label for="budget" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Project Budget</label>
-                <select id="budget" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all appearance-none cursor-pointer">
+                <select id="budget" name="budget" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all appearance-none cursor-pointer">
                     <option value="" disabled selected class="text-[#2A2A2A]">Select a range...</option>
                     <option value="10k-25k">$10k - $25k</option>
                     <option value="25k-50k">$25k - $50k</option>
@@ -61,17 +66,76 @@ const faqs = [
 
             <div class="flex flex-col gap-2">
                 <label for="message" class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider">Project Details</label>
-                <textarea id="message" required rows="4" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444] resize-none" placeholder="Tell us about your timeline, technical requirements, and ultimate goals..."></textarea>
+                <textarea id="message" name="message" required rows="4" class="bg-white/80 border border-[#e8e5db] rounded-xl px-4 py-3 text-[#161616] focus:outline-none focus:border-[#2A6FDB] focus:ring-1 focus:ring-[#2A6FDB] transition-all placeholder:text-[#444] resize-none" placeholder="Tell us about your timeline, technical requirements, and ultimate goals..."></textarea>
             </div>
 
-            <button type="submit" class="w-full mt-4 bg-[#111] text-white font-hand text-base py-4 rounded-xl hover:bg-[#2A6FDB] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
-                submit inquiry
+            <button type="submit" id="submit-button" class="w-full mt-4 bg-[#111] text-white font-hand text-base py-4 rounded-xl hover:bg-[#2A6FDB] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                <span>submit inquiry</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
         </form>
     </div>
-    </div>
 </div>
+
+<script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-button') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('span');
+    const formError = document.getElementById('form-error');
+    const formSuccess = document.getElementById('form-success');
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Reset state
+        if(formError) formError.classList.add('hidden');
+        if(formSuccess) formSuccess.classList.add('hidden');
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Build the email payload
+        const payload = {
+            to: 'hello@omnidevx.com', // where the lead goes
+            subject: `New Lead: ${data.firstName} ${data.lastName} - ${data.budget}`,
+            html: `
+                <h3>New Lead Inquiry</h3>
+                <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Budget:</strong> ${data.budget}</p>
+                <p><strong>Message:</strong><br/>${data.message}</p>
+            `
+        };
+
+        try {
+            submitBtn.disabled = true;
+            if(btnText) btnText.textContent = 'Sending...';
+            
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to send message');
+            }
+
+            if(formSuccess) formSuccess.classList.remove('hidden');
+            form.reset();
+        } catch (error: any) {
+            console.error('Error sending message:', error);
+            if(formError) {
+                formError.textContent = error.message || 'An error occurred while sending your message. Please try again.';
+                formError.classList.remove('hidden');
+            }
+        } finally {
+            submitBtn.disabled = false;
+            if(btnText) btnText.textContent = 'submit inquiry';
+        }
+    });
+</script>
 
 <style>
     /* Tailwind utilities usually hide the default details marker, but this is a fallback */

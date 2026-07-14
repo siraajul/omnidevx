@@ -53,7 +53,8 @@ const arcs = [
 export default function GlobeSection() {
   return (
     <section className="py-32 px-8 bg-white border-t border-[#e8e5db] relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#e8f0fd] rounded-full blur-[150px] opacity-50 pointer-events-none"></div>
+      {/* Background Glow (Performance Optimized: Radial Gradient) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(232,240,253,0.5)_0%,transparent_70%)] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         

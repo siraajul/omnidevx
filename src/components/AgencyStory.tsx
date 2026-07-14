@@ -18,7 +18,7 @@ export default function AgencyStory() {
         </div>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <p className="mt-auto max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
-          We believe every founder deserves a technical partner that puts innovation first. No boilerplate, no shortcuts — just elite engineering and the people who make it.
+          Most agencies hand you a bloated Wordpress site and call it an app. We don't. We write clean code, we test it relentlessly, and we actually pick up the phone when you call.
         </p>
       </FlowSection>
 
@@ -27,39 +27,39 @@ export default function AgencyStory() {
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
           <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
-            AI <span className="text-[#2A6FDB]">first</span>
+            code <span className="text-[#2A6FDB]">that</span>
             <br />
-            always
+            works
           </h2>
         </div>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
-          A global engineering collective built for startups. We're rewriting the rules of how software gets built, deployed, and scaled.
+          No buzzwords. We build software that handles real traffic, doesn't crash on weekends, and makes sense to the next developer who has to read it.
         </p>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">
           <div className="min-w-[160px] flex-1">
             <p className="mb-2 text-xl font-hand text-[#161616]">architecture</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              Systems designed to scale from day one. No technical debt. No fragile foundations.
+              We don't over-engineer. We pick boring, proven technologies that won't wake you up at 3 AM.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-2 text-xl font-hand text-[#161616]">intelligence</p>
+            <p className="mb-2 text-xl font-hand text-[#161616]">testing</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              Embedding generative AI natively into your workflows to outpace the competition.
+              We write tests. Real tests that actually catch bugs, not just tests to hit an arbitrary coverage number.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-2 text-xl font-hand text-[#161616]">speed</p>
+            <p className="mb-2 text-xl font-hand text-[#161616]">transparency</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              Rapid prototyping and CI/CD pipelines that get your product to market in weeks.
+              You get access to our GitHub, our Slack, and our staging servers. You see the code exactly as it's written.
             </p>
           </div>
         </div>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <p className="mt-auto ml-auto max-w-[60ch] text-right text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
-          Every system we build starts with one question — does this scale the business?
+          Every system we build starts with one question — does this actually solve a problem?
         </p>
       </FlowSection>
 
@@ -68,33 +68,33 @@ export default function AgencyStory() {
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
           <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
-            show up.
+            how we
             <br />
-            <span className="scribble-underline text-[#2A6FDB]">stand out.</span>
+            <span className="scribble-underline text-[#2A6FDB]">do it</span>
           </h2>
         </div>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
-          Three phases. Zero complexity. Your technical roadmap starts moving the moment we sync.
+          We keep it simple. We talk, we build, and we ship. No bloated project management overhead.
         </p>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">
           <div className="min-w-[160px] flex-1">
             <p className="mb-2 text-xl font-hand text-[#161616]">01 — discover</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              We audit your architecture, define the MVP scope, and establish the precise data models required.
+              We figure out what you actually need, not just what's on the spec sheet. We cut the fluff.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
             <p className="mb-2 text-xl font-hand text-[#161616]">02 — build</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              Our engineers execute in rapid sprints, providing you with staging environments every step of the way.
+              We write the code. You get a link to staging on day one. You watch the product come to life in real-time.
             </p>
           </div>
           <div className="min-w-[160px] flex-1">
-            <p className="mb-2 text-xl font-hand text-[#161616]">03 — scale</p>
+            <p className="mb-2 text-xl font-hand text-[#161616]">03 — ship</p>
             <p className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-[#444] leading-relaxed">
-              We deploy to production, monitor infrastructure, and seamlessly scale your backend as users surge.
+              We push it to production. We set up the monitoring. If it breaks, we fix it.
             </p>
           </div>
         </div>
@@ -105,14 +105,14 @@ export default function AgencyStory() {
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div>
           <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display leading-[0.9] text-[#161616]">
-            future
+            no
             <br />
-            of <span className="text-[#2A6FDB]">software</span>
+            <span className="text-[#2A6FDB]">nonsense</span>
           </h2>
         </div>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <p className="max-w-[60ch] text-[clamp(1.1rem,1.5vw,1.35rem)] font-medium text-[#2A2A2A] leading-relaxed">
-          We're not just building apps. We're building intelligent systems.
+          We don't try to impress you with technical jargon. We let the results speak for themselves.
         </p>
         <hr className="my-[1.5vw] border-none border-t border-[#e8e5db]" />
         <div className="flex flex-wrap gap-[2vw]">

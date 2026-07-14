@@ -2,22 +2,13 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 export default function FAQWithSpiral() {
   const spiralRef = useRef<HTMLDivElement | null>(null);
-  const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedQuery(query);
-    }, 300);
-    return () => clearTimeout(handler);
-  }, [query]);
-
-  // Spiral configuration - Light Theme defaults
+  // Spiral configuration - Brand Theme defaults
   const [cfg] = useState({
-    points: 700,
-    dotRadius: 1.8,
+    points: 250,
+    dotRadius: 2.2,
     duration: 3,
-    color: "#2563EB", // Blue-600
+    color: "#2A6FDB", // Brand Blue
     gradient: "ocean" as
       | "none"
       | "rainbow"
@@ -27,12 +18,12 @@ export default function FAQWithSpiral() {
       | "neon"
       | "pastel"
       | "grayscale",
-    pulseEffect: true,
+    pulseEffect: false,
     opacityMin: 0.1,
     opacityMax: 0.8,
     sizeMin: 0.5,
     sizeMax: 1.4,
-    background: "#F9F9F7", // Light theme bg
+    background: "#FDFCF7", // Brand Background
   });
 
   // Gradient presets
@@ -41,7 +32,7 @@ export default function FAQWithSpiral() {
       none: [],
       rainbow: ["#ff0000", "#ff9900", "#ffff00", "#00ff00", "#0099ff", "#6633ff"],
       sunset: ["#ff0000", "#ff9900", "#ffcc00"],
-      ocean: ["#2563EB", "#06b6d4", "#38bdf8"], // Blue to Cyan
+      ocean: ["#2A6FDB", "#06b6d4", "#38bdf8"], // Brand Blue to Cyan
       fire: ["#ff0000", "#ff6600", "#ffcc00"],
       neon: ["#ff00ff", "#00ffff", "#ffff00"],
       pastel: ["#ffcccc", "#ccffcc", "#ccccff"],
@@ -49,8 +40,6 @@ export default function FAQWithSpiral() {
     }),
     []
   );
-
-  // Keyboard shortcuts removed as they were unused
 
   // Generate spiral SVG and mount
   useEffect(() => {
@@ -134,37 +123,33 @@ export default function FAQWithSpiral() {
     spiralRef.current.appendChild(svg);
   }, [cfg, gradients]);
 
-  // FAQ content (edit freely)
+  // Blunt/Engineering FAQ copy
   const faqs = [
     {
-      q: "What does your team do?",
-      a: "We design and build digital products end‑to‑end: research, UX/UI, front‑end/back‑end, infrastructure, and release support.",
+      q: "What exactly do you build?",
+      a: "We build enterprise-grade software and platforms. We handle the entire engineering lifecycle: architecture, UX/UI, backend infrastructure, and production deployment.",
     },
     {
-      q: "How is your workflow structured?",
-      a: "Iteratively. Solution storyboards → quick prototypes → user testing → prioritization → production integration. Transparent at every stage.",
+      q: "How do you manage projects?",
+      a: "No bloated project management or agile theater. We map the requirements, prototype rapidly, and push to staging on day one. You get direct access to our Slack and GitHub.",
     },
     {
-      q: "Which stack and tools do you use?",
-      a: "TypeScript/React/Next.js, Node.js, Python, Postgres, Redis, Tailwind, Playwright, CI/CD on GitHub Actions. Deployment — containers and clouds.",
+      q: "What is your tech stack?",
+      a: "We use boring, proven technologies. React/Next.js for the frontend, Node.js or Python for the backend, PostgreSQL for data, and strict CI/CD pipelines via GitHub Actions.",
     },
     {
-      q: "Can we see code or a demo?",
-      a: "Yes. We prepare private demo environments, give repository access and supply documented examples.",
+      q: "Do we own the code?",
+      a: "100%. You own every single line of code we push to your repository. There is no vendor lock-in or proprietary frameworks.",
     },
     {
-      q: "How do you estimate timelines and budgets?",
-      a: "We evaluate MVPs by impact metrics — value/complexity. We provide T‑shirt sizing bounds, then lock sprints with checkpoints.",
+      q: "How do you price projects?",
+      a: "We evaluate the technical complexity and provide firm estimates. No endless hourly billing surprises. We lock in sprints and deliver checkpoints.",
     },
     {
-      q: "Do you take over existing products?",
-      a: "Yes. We audit, clean up architecture/CI, eliminate debts, set up monitoring and take over under SLA.",
+      q: "Do you rescue legacy codebases?",
+      a: "Yes. We audit your existing architecture, eliminate technical debt, set up proper monitoring, and take over the infrastructure under SLA.",
     },
   ];
-
-  const filtered = debouncedQuery
-    ? faqs.filter(({ q, a }) => (q + a).toLowerCase().includes(debouncedQuery.toLowerCase()))
-    : faqs;
 
   return (
     <section
@@ -181,37 +166,24 @@ export default function FAQWithSpiral() {
       </div>
 
       {/* Layout */}
-      <div className="relative mx-auto max-w-5xl px-6 py-32 z-10">
+      <div className="relative mx-auto max-w-4xl px-6 py-32 z-10">
         {/* Header */}
-        <header className="mb-16 flex flex-col md:flex-row items-start md:items-end justify-between border-b border-[#e8e5db] pb-8 gap-6">
-          <div>
-            <h2 className="text-4xl md:text-6xl font-display text-[#161616]">
-              Frequently Asked
-            </h2>
-            <p className="mt-4 text-lg text-[#444]">
-              Everything you need to know about partnering with Omnidevx.
-            </p>
-          </div>
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search questions…"
-              className="h-12 w-full md:w-64 rounded-xl border border-[#e8e5db] bg-white/80 backdrop-blur px-4 text-sm outline-none transition focus:border-[#2A6FDB] focus:ring-2 focus:ring-blue-100 shadow-sm text-[#161616]"
-            />
-          </div>
+        <header className="mb-16 text-center pb-8 gap-6">
+          <h2 className="text-4xl md:text-6xl font-display text-[#161616]">
+            Frequently <span className="scribble-underline text-[#2A6FDB]">Asked</span>
+          </h2>
+          <p className="mt-6 text-xl text-[#444] max-w-2xl mx-auto">
+            Everything you need to know about partnering with Omnidevx.
+          </p>
         </header>
 
-        {/* Content */}
+        {/* Content - 1 Column Accordion */}
         <div className="relative">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {filtered.map((item, i) => (
+          <div className="flex flex-col gap-4">
+            {faqs.map((item, i) => (
               <FAQItem key={item.q} q={item.q} a={item.a} index={i + 1} />
             ))}
           </div>
-          {filtered.length === 0 && (
-            <p className="text-[#444] text-center py-12">No questions found matching "{query}"</p>
-          )}
         </div>
       </div>
     </section>
@@ -239,7 +211,7 @@ function FAQItem({ q, a, index }: { readonly q: string; readonly a: string; read
         className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(.4,0,.2,1)] ${open ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
       >
         <div className="min-h-0 overflow-hidden">
-          <p className="text-base text-[#2A2A2A] leading-relaxed pr-12">{a}</p>
+          <p className="text-base md:text-lg text-[#2A2A2A] leading-relaxed pr-12">{a}</p>
         </div>
       </div>
     </div>
