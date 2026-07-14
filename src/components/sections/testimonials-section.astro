@@ -1,0 +1,85 @@
+---
+const testimonials = [
+    {
+        logoText: "ARRIVE",
+        quote: "Omnidevx took us from a clunky MVP to a SOC2-ready enterprise platform that handled our 10x growth without breaking a sweat.",
+        author: "Sarah Jenkins",
+        role: "CTO, Arrive",
+        location: "New York, USA"
+    },
+    {
+        logoText: "TRAINMATE",
+        quote: "As a founder, finding the right team was a challenge until we discovered Omnidevx. They integrated directly with our repo and started pushing high-quality PRs on day one.",
+        author: "George El Nachar",
+        role: "Founder, Trainmate",
+        location: "Dubai, United Arab Emirates"
+    }
+];
+---
+
+<section class="py-32 px-8 bg-white border-t border-[#e8e5db] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <h2 class="text-4xl md:text-6xl font-display text-[#161616] max-w-3xl leading-tight">
+                Words that define our <br />
+                <span class="text-[#2A6FDB] scribble-underline">engineering capabilities</span>
+            </h2>
+            <div class="flex gap-4 shrink-0">
+                <button class="w-12 h-12 rounded-full bg-[#f5f3ea] flex items-center justify-center text-[#161616] hover:bg-[#2A6FDB] hover:text-white transition-colors border border-[#e8e5db] shadow-sm">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="w-12 h-12 rounded-full bg-[#f5f3ea] flex items-center justify-center text-[#161616] hover:bg-[#2A6FDB] hover:text-white transition-colors border border-[#e8e5db] shadow-sm">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div class="bg-[#FDFCF7] border border-[#e8e5db] rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <div>
+                    <div class="font-display text-2xl tracking-widest text-[#2A6FDB] font-bold mb-8 uppercase">
+                        {testimonials[0].logoText}
+                    </div>
+                    <p class="text-xl md:text-2xl text-[#161616] font-medium leading-relaxed mb-12">
+                        "{testimonials[0].quote}"
+                    </p>
+                </div>
+                <div>
+                    <p class="font-bold text-[#161616] text-lg">{testimonials[0].author}</p>
+                    <p class="text-[#444] text-sm">{testimonials[0].role}</p>
+                    <p class="text-[#444] text-sm">{testimonials[0].location}</p>
+                </div>
+            </div>
+
+            {/* Video Thumbnail Card */}
+            <div class="relative rounded-3xl overflow-hidden group min-h-[400px] border border-[#e8e5db]">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="Team working" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div class="absolute inset-0 bg-[#161616]/20 group-hover:bg-[#161616]/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="w-20 h-20 rounded-full bg-yellow-400 flex items-center justify-center shadow-[0_0_40px_rgba(250,204,21,0.4)] group-hover:scale-110 transition-transform duration-300">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-[#161616] ml-2"><path d="M5 3l14 9-14 9V3z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            {/* Card 3 */}
+            <div class="bg-[#FDFCF7] border border-[#e8e5db] rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-shadow duration-300">
+                <div>
+                    <div class="font-display text-2xl tracking-widest text-[#2A6FDB] font-bold mb-8 uppercase flex items-center gap-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                        {testimonials[1].logoText}
+                    </div>
+                    <p class="text-xl md:text-2xl text-[#161616] font-medium leading-relaxed mb-12">
+                        "{testimonials[1].quote}"
+                    </p>
+                </div>
+                <div>
+                    <p class="font-bold text-[#161616] text-lg">{testimonials[1].author}</p>
+                    <p class="text-[#444] text-sm">{testimonials[1].role}</p>
+                    <p class="text-[#444] text-sm">{testimonials[1].location}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,170 @@
+---
+const ctoImage = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop';
+---
+
+<section id="contact" class="py-32 px-8 bg-[#FDFCF7] border-t border-[#e8e5db] relative overflow-hidden">
+    {/* Background Glow (Performance Optimized) */}
+    <div class="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(42,111,219,0.05)_0%,transparent_70%)] pointer-events-none -translate-y-1/2"></div>
+    
+    <div class="max-w-[85rem] mx-auto relative z-10">
+        <div class="mb-16 gsap-reveal">
+            <h2 class="text-5xl md:text-7xl font-display text-[#161616] mb-6 tracking-tight max-w-4xl leading-[1.1]">
+                Have a hard technical problem?<br />
+                <span class="text-[#2A6FDB] scribble-underline">Let's talk code.</span>
+            </h2>
+            <p class="text-xl text-[#2A2A2A] max-w-2xl">
+                We'll schedule a call to discuss your architecture. After discovery, we'll send a proposal, and upon approval, we start pushing commits.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
+            {/* Left Column: Team Member */}
+            <div class="flex flex-col h-full justify-between gsap-reveal">
+                <div>
+                    <div class="relative w-full max-w-sm rounded-[2rem] overflow-hidden mb-8 border border-[#e8e5db] shadow-xl group">
+                        <img src={ctoImage} alt="Michael Chang, CTO" class="w-full aspect-[4/5] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                        <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                            <h3 class="text-3xl font-display text-white mb-1">Michael Chang</h3>
+                            <p class="text-white/80 font-semibold uppercase tracking-widest text-sm">Chief Technology Officer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 lg:mt-0 p-8 bg-white border border-[#e8e5db] rounded-[2rem] max-w-sm shadow-sm">
+                    <p class="text-sm font-semibold text-[#2A2A2A] uppercase tracking-wider mb-2">Not interested to submit the form?</p>
+                    <a href="mailto:hello@omnidevx.com" class="text-2xl font-bold text-[#161616] hover:text-[#2A6FDB] transition-colors underline decoration-2 underline-offset-4 flex items-center gap-2">
+                        Book a Call Directly
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            {/* Right Column: Minimalist Form */}
+            <div class="bg-white/60 p-8 md:p-12 rounded-[2rem] border border-[#e8e5db] backdrop-blur-md shadow-sm gsap-reveal">
+                <form id="inquiry-form" class="flex flex-col gap-10">
+                    <div id="form-error" class="hidden p-4 bg-red-50 text-red-600 border border-red-200 rounded-xl text-sm font-medium"></div>
+                    <div id="form-success" class="hidden p-4 bg-emerald-50 text-emerald-600 border border-emerald-200 rounded-xl text-sm font-medium">
+                        Thank you! Your inquiry has been sent to our technical team.
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="relative group">
+                            <input type="text" id="fullName" name="fullName" required placeholder="Full Name" class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors" />
+                        </div>
+                        <div class="relative group">
+                            <input type="text" id="companyName" name="companyName" required placeholder="Company name" class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors" />
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <input type="email" id="email" name="email" required placeholder="Email Address" class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors" />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="relative group">
+                            <select id="serviceRequired" name="serviceRequired" required class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected class="text-[#a0a0a0]">Service required</option>
+                                <option value="AI Integration">AI Integration</option>
+                                <option value="Web Application">Web Application</option>
+                                <option value="Infrastructure Scaling">Infrastructure Scaling</option>
+                                <option value="Dedicated Team">Dedicated Engineering Team</option>
+                            </select>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[#161616]">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <select id="projectBudget" name="projectBudget" required class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors appearance-none cursor-pointer">
+                                <option value="" disabled selected class="text-[#a0a0a0]">Project budget</option>
+                                <option value="25k-50k">$25k - $50k</option>
+                                <option value="50k-100k">$50k - $100k</option>
+                                <option value="100k-250k">$100k - $250k</option>
+                                <option value="250k+">$250k+</option>
+                            </select>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[#161616]">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group mt-4">
+                        <textarea id="projectDetails" name="projectDetails" required rows="3" placeholder="Project details..." class="w-full bg-transparent border-0 border-b-2 border-[#e8e5db] text-[#161616] text-xl py-2 px-0 focus:ring-0 focus:border-[#2A6FDB] placeholder:text-[#a0a0a0] transition-colors resize-none"></textarea>
+                    </div>
+
+                    <div class="mt-4 flex justify-end">
+                        <button type="submit" id="inquiry-submit-btn" class="bg-[#111] text-white font-bold tracking-wide uppercase px-12 py-5 rounded-full hover:bg-[#2A6FDB] transition-all hover:scale-105 active:scale-95 text-sm flex items-center gap-3">
+                            <span>Submit Request</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	
+	gsap.registerPlugin(ScrollTrigger);
+
+    // Form handling
+    const form = document.getElementById('inquiry-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('inquiry-submit-btn') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('span');
+    const formError = document.getElementById('form-error');
+    const formSuccess = document.getElementById('form-success');
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if(formError) formError.classList.add('hidden');
+        if(formSuccess) formSuccess.classList.add('hidden');
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        const payload = {
+            to: 'hello@omnidevx.com',
+            subject: `New Technical Inquiry: ${data.companyName} - ${data.projectBudget}`,
+            html: `
+                <h3>New Project Inquiry</h3>
+                <p><strong>Name:</strong> ${data.fullName}</p>
+                <p><strong>Company:</strong> ${data.companyName}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Service:</strong> ${data.serviceRequired}</p>
+                <p><strong>Budget:</strong> ${data.projectBudget}</p>
+                <p><strong>Details:</strong><br/>${data.projectDetails}</p>
+            `
+        };
+
+        try {
+            submitBtn.disabled = true;
+            if(btnText) btnText.textContent = 'Sending...';
+            
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to send message');
+            }
+
+            if(formSuccess) formSuccess.classList.remove('hidden');
+            form.reset();
+        } catch (error: any) {
+            console.error('Error sending message:', error);
+            if(formError) {
+                formError.textContent = error.message || 'An error occurred while sending your message. Please try again.';
+                formError.classList.remove('hidden');
+            }
+        } finally {
+            submitBtn.disabled = false;
+            if(btnText) btnText.textContent = 'Submit Request';
+        }
+    });
+</script>
