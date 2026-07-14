@@ -7,6 +7,7 @@ import vercel from '@astrojs/vercel';
 import partytown from '@astrojs/partytown';
 import sentry from '@sentry/astro';
 import sitemap from '@astrojs/sitemap';
+import sanity from '@sanity/astro';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,6 +29,12 @@ export default defineConfig({
       },
     }),
     sitemap(),
+    sanity({
+      projectId: process.env.PUBLIC_SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || 'your-project-id',
+      dataset: process.env.PUBLIC_SANITY_DATASET || process.env.SANITY_DATASET || 'production',
+      useCdn: false,
+      studioBasePath: '/studio',
+    }),
   ],
 
   vite: {
