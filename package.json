@@ -9,10 +9,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/generate-og.mjs && astro check && NODE_OPTIONS=--max_old_space_size=4096 astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.1.3",
     "@astrojs/node": "^10.1.0",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.4",
@@ -59,6 +62,10 @@
     "@types/three": "^0.173.0",
     "satori": "^0.26.0",
     "satori-html": "^0.3.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.111.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

@@ -9,6 +9,8 @@ import sentry from '@sentry/astro';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://omnidevx-iota.vercel.app',
@@ -44,6 +46,6 @@ export default defineConfig({
     }
   },
 
-  adapter: vercel(),
+  adapter: cloudflare(),
   output: 'server'
 });
